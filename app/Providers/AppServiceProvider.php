@@ -15,6 +15,14 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+
+        $value = \App\Utilities\Copyright::displayNotice();
+
+        view()->share('copyright', $value);
+
+        $data = \App\Queries\PostCountQuery::sendData();
+
+        view()->share('data', $data);
     }
 
     /**
