@@ -156,6 +156,12 @@ Route::get('test', 'TestController@index');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+// Unsubscribe Routes
+
+Route::get('/unsubscribe', 'UnsubscribeController@edit')->name('unsubscribe');
+Route::post('/unsubscribe', 'UnsubscribeController@store')->name('unsubscribe-store');
+Route::get('/unsubscribe/confirmation', 'UnsubscribeController@confirm')->name('unsubscribe-confirmation');
+
 // User routes
 
 Route::resource('user', 'UserController');

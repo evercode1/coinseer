@@ -9,7 +9,7 @@ You have joined our site and now have access to the following benefits:
 * 24/7 support
 * updated daily content
 
-@component('mail::button', ['url' => 'http://www.evercode1.com'])
+@component('mail::button', ['url' => 'http://www.coinseer.com'])
 Visit Now
 @endcomponent
 
@@ -17,8 +17,8 @@ Thanks,<br>
 {{ config('app.name') }}
 
 @component('mail::panel', ['url' => ''])
-You are receiving this email because you subscribed to Sample Project.
-You may Unsubscribe by clicking <a href="/unsubscribe">here</a>.
+You are receiving this email because you subscribed to CoinSeer.
+You may Unsubscribe by clicking <a href="http://www.coinseer.com/unsubscribe">here</a>.
 @endcomponent
 
 @endcomponent

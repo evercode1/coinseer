@@ -5,6 +5,9 @@ namespace App\Listeners;
 use App\Events\RegistrationCompleted;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use App\Mail\RegistrationEmail;
+use Illuminate\Support\Facades\Mail;
+
 
 class SendRegistrationEmail
 {

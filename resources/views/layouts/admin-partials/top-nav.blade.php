@@ -6,7 +6,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand big-logo" href="/">EVERCODE 1</a>
+        <a class="navbar-brand big-logo" href="/">CoinSeer</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
@@ -26,10 +26,6 @@
                         <li>
                             <a href="/auth/facebook">
                                 fb Sync </a>
-                        </li>
-                        <li><a href="/auth/github">
-
-                                Github Sync </a>
                         </li>
 
                         <li>
