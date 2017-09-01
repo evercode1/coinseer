@@ -15,7 +15,7 @@ class ArchivesQuery
             DB::raw('month(posts.published_at) as month'),
             DB::raw("count(posts.id) as `count`"))
             ->where('is_published', 1)
-            ->groupBy('year', 'month')
+            ->groupBy('year', 'month', 'published_at')
             ->orderBy('published_at', 'desc')
             ->get();
 
