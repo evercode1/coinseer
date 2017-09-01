@@ -14,7 +14,7 @@
 
                 <li><a href="/register" ><span class="glyphicon glyphicon-user"></span> &nbsp; Sign Up</a></li>
                 <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> &nbsp; Login</a></li>
-                <li><a href="/auth/facebook">fb</a></li>
+                <li><a href="/auth/facebook"><i class="fa fa-facebook" aria-hidden="true"></i> b</a></li>
 
                 @else
 
