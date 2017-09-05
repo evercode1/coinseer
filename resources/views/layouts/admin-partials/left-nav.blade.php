@@ -49,6 +49,11 @@
                 <li><a href="/user"><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp; All Users</a></li>
             </ul>
             <ul class="left-nav-list-group">
+                <li>Influencers</li>
+                <li><a href="/influencer"><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp; All Influencers</a></li>
+                <li><a href="/influencer/create"><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp; Create Influencers</a></li>
+            </ul>
+            <ul class="left-nav-list-group">
                 <li>Books & Resources</li>
                 <li><a href="/book"><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp; All Books</a></li>
                 <li><a href="/book/create"><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp;Create New</a></li>

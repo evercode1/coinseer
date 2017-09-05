@@ -4,7 +4,7 @@
 
         <div class="col-lg-12">
 
-            <h1>Blog Resources</h1>
+            <h1>Influencers</h1>
 
             <search-box></search-box>
 
@@ -37,7 +37,7 @@
 
                             <td>
 
-                                {{ row.Title }}
+                                {{ row.Name }}
 
                             </td>
 
@@ -65,7 +65,7 @@
 
                             <td >
 
-                                <a v-bind:href="'/blogresource/' + row.Id + '/edit'">
+                                <a v-bind:href="'/influencer/' + row.Id + '/edit'">
 
                                     <button type="button" class="btn btn-default">
 
@@ -112,13 +112,13 @@
 
         mounted: function () {
 
-            gridData.loadData('api/blog-resource-data', this);
+            gridData.loadData('api/influencer-data', this);
 
         },
         data: function () {
             return {
                 query: '',
-                gridColumns: ['Id', 'Title', 'Url', 'Featured', 'Created'],
+                gridColumns: ['Id', 'Name', 'Url', 'Featured', 'Created'],
                 gridData: [],
                 total: null,
                 next_page_url: null,
@@ -131,7 +131,7 @@
                 go_to_page: null,
                 sortOrder: 1,
                 sortKey: '',
-                createUrl: '/blogresource/create',
+                createUrl: '/influencer/create',
                 showCreateButton: true
             }
         },
@@ -151,7 +151,7 @@
 
             getData:  function(request){
 
-                gridData.getQueryData(request, 'api/blog-resource-data', this);
+                gridData.getQueryData(request, 'api/influencer-data', this);
 
             },
 

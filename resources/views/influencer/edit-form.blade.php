@@ -1,26 +1,26 @@
 <form class="form form-border mt-25"
       role="form"
       method="POST"
-      action="{{ url('/blogresource/'. $blogresource->id) }}">
+      action="{{ url('/influencer/'. $influencer->id) }}">
 
 {{ method_field('PATCH') }}
 {{ csrf_field() }}
 
 <!-- title input -->
 
-    <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
+    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
 
-        <label class="control-label">Resource Title</label>
+        <label class="control-label">Name</label>
 
         <input type="text"
                class="form-control"
                name="title"
-               value="{{ $blogresource->title }}" />
+               value="{{ $influencer->name }}" />
 
-        @if ($errors->has('title'))
+        @if ($errors->has('name'))
 
             <span class="help-block">
-                <strong>{{ $errors->first('title') }}</strong>
+                <strong>{{ $errors->first('name') }}</strong>
             </span>
 
         @endif
@@ -37,7 +37,7 @@
         <input type="text"
                class="form-control"
                name="url"
-               value="{{ $blogresource->url }}" />
+               value="{{ $influencer->url }}" />
 
         @if ($errors->has('url'))
 
@@ -58,7 +58,7 @@
 
         <select class="form-control" id="is_featured" name="is_featured">
 
-            <option value="{{ $blogresource->is_featured }}">{{ $blogresource->is_featured == 1 ? 'Yes' : 'No' }}</option>
+            <option value="{{ $influencer->is_featured }}">{{ $influencer->is_featured == 1 ? 'Yes' : 'No' }}</option>
             <option value="0">No</option>
             <option value="1">Yes</option>
 
@@ -84,7 +84,7 @@
         <button type="submit"
                 class="btn btn-primary btn-lg">
 
-            Create
+            Update
 
         </button>
 

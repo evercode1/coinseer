@@ -28,6 +28,7 @@ use App\BlogResource;
 use App\Content;
 use App\Contact;
 use App\ChartHelpers\BuildsCharts;
+use App\Queries\GridQueries\InfluencerQuery;
 
 
 
@@ -138,6 +139,14 @@ class ApiController extends Controller
     {
 
         return FeaturedBookQuery::sendFeaturedBook();
+
+    }
+
+    public function influencerData(Request $request)
+    {
+
+        return GridQuery::sendData($request, new InfluencerQuery);
+
 
     }
 

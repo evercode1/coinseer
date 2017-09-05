@@ -1,26 +1,25 @@
 <form class="form form-border mt-25"
       role="form"
       method="POST"
-      action="{{ url('/blogresource/'. $blogresource->id) }}">
+      action="{{ url('/influencer') }}">
 
-{{ method_field('PATCH') }}
 {{ csrf_field() }}
 
 <!-- title input -->
 
-    <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
+    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
 
-        <label class="control-label">Resource Title</label>
+        <label class="control-label">Title</label>
 
         <input type="text"
                class="form-control"
-               name="title"
-               value="{{ $blogresource->title }}" />
+               name="name"
+               value="{{ old('name') }}" />
 
-        @if ($errors->has('title'))
+        @if ($errors->has('name'))
 
             <span class="help-block">
-                <strong>{{ $errors->first('title') }}</strong>
+                <strong>{{ $errors->first('name') }}</strong>
             </span>
 
         @endif
@@ -37,7 +36,7 @@
         <input type="text"
                class="form-control"
                name="url"
-               value="{{ $blogresource->url }}" />
+               value="{{ old('url') }}" />
 
         @if ($errors->has('url'))
 
@@ -58,7 +57,6 @@
 
         <select class="form-control" id="is_featured" name="is_featured">
 
-            <option value="{{ $blogresource->is_featured }}">{{ $blogresource->is_featured == 1 ? 'Yes' : 'No' }}</option>
             <option value="0">No</option>
             <option value="1">Yes</option>
 
@@ -88,9 +86,8 @@
 
         </button>
 
-    </div>
+    </div>  <!-- end submit button -->
 
-    <!-- end submit button -->
 
 </form>
 

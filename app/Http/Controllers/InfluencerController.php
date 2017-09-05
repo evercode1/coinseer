@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\BlogResource;
+use App\Influencer;
 use Illuminate\Support\Facades\Redirect;
 
-class BlogResourceController extends Controller
+class InfluencerController extends Controller
 {
     public function __construct()
     {
@@ -25,7 +24,7 @@ class BlogResourceController extends Controller
     public function index()
     {
 
-        return view('blog-resource.index');
+        return view('influencer.index');
 
     }
 
@@ -38,7 +37,7 @@ class BlogResourceController extends Controller
     public function create()
     {
 
-        return view('blog-resource.create');
+        return view('influencer.create');
 
     }
 
@@ -54,21 +53,21 @@ class BlogResourceController extends Controller
 
         $this->validate($request, [
 
-            'title' => 'required|unique:books|string|max:100',
-            'url' => 'required|unique:books|string|max:100',
+            'name' => 'required|unique:influencers|string|max:100',
+            'url' => 'required|unique:influencers|string|max:100',
             'is_featured' => 'required|boolean',
 
         ]);
 
-        $blogresource = BlogResource::create(['title' => $request->title,
-                                      'url'   => $request->url,
-                                      'is_featured' => $request->is_featured
+        $influencer = Influencer::create(['name' => $request->title,
+                                              'url'   => $request->url,
+                                              'is_featured' => $request->is_featured
 
         ]);
 
-        $blogresource->save();
+        $influencer->save();
 
-        return Redirect::route('blogresource.index');
+        return Redirect::route('influencer.index');
 
     }
 
@@ -80,10 +79,10 @@ class BlogResourceController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function edit(BlogResource $blogresource)
+    public function edit(Influencer $influencer)
     {
 
-        return view('blog-resource.edit', compact('blogresource'));
+        return view('influencer.edit', compact('influencer'));
 
     }
 
@@ -95,24 +94,24 @@ class BlogResourceController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function update(Request $request, BlogResource $blogresource)
+    public function update(Request $request, Influencer $influencer)
     {
         $this->validate($request, [
 
-            'title' => 'required|string|max:40|unique:blog_resources,title,' .$blogresource,
-            'url' => 'required|string|max:100|unique:blog_resources,url',
+            'name' => 'required|string|max:40|unique:influencers,title,' .$influencer,
+            'url' => 'required|string|max:100|unique:influencers,url',
             'is_featured' => 'required|boolean',
 
         ]);
 
 
 
-        $blogresource->update(['title' => $request->title,
-                           'url'   => $request->url,
-                           'is_featured' => $request->is_featured]);
+        $influencer->update(['title' => $request->title,
+                               'url'   => $request->url,
+                               'is_featured' => $request->is_featured]);
 
 
-        return Redirect::route('blogresource.index');
+        return Redirect::route('influencer.index');
 
     }
 
@@ -125,10 +124,9 @@ class BlogResourceController extends Controller
 
     public function destroy($id)
     {
-        BlogResource::destroy($id);
+        Influencer::destroy($id);
 
-        return Redirect::route('blogresource.index');
+        return Redirect::route('influencer.index');
 
     }
 }
-

@@ -33,6 +33,7 @@ Route::get('api/contact-topic-data', 'ApiController@ContactTopicData');
 Route::get('api/content-data', 'ApiController@ContentData');
 Route::get('api/content-list', 'ApiController@ContentList');
 Route::get('api/featured-book', 'ApiController@featuredBook');
+Route::get('api/influencer-data', 'ApiController@influencerData');
 Route::get('api/open-contact-data', 'ApiController@openContactData');
 Route::get('api/post-pie-chart', 'ApiController@pieChartData');
 Route::get('api/post-chart', 'ApiController@postChartData');
@@ -86,6 +87,12 @@ Route::post('content-delete/{content}', 'ContentController@destroy');
 
 Route::resource('/content', 'ContentController', ['except' => ['destroy']]);
 
+// Influencer Routes
+
+Route::post('influencer-delete/{influencer}', 'InfluencerController@destroy');
+
+Route::resource('influencer', 'InfluencerController', ['except' => ['destroy']]);
+
 // Messages route
 
 Route::get('support-messages', 'MessagesController@index');
@@ -123,6 +130,7 @@ Route::get('post/create',  'PostController@create')->name('post.create');
 Route::get('post/{post}-{slug?}', 'PostController@show')->name('post.show');
 
 Route::resource('post', 'PostController', ['except' => ['show', 'create', 'destroy']]);
+
 
 
 // Registration routes
