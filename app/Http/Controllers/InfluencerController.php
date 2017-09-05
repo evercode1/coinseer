@@ -60,7 +60,7 @@ class InfluencerController extends Controller
 
         ]);
 
-        $influencer = Influencer::create(['name' => $request->title,
+        $influencer = Influencer::create(['name' => $request->name,
                                               'url'   => $request->url,
                                               'is_featured' => $request->is_featured
 
@@ -99,7 +99,7 @@ class InfluencerController extends Controller
     {
         $this->validate($request, [
 
-            'name' => 'required|string|max:40|unique:influencers,title,' .$influencer,
+            'name' => 'required|string|max:40|unique:influencers,name,' .$influencer,
             'url' => 'required|string|max:100|unique:influencers,url',
             'is_featured' => 'required|boolean',
 
@@ -107,7 +107,7 @@ class InfluencerController extends Controller
 
 
 
-        $influencer->update(['title' => $request->title,
+        $influencer->update(['title' => $request->name,
                                'url'   => $request->url,
                                'is_featured' => $request->is_featured]);
 

@@ -5,11 +5,11 @@
 
 {{ csrf_field() }}
 
-<!-- title input -->
+<!-- name input -->
 
     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
 
-        <label class="control-label">Title</label>
+        <label class="control-label">Name</label>
 
         <input type="text"
                class="form-control"
