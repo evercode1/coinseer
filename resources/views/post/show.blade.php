@@ -1,5 +1,14 @@
 @extends('layouts.master-guest-auth')
 
+@section('meta')
+
+    <meta name="description" content="{{ $post->title }}">
+    <meta name="keywords" content="{{ $post->title }}">
+    <meta name="author" content="{{ $post->user->name }}">
+    <title>{{ $post->title }}</title>
+
+    @endsection
+
 @section('content')
 
 
@@ -19,13 +28,15 @@
 
                 {!! $post->body !!}
 
-                <signature></signature>
-
                 <div class="comments">
 
                 <div id="disqus_thread"></div>
 
                 </div>
+
+                <signature></signature>
+
+                <warning></warning>
 
             </div><!-- end blog-post -->
 

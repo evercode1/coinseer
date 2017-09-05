@@ -1,5 +1,14 @@
 @extends('layouts.master-guest-auth')
 
+@section('meta')
+
+    <meta name="description" content="Bitcoin, ICO and Cryptocurrency Posts by Date">
+    <meta name="keywords" content="Bitcoin, ICO and Cryptocurrency Posts by Date">
+    <meta name="author" content="CoinSeer">
+    <title>Bitcoin, ICO and Cryptocurrency Posts by Date</title>
+
+@endsection
+
 @section('blog-header')
 
     @include('layouts.blog-partials.blog-header')

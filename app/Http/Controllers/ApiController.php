@@ -189,6 +189,7 @@ class ApiController extends Controller
 
     }
 
+
     public function totalBooks()
     {
 
@@ -228,6 +229,13 @@ class ApiController extends Controller
     {
 
         return GridQuery::sendData($request, new UserQuery);
+
+    }
+
+    public function WarningData()
+    {
+
+        return Content::where('name', 'Warning')->first();
 
     }
 }

@@ -43,6 +43,7 @@ Route::get('api/total-posts', 'ApiController@totalPosts');
 Route::get('api/total-resources', 'ApiController@totalResources');
 Route::get('api/total-users', 'ApiController@totalUsers');
 Route::get('api/user-data', 'ApiController@userData');
+Route::get('api/warning-data', 'ApiController@warningData');
 
 
 // Authentication routes

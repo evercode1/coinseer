@@ -9942,6 +9942,17 @@ a.post-title:hover {
   text-decoration: none;
 }
 
+.sig {
+  font-family: "Arial Narrow, arial, helvecita";
+  color: #59585a;
+}
+
+.warning {
+  font-family: "Arial Narrow, arial, helvecita";
+  color: #59585a;
+  font-size: 12px;
+}
+
 .carousel-inner img {
   margin: auto;
 }

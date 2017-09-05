@@ -6,6 +6,7 @@
 
                 <li><a href="/content">All</a></li>
                 <li v-for="item in contents"><a v-bind:href="'/content/' + item.id">{{ item.name }}</a></li>
+                <li><a href="/content/create">Create New</a></li>
             </ul>
 
 

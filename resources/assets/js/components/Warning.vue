@@ -2,7 +2,7 @@
 
 
 
-        <div class="mt-20 sig" v-html="signature.body">
+        <div class="mt-20 warning" v-html="warning.body">
 
         </div>
 
@@ -23,7 +23,7 @@
         data: function () {
             return {
 
-                signature: [],
+                warning: [],
 
             }
 
@@ -33,9 +33,9 @@
 
             loadData(){
 
-                axios.get('/api/signature-data').then( (response) => {
+                axios.get('/api/warning-data').then( (response) => {
 
-                    this.signature = response.data;
+                    this.warning = response.data;
 
                 });
 

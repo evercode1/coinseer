@@ -26,4 +26,5 @@ Vue.component('total-posts', require('./components/TotalPosts.vue'));
 Vue.component('total-resources', require('./components/TotalResources.vue'));
 Vue.component('total-users', require('./components/TotalUsers.vue'));
 Vue.component('user-grid', require('./components/UserGrid.vue'));
+Vue.component('warning', require('./components/Warning.vue'));
 

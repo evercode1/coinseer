@@ -1,5 +1,14 @@
 @extends('layouts.master-guest-auth')
 
+@section('meta')
+
+    <meta name="description" content="The latest news on cyrptocurrencies, including top trends, influencers and market movement.  Updated daily.">
+    <meta name="keywords" content="bitcoin, ico, crytpocurrencies">
+    <meta name="author" content="CoinSeer">
+    <title>Bitcoin, ICO and Cryptocurrency Articles</title>
+
+@endsection
+
 
 @section('blog-header')
 
@@ -8,7 +17,6 @@
 @endsection
 
 @section('content')
-
 
 
     <div class="col-sm-8 blog-main">
@@ -28,8 +36,6 @@
 
                     {!! $post->body !!}
 
-                    <signature></signature>
-
 
                     <a href="/post/{{ $post->id }}-{{ $post->slug }}#disqus_thread">
 
@@ -40,6 +46,10 @@
                         </button>
 
                     </a>
+
+                    <signature></signature>
+
+                    <warning></warning>
 
                 </div><!-- end blog-post -->
 

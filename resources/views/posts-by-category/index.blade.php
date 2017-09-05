@@ -1,5 +1,14 @@
 @extends('layouts.master-guest-auth')
 
+@section('meta')
+
+    <meta name="description" content="{{ $category }} Posts">
+    <meta name="keywords" content="{{ $category }}">
+    <meta name="author" content="CoinSeer">
+    <title>Posts by Category</title>
+
+@endsection
+
 @section('blog-header')
 
     @include('layouts.blog-partials.blog-header')
