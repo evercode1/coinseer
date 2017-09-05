@@ -20,9 +20,9 @@ class AppServiceProvider extends ServiceProvider
 
         view()->share('copyright', $value);
 
-        //$data = \App\Queries\PostCountQuery::sendData();
+        $data = \App\Queries\PostCountQuery::sendData();
 
-        view()->share('data', 14);
+        view()->share('data', $data);
     }
 
     /**
