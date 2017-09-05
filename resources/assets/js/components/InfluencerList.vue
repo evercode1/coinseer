@@ -1,10 +1,10 @@
 <template>
 
     <div class="sidebar-module">
-        <h4>Resources</h4>
+        <h4>Influencers</h4>
         <ol class="list-unstyled">
 
-            <li v-for="influencer in influencers"><a v-bind:href="influencer.Url" target="_blank">{{ influencer.name }}</a></li>
+            <li v-for="influencer in influencers"><a v-bind:href="influencer.Url" target="_blank">{{ influencer.Name }}</a></li>
 
         </ol>
     </div>

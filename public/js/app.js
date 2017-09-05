@@ -36468,7 +36468,7 @@ if (false) {
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "sidebar-module"
-  }, [_c('h4', [_vm._v("Resources")]), _vm._v(" "), _c('ol', {
+  }, [_c('h4', [_vm._v("Influencers")]), _vm._v(" "), _c('ol', {
     staticClass: "list-unstyled"
   }, _vm._l((_vm.influencers), function(influencer) {
     return _c('li', [_c('a', {
@@ -36476,7 +36476,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "href": influencer.Url,
         "target": "_blank"
       }
-    }, [_vm._v(_vm._s(influencer.name))])])
+    }, [_vm._v(_vm._s(influencer.Name))])])
   }))])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
