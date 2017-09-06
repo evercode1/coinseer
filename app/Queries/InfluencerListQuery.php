@@ -13,7 +13,7 @@ class InfluencerListQuery
     public static function sendData()
     {
 
-        return Influencer::where('is_active', '=', 1)->get();
+        return Influencer::all();
 
 
     }
