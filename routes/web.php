@@ -34,6 +34,7 @@ Route::get('api/content-data', 'ApiController@ContentData');
 Route::get('api/content-list', 'ApiController@ContentList');
 Route::get('api/featured-book', 'ApiController@featuredBook');
 Route::get('api/influencer-data', 'ApiController@influencerData');
+Route::get('api/influencer-list', 'ApiController@influencerList');
 Route::get('api/open-contact-data', 'ApiController@openContactData');
 Route::get('api/post-pie-chart', 'ApiController@pieChartData');
 Route::get('api/post-chart', 'ApiController@postChartData');

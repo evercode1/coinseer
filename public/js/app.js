@@ -3950,7 +3950,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         loadData: function loadData() {
             var _this = this;
 
-            axios.get('/api/influencer-data').then(function (response) {
+            axios.get('/api/influencer-list').then(function (response) {
 
                 _this.influencers = response.data.data;
             });

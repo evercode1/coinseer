@@ -35,7 +35,7 @@
 
             loadData(){
 
-                axios.get('/api/influencer-data').then( (response) => {
+                axios.get('/api/influencer-list').then( (response) => {
 
                     this.influencers = response.data.data;
 

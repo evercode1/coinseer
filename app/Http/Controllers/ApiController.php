@@ -29,6 +29,7 @@ use App\Content;
 use App\Contact;
 use App\ChartHelpers\BuildsCharts;
 use App\Queries\GridQueries\InfluencerQuery;
+use App\Queries\InfluencerListQuery;
 
 
 
@@ -147,6 +148,13 @@ class ApiController extends Controller
 
         return GridQuery::sendData($request, new InfluencerQuery);
 
+
+    }
+
+    public function influencerList()
+    {
+
+        return InfluencerListQuery::sendData();
 
     }
 
