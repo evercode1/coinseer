@@ -3953,8 +3953,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             axios.get('/api/influencer-list').then(function (response) {
 
                 _this.influencers = response.data;
-
-                console.log(response.data);
             });
         }
     }
