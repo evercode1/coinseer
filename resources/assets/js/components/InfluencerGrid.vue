@@ -130,7 +130,7 @@
                 last_page_url: null,
                 go_to_page: null,
                 sortOrder: 1,
-                sortKey: '',
+                sortKey: 'id',
                 createUrl: '/influencer/create',
                 showCreateButton: true
             }
@@ -143,7 +143,6 @@
                 this.sortOrder = (this.sortOrder == 1) ? -1 : 1;
                 this.getData(1);
 
-                console.log(this.sortKey);
             },
 
             search: function(query){

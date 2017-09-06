@@ -2074,7 +2074,7 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
             last_page_url: null,
             go_to_page: null,
             sortOrder: 1,
-            sortKey: '',
+            sortKey: 'id',
             createUrl: '/blogresource/create',
             showCreateButton: true
         };
@@ -2329,7 +2329,7 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
             last_page_url: null,
             go_to_page: null,
             sortOrder: 1,
-            sortKey: '',
+            sortKey: 'id',
             createUrl: '/book/create',
             showCreateButton: true
         };
@@ -2573,7 +2573,7 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
             last_page_url: null,
             go_to_page: null,
             sortOrder: 1,
-            sortKey: '',
+            sortKey: 'id',
             createUrl: '/category/create',
             showCreateButton: true
         };
@@ -3089,7 +3089,7 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
             last_page_url: null,
             go_to_page: null,
             sortOrder: 1,
-            sortKey: '',
+            sortKey: 'id',
             createUrl: '/contact/create',
             showCreateButton: false
         };
@@ -3513,7 +3513,7 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
             last_page_url: null,
             go_to_page: null,
             sortOrder: 1,
-            sortKey: '',
+            sortKey: 'id',
             createUrl: '/content/create',
             showCreateButton: true
         };
@@ -3847,7 +3847,7 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
             last_page_url: null,
             go_to_page: null,
             sortOrder: 1,
-            sortKey: '',
+            sortKey: 'id',
             createUrl: '/influencer/create',
             showCreateButton: true
         };
@@ -3859,8 +3859,6 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
             this.sortKey = key;
             this.sortOrder = this.sortOrder == 1 ? -1 : 1;
             this.getData(1);
-
-            console.log(this.sortKey);
         },
 
         search: function search(query) {
@@ -4597,7 +4595,7 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
             last_page_url: null,
             go_to_page: null,
             sortOrder: 1,
-            sortKey: '',
+            sortKey: 'id',
             createUrl: '/post/create',
             showCreateButton: true
         };
@@ -5220,7 +5218,7 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
             last_page_url: null,
             go_to_page: null,
             sortOrder: 1,
-            sortKey: '',
+            sortKey: 'id',
             createUrl: '/user/create',
             showCreateButton: false
         };
@@ -49213,7 +49211,6 @@ var dataHelper = {
             vm.first_page_url = url + '?page=1';
             vm.last_page_url = url + '?page=' + vm.last_page;
             vm.setPageNumbers();
-            console.log(data);
         }.bind(vm));
     }
 };

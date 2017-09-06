@@ -13,6 +13,8 @@ class GridQuery
 
         list($column, $direction) = static::setSort($request, $query);
 
+
+
         // search by keyword with column sort
 
         if ($request->has('keyword')) {
