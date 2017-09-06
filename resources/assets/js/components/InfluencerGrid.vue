@@ -130,7 +130,7 @@
                 last_page_url: null,
                 go_to_page: null,
                 sortOrder: 1,
-                sortKey: '',
+                sortKey: 1,
                 createUrl: '/influencer/create',
                 showCreateButton: true
             }
