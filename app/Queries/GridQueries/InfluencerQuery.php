@@ -10,6 +10,8 @@ class InfluencerQuery implements DataQuery
     public function data($column, $direction)
     {
 
+        dd($column);
+
         $rows = DB::table('influencers')
                     ->select('id as Id',
                              'name as Name',
@@ -28,7 +30,7 @@ class InfluencerQuery implements DataQuery
     public function filteredData($column, $direction, $keyword)
     {
 
-        dd($column);
+
 
         $rows = DB::table('influencers')
                 ->select('id as Id',
