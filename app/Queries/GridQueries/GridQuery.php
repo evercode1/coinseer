@@ -35,6 +35,8 @@ class GridQuery
 
         if ($request->has('column')) {
 
+            dd($column);
+
             $column = $request->get('column');
 
             if ($column == 'Id') {
