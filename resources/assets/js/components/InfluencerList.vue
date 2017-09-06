@@ -37,7 +37,9 @@
 
                 axios.get('/api/influencer-list').then( (response) => {
 
-                    this.influencers = response.data.data;
+                    this.influencers = response.data;
+
+                    console.log(response.data);
 
                 });
 
