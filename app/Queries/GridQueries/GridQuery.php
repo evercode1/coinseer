@@ -37,9 +37,8 @@ class GridQuery
 
             $column = $request->get('column');
 
-            dd($column);
 
-            if ($column == 'Id') {
+            if ($column == 'id') {
 
                 $column = strtolower($column);
 
