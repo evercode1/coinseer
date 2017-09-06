@@ -49213,7 +49213,7 @@ var dataHelper = {
             vm.first_page_url = url + '?page=1';
             vm.last_page_url = url + '?page=' + vm.last_page;
             vm.setPageNumbers();
-            console.log(data.data);
+            console.log(data);
         }.bind(vm));
     }
 };
