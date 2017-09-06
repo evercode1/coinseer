@@ -3847,7 +3847,7 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
             last_page_url: null,
             go_to_page: null,
             sortOrder: 1,
-            sortKey: 'id',
+            sortKey: '',
             createUrl: '/influencer/create',
             showCreateButton: true
         };
@@ -49213,6 +49213,7 @@ var dataHelper = {
             vm.first_page_url = url + '?page=1';
             vm.last_page_url = url + '?page=' + vm.last_page;
             vm.setPageNumbers();
+            console.log(data.data);
         }.bind(vm));
     }
 };
