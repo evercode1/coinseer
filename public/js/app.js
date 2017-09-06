@@ -3847,7 +3847,7 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
             last_page_url: null,
             go_to_page: null,
             sortOrder: 1,
-            sortKey: 1,
+            sortKey: 'id',
             createUrl: '/influencer/create',
             showCreateButton: true
         };
