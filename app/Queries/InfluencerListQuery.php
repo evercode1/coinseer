@@ -14,7 +14,9 @@ class InfluencerListQuery
     {
 
         $rows = DB::table('influencers')
-            ->select('id', 'name')
+            ->select('id as Id',
+                     'name as Name',
+                     'url as Url')
             ->orderBy('id', 'asc')
             ->get();
 
