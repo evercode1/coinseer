@@ -9,7 +9,7 @@ class InfluencerQuery implements DataQuery
 
     public function data($column, $direction)
     {
-        
+
 
         $rows = DB::table('influencers')
                     ->select('id as Id',

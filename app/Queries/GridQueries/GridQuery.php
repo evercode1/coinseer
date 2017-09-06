@@ -39,6 +39,8 @@ class GridQuery
 
             if ($column == 'Id') {
 
+                $column = strtolower($column);
+
                 $direction = $request->get('direction') == 1 ? 'asc' : 'desc';
 
                 return [$column, $direction];
