@@ -13,7 +13,7 @@ class InfluencerListQuery
     public static function sendData()
     {
 
-        return Influencer::all();
+        return json_encode(Influencer::all());
 
 
     }
