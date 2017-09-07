@@ -1929,7 +1929,7 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
     data: function data() {
         return {
             query: '',
-            gridColumns: ['Title', 'Created'],
+            gridColumns: ['Title', 'Added'],
             gridData: [],
             total: null,
             next_page_url: null,
