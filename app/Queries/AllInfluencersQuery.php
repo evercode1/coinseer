@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use DB;
 
-class InfluencerListQuery
+class AllInfluencersQuery
 {
 
     public static function sendData()
@@ -17,7 +17,6 @@ class InfluencerListQuery
                      'name as Name',
                      'url as Url')
             ->orderBy('name', 'asc')
-            ->limit(5)
             ->get();
 
         return json_encode($rows);

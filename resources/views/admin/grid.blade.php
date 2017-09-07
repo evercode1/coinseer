@@ -41,9 +41,9 @@
     </div>
 <div class="row">
     <div class="col-xs-6 col-lg-4">
-        <h2>Books</h2>
-        <p>Use this link to manage your applications's books</p>
-        <p><a class="btn btn-default" href="/book" role="button">View details &raquo;</a></p>
+        <h2>Inluencers</h2>
+        <p>Use this link to manage your applications's influencers</p>
+        <p><a class="btn btn-default" href="/influencer" role="button">View details &raquo;</a></p>
     </div><!--/.col-xs-6.col-lg-4-->
     <div class="col-xs-6 col-lg-4">
         <h2>Resources</h2>

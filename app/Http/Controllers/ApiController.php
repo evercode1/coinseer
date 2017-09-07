@@ -30,6 +30,14 @@ use App\Contact;
 use App\ChartHelpers\BuildsCharts;
 use App\Queries\GridQueries\InfluencerQuery;
 use App\Queries\InfluencerListQuery;
+use App\Queries\GridQueries\ResourceTypeQuery;
+use App\Queries\AllInfluencersQuery;
+use App\Queries\AllBooksQuery;
+use App\Queries\SiteListQuery;
+use App\Queries\ExchangeListQuery;
+use App\Queries\VideoListQuery;
+use App\Queries\WalletListQuery;
+use App\Queries\GridQueries\VideoQuery;
 
 
 
@@ -59,6 +67,30 @@ class ApiController extends Controller
 
         return json_encode($data);
 
+
+    }
+
+    public function allBooksData()
+    {
+
+        return AllBooksQuery::sendData();
+
+
+    }
+
+    public function allInfluencersData()
+    {
+
+        return AllInfluencersQuery::sendData();
+
+
+
+    }
+
+    public function allVideoData(Request $request)
+    {
+
+        return GridQuery::sendData($request, new VideoQuery);
 
     }
 
@@ -136,6 +168,15 @@ class ApiController extends Controller
 
     }
 
+    public function exchangeListData()
+    {
+
+
+        return ExchangeListQuery::sendData();
+
+
+    }
+
     public function featuredBook()
     {
 
@@ -199,10 +240,26 @@ class ApiController extends Controller
 
     }
 
+    public function resourceTypeData(Request $request)
+    {
+
+        return GridQuery::sendData($request, new ResourceTypeQuery);
+
+
+    }
+
     public function signatureData()
     {
 
         return Content::where('name', 'Signature')->first();
+
+    }
+
+    public function siteListData()
+    {
+
+
+        return SiteListQuery::sendData();
 
     }
 
@@ -246,6 +303,23 @@ class ApiController extends Controller
     {
 
         return GridQuery::sendData($request, new UserQuery);
+
+    }
+
+    public function videoListData()
+    {
+
+        return VideoListQuery::sendData();
+
+
+    }
+
+    public function walletListData()
+    {
+
+
+        return WalletListQuery::sendData();
+
 
     }
 

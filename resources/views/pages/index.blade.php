@@ -59,11 +59,11 @@
 
             </div> <!-- end column -->
 
-        </div><!--  end blog-main -->
+        </div><!-- end container -->
 
 
 
-    </div> <!-- end container -->
+    </div> <!--  end blog-main -->
 
 
 

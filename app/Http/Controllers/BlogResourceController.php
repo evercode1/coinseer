@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\BlogResource;
+use App\ResourceType;
 use Illuminate\Support\Facades\Redirect;
 
 class BlogResourceController extends Controller
@@ -38,7 +39,9 @@ class BlogResourceController extends Controller
     public function create()
     {
 
-        return view('blog-resource.create');
+        $resourceTypes = ResourceType::all();
+
+        return view('blog-resource.create', compact('resourceTypes'));
 
     }
 
@@ -54,16 +57,17 @@ class BlogResourceController extends Controller
 
         $this->validate($request, [
 
-            'title' => 'required|unique:books|string|max:100',
-            'url' => 'required|unique:books|string|max:100',
+            'title' => 'required|unique:blog_resources|string|max:100',
+            'url' => 'required|unique:blog_resources|string|max:100',
+            'resource_type_id' => 'required|numeric',
             'is_featured' => 'required|boolean',
 
         ]);
 
         $blogresource = BlogResource::create(['title' => $request->title,
-                                      'url'   => $request->url,
-                                      'is_featured' => $request->is_featured
-
+                                              'url'   => $request->url,
+                                              'resource_type_id' => $request->resource_type_id,
+                                              'is_featured' => $request->is_featured
         ]);
 
         $blogresource->save();
@@ -83,7 +87,16 @@ class BlogResourceController extends Controller
     public function edit(BlogResource $blogresource)
     {
 
-        return view('blog-resource.edit', compact('blogresource'));
+        $resourceTypeId = $blogresource->resource_type_id;
+
+        $resourceTypeName = ResourceType::getResourceTypeName($blogresource->resource_type_id);
+
+        $resourceTypes = ResourceType::all();
+
+        return view('blog-resource.edit', compact('blogresource',
+                                                  'resourceTypeId',
+                                                  'resourceTypeName',
+                                                  'resourceTypes'));
 
     }
 
@@ -97,19 +110,21 @@ class BlogResourceController extends Controller
 
     public function update(Request $request, BlogResource $blogresource)
     {
+
         $this->validate($request, [
 
-            'title' => 'required|string|max:40|unique:blog_resources,title,' .$blogresource,
-            'url' => 'required|string|max:100|unique:blog_resources,url',
+            'title' => 'required|string|max:40|unique:blog_resources,title,' .$blogresource->id,
+            'url' => 'required|string|max:100|unique:blog_resources,url,' .$blogresource->id,
+            'resource_type_id' => 'required|numeric',
             'is_featured' => 'required|boolean',
 
         ]);
 
 
-
         $blogresource->update(['title' => $request->title,
-                           'url'   => $request->url,
-                           'is_featured' => $request->is_featured]);
+                               'url'   => $request->url,
+                               'resource_type_id' => $request->resource_type_id,
+                               'is_featured' => $request->is_featured]);
 
 
         return Redirect::route('blogresource.index');

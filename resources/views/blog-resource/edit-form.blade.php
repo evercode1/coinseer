@@ -49,6 +49,36 @@
 
     </div>  <!-- url author input -->
 
+    <!-- resource type select -->
+
+    <div class="form-group{{ $errors->has('resource_type_id') ? ' has-error' : '' }}">
+
+        <label class="control-label">Type</label>
+
+        <select class="form-control" id="resource_type_id" name="resource_type_id">
+
+            <option value="{{ $resourceTypeId }}">{{ $resourceTypeName }}</option>
+
+            @foreach($resourceTypes as $type)
+
+                <option value={{ $type->id }}>{{ $type->name }}</option>
+
+            @endforeach
+
+        </select>
+
+        @if ($errors->has('resource_type_id'))
+
+            <span class="help-block">
+
+                <strong>{{ $errors->first('resource_type_id') }}</strong>
+
+            </span>
+
+        @endif
+
+    </div> <!-- end resource type select -->
+
 
     <!-- is_featured select -->
 

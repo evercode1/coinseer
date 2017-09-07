@@ -1,13 +1,15 @@
 <template>
 
     <div class="sidebar-module">
-        <h4>Books</h4>
+
         <ol class="list-unstyled">
 
-
-            <li v-for="book in books"><a v-bind:href="book.url" target="_blank">{{ book.title }}</a></li>
+            <li v-for="influencer in influencers"><a v-bind:href="influencer.Url" target="_blank">{{ influencer.Name }}</a></li>
 
         </ol>
+
+
+
     </div>
 
 
@@ -26,7 +28,7 @@
         data: function () {
             return {
 
-                books: [],
+                influencers: [],
 
             }
 
@@ -36,12 +38,10 @@
 
             loadData(){
 
-                axios.get('/api/all-books-data').then( (response) => {
+                axios.get('/api/all-influencers').then( (response) => {
 
-                    this.books = response.data;
-
-
-
+                    this.influencers = response.data;
+                    
 
                 });
 

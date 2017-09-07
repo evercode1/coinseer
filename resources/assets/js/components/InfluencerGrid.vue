@@ -75,6 +75,13 @@
 
                                 </a>
 
+                                <button class="btn btn-danger pull-left mt-5"
+                                        @click="confirmDelete(row.Id)">
+
+                                    Delete
+
+                                </button>
+
                             </td>
 
                         </tr>
@@ -189,6 +196,22 @@
             formatFeatured: function(featured){
 
                 return featured == 1 ? 'Yes'  : 'No';
+
+            },
+
+            confirmDelete: function(id){
+
+                if(confirm("Are you sure you want to delete?")){
+
+                    axios.post('/influencer-delete/' + id)
+                            .then(response => {
+
+                                gridData.loadData('api/influencer-data', this);
+
+                            })
+
+
+                }
 
             }
 

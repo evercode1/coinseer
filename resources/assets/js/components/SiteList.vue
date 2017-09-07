@@ -1,11 +1,11 @@
 <template>
 
     <div class="sidebar-module">
-        <h4>Books</h4>
+        <h4>Sites</h4>
         <ol class="list-unstyled">
 
 
-            <li v-for="book in books"><a v-bind:href="book.url" target="_blank">{{ book.title }}</a></li>
+            <li v-for="site in sites"><a v-bind:href="site.url" target="_blank">{{ site.title }}</a></li>
 
         </ol>
     </div>
@@ -26,7 +26,7 @@
         data: function () {
             return {
 
-                books: [],
+                sites: [],
 
             }
 
@@ -36,9 +36,12 @@
 
             loadData(){
 
-                axios.get('/api/all-books-data').then( (response) => {
+                axios.get('/api/site-list-data').then( (response) => {
 
-                    this.books = response.data;
+                    this.sites = response.data;
+
+
+
 
 
 

@@ -2,7 +2,7 @@
 
 @section('title')
 
-    <title>Influencers</title>
+    <title>Resource Types</title>
 
 @endsection
 
@@ -12,7 +12,7 @@
 
         <div class="col-md-8 col-md-offset-2">
 
-        <influencer-grid></influencer-grid>
+        <resource-type-grid></resource-type-grid>
 
     </div>
 

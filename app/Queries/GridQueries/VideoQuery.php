@@ -4,7 +4,7 @@ namespace App\Queries\GridQueries;
 use DB;
 use App\Queries\GridQueries\Contracts\DataQuery;
 
-class BlogResourceQuery implements DataQuery
+class VideoQuery implements DataQuery
 {
 
     public function data($column, $direction)
@@ -19,6 +19,7 @@ class BlogResourceQuery implements DataQuery
                              DB::raw('DATE_FORMAT(blog_resources.created_at,
                              "%m-%d-%Y") as Created'))
                     ->leftJoin('resource_types', 'resource_type_id', '=', 'resource_types.id')
+                    ->where('resource_types.name', 'video')
                     ->orderBy($column, $direction)
                     ->paginate(5);
 
@@ -39,7 +40,8 @@ class BlogResourceQuery implements DataQuery
                          DB::raw('DATE_FORMAT(blog_resources.created_at,
                                  "%m-%d-%Y") as Created'))
                 ->leftJoin('resource_types', 'resource_type_id', '=', 'resource_types.id')
-                ->where('title', 'like', '%' . $keyword . '%')
+                ->where('resource_types.name', 'video')
+                ->Where('title', 'like', '%' . $keyword . '%')
                 ->orderBy($column, $direction)
                 ->paginate(5);
 

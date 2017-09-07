@@ -4,7 +4,7 @@
 
         <div class="col-lg-12">
 
-            <h1>Blog Resources</h1>
+            <h1>Resource Types</h1>
 
             <search-box></search-box>
 
@@ -37,29 +37,10 @@
 
                             <td>
 
-                                {{ row.Title }}
+                                {{ row.Name }}
 
                             </td>
 
-
-                            <td>
-
-                                <a v-bind:href="row.Url" target="_blank"> {{ row.Url }} </a>
-
-                            </td>
-
-                            <td>
-
-                                {{ row.Type }}
-
-                            </td>
-
-
-                            <td>
-
-                                {{ formatFeatured(row.Featured) }}
-
-                            </td>
 
                             <td>
 
@@ -71,9 +52,9 @@
 
                             <td >
 
-                                <a v-bind:href="'/blogresource/' + row.Id + '/edit'">
+                                <a v-bind:href="'/resource-type/' + row.Id + '/edit'">
 
-                                    <button type="button" class="btn btn-default">
+                                    <button type="button" class="btn btn-default mt-10">
 
                                         Edit
 
@@ -81,12 +62,13 @@
 
                                 </a>
 
-                                <button class="btn btn-danger pull-left mt-5"
+                                <button class="btn btn-danger pull-right margin-10"
                                         @click="confirmDelete(row.Id)">
 
                                     Delete
 
                                 </button>
+
 
                             </td>
 
@@ -125,13 +107,13 @@
 
         mounted: function () {
 
-            gridData.loadData('api/blog-resource-data', this);
+            gridData.loadData('api/resource-type-data', this);
 
         },
         data: function () {
             return {
                 query: '',
-                gridColumns: ['Id', 'Title', 'Url', 'Type','Featured', 'Created'],
+                gridColumns: ['Id', 'Name', 'Created'],
                 gridData: [],
                 total: null,
                 next_page_url: null,
@@ -144,7 +126,7 @@
                 go_to_page: null,
                 sortOrder: 1,
                 sortKey: 'id',
-                createUrl: '/blogresource/create',
+                createUrl: '/resource-type/create',
                 showCreateButton: true
             }
         },
@@ -155,6 +137,7 @@
                 this.sortKey = key;
                 this.sortOrder = (this.sortOrder == 1) ? -1 : 1;
                 this.getData(1);
+
             },
 
             search: function(query){
@@ -164,7 +147,7 @@
 
             getData:  function(request){
 
-                gridData.getQueryData(request, 'api/blog-resource-data', this);
+                gridData.getQueryData(request, 'api/resource-type-data', this);
 
             },
 
@@ -208,10 +191,10 @@
 
                 if(confirm("Are you sure you want to delete?")){
 
-                    axios.post('/blog-resource-delete/' + id)
+                    axios.post('/resource-type-delete/' + id)
                             .then(response => {
 
-                                gridData.loadData('api/blog-resource-data', this);
+                                gridData.loadData('api/resource-type-data', this);
 
                             })
 

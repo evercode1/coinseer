@@ -17,10 +17,17 @@
 
 Route::get('/admin', 'AdminController@index')->name('admin');
 
+// All Video Route
+
+Route::get('all-videos', 'AllVideosController@index');
+
 // Api routes
 
 Route::get('api/about-data', 'ApiController@aboutData');
 Route::get('api/alarm-data', 'ApiController@alarmData');
+Route::get('api/all-books-data', 'ApiController@allBooksData');
+Route::get('api/all-influencers', 'ApiController@allInfluencersData');
+Route::get('api/all-video-data', 'ApiController@allVideoData');
 Route::get('api/alarm-support-data', 'ApiController@alarmSupportData');
 Route::get('api/archives', 'ApiController@archives');
 Route::get('api/blog-resource-data', 'ApiController@blogResourceData');
@@ -32,6 +39,7 @@ Route::get('api/contact-data', 'ApiController@ContactData');
 Route::get('api/contact-topic-data', 'ApiController@ContactTopicData');
 Route::get('api/content-data', 'ApiController@ContentData');
 Route::get('api/content-list', 'ApiController@ContentList');
+Route::get('api/exchange-list-data', 'ApiController@exchangeListData');
 Route::get('api/featured-book', 'ApiController@featuredBook');
 Route::get('api/influencer-data', 'ApiController@influencerData');
 Route::get('api/influencer-list', 'ApiController@influencerList');
@@ -39,12 +47,16 @@ Route::get('api/open-contact-data', 'ApiController@openContactData');
 Route::get('api/post-pie-chart', 'ApiController@pieChartData');
 Route::get('api/post-chart', 'ApiController@postChartData');
 Route::get('api/post-data', 'ApiController@postData');
+Route::get('api/resource-type-data', 'ApiController@resourceTypeData');
 Route::get('api/signature-data', 'ApiController@signatureData');
+Route::get('api/site-list-data', 'ApiController@siteListData');
 Route::get('api/total-books', 'ApiController@totalBooks');
 Route::get('api/total-posts', 'ApiController@totalPosts');
 Route::get('api/total-resources', 'ApiController@totalResources');
 Route::get('api/total-users', 'ApiController@totalUsers');
 Route::get('api/user-data', 'ApiController@userData');
+Route::get('api/video-list-data', 'ApiController@videoListData');
+Route::get('api/wallet-list-data', 'ApiController@walletListData');
 Route::get('api/warning-data', 'ApiController@warningData');
 
 
@@ -56,7 +68,9 @@ Route::post('logout', 'Auth\AuthController@logout')->name('logout');
 
 // Blog Resource Routes
 
-Route::resource('/blogresource', 'BlogResourceController');
+Route::post('blog-resource-delete/{blogresource}', 'BlogResourceController@destroy');
+
+Route::resource('/blogresource', 'BlogResourceController', ['except' => ['destroy']]);
 
 // Book Routes
 
@@ -89,6 +103,8 @@ Route::post('content-delete/{content}', 'ContentController@destroy');
 Route::resource('/content', 'ContentController', ['except' => ['destroy']]);
 
 // Influencer Routes
+
+Route::get('all-influencers', 'AllInfluencersController@index');
 
 Route::post('influencer-delete/{influencer}', 'InfluencerController@destroy');
 
@@ -132,8 +148,6 @@ Route::get('post/{post}-{slug?}', 'PostController@show')->name('post.show');
 
 Route::resource('post', 'PostController', ['except' => ['show', 'create', 'destroy']]);
 
-
-
 // Registration routes
 
 Route::get('register', 'Auth\AuthController@showRegistrationForm')->name('register');
@@ -142,6 +156,12 @@ Route::post('register', 'Auth\AuthController@register');
 // Reply Routes
 
 Route::resource('reply', 'ReplyController');
+
+// Resource Type Routes
+
+Route::post('resource-type/{resourcetype}', 'ResourceTypeController@destroy');
+
+Route::resource('resource-type', 'ResourceTypeController', ['except' => ['destroy']]);
 
 // Search Route
 
@@ -164,7 +184,6 @@ Route::get('auth/{provider}/callback', 'Auth\AuthController@handleProviderCallba
 
 Route::get('test', 'TestController@index');
 
-Route::get('/home', 'HomeController@index')->name('home');
 
 // Unsubscribe Routes
 
@@ -175,3 +194,4 @@ Route::get('/unsubscribe/confirmation', 'UnsubscribeController@confirm')->name('
 // User routes
 
 Route::resource('user', 'UserController');
+

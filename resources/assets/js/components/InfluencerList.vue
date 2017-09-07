@@ -5,8 +5,9 @@
         <ol class="list-unstyled">
 
             <li v-for="influencer in influencers"><a v-bind:href="influencer.Url" target="_blank">{{ influencer.Name }}</a></li>
-
+            <li><a href="/all-influencers">more...</a></li>
         </ol>
+
     </div>
 
 

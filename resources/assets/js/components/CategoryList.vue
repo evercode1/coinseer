@@ -1,7 +1,7 @@
 <template>
 
     <div class="sidebar-module">
-        <h4>Categories</h4>
+        <h4>Blog Categories</h4>
         <ol class="list-unstyled">
 
             <li v-for="category in categories"><a v-bind:href="'/post-by-category/' + category.id">

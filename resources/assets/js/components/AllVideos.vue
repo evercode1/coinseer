@@ -4,7 +4,7 @@
 
         <div class="col-lg-12">
 
-            <h1>Blog Resources</h1>
+
 
             <search-box></search-box>
 
@@ -23,43 +23,21 @@
 
                     <table class="table table-bordered table-striped table-responsive">
 
-                        <table-head></table-head>
+                        <video-table-head></video-table-head>
 
                         <tbody>
 
                         <tr v-for="row in gridData">
 
-                            <td>
-
-                                {{ row.Id }}
-
-                            </td>
 
                             <td>
 
-                                {{ row.Title }}
+                                <a v-bind:href="row.Url" target="_blank">{{ row.Title }}</a>
 
                             </td>
 
 
-                            <td>
 
-                                <a v-bind:href="row.Url" target="_blank"> {{ row.Url }} </a>
-
-                            </td>
-
-                            <td>
-
-                                {{ row.Type }}
-
-                            </td>
-
-
-                            <td>
-
-                                {{ formatFeatured(row.Featured) }}
-
-                            </td>
 
                             <td>
 
@@ -68,27 +46,6 @@
                             </td>
 
 
-
-                            <td >
-
-                                <a v-bind:href="'/blogresource/' + row.Id + '/edit'">
-
-                                    <button type="button" class="btn btn-default">
-
-                                        Edit
-
-                                    </button>
-
-                                </a>
-
-                                <button class="btn btn-danger pull-left mt-5"
-                                        @click="confirmDelete(row.Id)">
-
-                                    Delete
-
-                                </button>
-
-                            </td>
 
                         </tr>
 
@@ -121,17 +78,17 @@
             'search-box' : require('./SearchBox'),
             'grid-count' : require('./GridCount'),
             'page-number' : require('./PageNumber'),
-            'table-head' : require('./TableHead')},
+            'video-table-head' : require('./VideoTableHead')},
 
         mounted: function () {
 
-            gridData.loadData('api/blog-resource-data', this);
+            gridData.loadData('api/all-video-data', this);
 
         },
         data: function () {
             return {
                 query: '',
-                gridColumns: ['Id', 'Title', 'Url', 'Type','Featured', 'Created'],
+                gridColumns: ['Title','Created'],
                 gridData: [],
                 total: null,
                 next_page_url: null,
@@ -145,7 +102,7 @@
                 sortOrder: 1,
                 sortKey: 'id',
                 createUrl: '/blogresource/create',
-                showCreateButton: true
+                showCreateButton: false
             }
         },
 
@@ -164,7 +121,7 @@
 
             getData:  function(request){
 
-                gridData.getQueryData(request, 'api/blog-resource-data', this);
+                gridData.getQueryData(request, 'api/all-video-data', this);
 
             },
 

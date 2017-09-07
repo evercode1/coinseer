@@ -3,20 +3,20 @@
 namespace App\Queries;
 
 use App\BlogResource;
+use App\ResourceType;
 
 
-class FeaturedBookQuery
+class AllBooksQuery
 {
 
-    public static function sendFeaturedBook()
+    public static function sendData()
     {
 
         $book = ResourceType::where('name', 'book')->first();
 
         $book = $book->id;
 
-        $data = BlogResource::where('resource_type_id', $book)
-                ->where('is_featured', 1)->first();
+        $data = BlogResource::where('resource_type_id', $book)->get();
 
         return json_encode($data);
 
