@@ -37943,7 +37943,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('li', [_c('a', {
     attrs: {
-      "href": "https://youtu.be/Um63OQz3bjo"
+      "href": "https://youtu.be/Um63OQz3bjo",
+      "target": "_blank"
     }
   }, [_vm._v("What is Bitcoin?")]), _vm._v(" "), _c('i', {
     staticClass: "fa fa-thumb-tack",
