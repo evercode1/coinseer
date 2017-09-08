@@ -2059,6 +2059,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             axios.get('/api/archives').then(function (response) {
 
                 _this.archives = response.data;
+
+                console.log(response.data);
             });
         },
         postsCount: function postsCount(posts) {

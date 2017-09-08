@@ -40,6 +40,8 @@
 
                     this.archives = response.data;
 
+                    console.log(response.data);
+
                 });
 
             },

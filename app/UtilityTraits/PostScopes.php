@@ -41,7 +41,7 @@ trait PostScopes
 
     public function scopeByDate($query, $year, $month)
     {
-        return $query->where(\DB::raw('DATE_FORMAT(created_at, "%Y%m")'), '=', $year.$month);
+        return $query->where(\DB::raw('DATE_FORMAT(published_at, "%Y%m")'), '=', $year.$month);
     }
 
 
