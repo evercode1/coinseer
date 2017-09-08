@@ -5898,6 +5898,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -37944,7 +37945,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "href": "https://youtu.be/Um63OQz3bjo"
     }
-  }, [_vm._v("What is Bitcoin?")])])
+  }, [_vm._v("What is Bitcoin?")]), _vm._v(" "), _c('i', {
+    staticClass: "fa fa-thumb-tack",
+    attrs: {
+      "aria-hidden": "true"
+    }
+  })])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('li', [_c('a', {
     attrs: {
