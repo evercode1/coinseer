@@ -18,7 +18,7 @@ class VideoListQuery
 
         $data = BlogResource::where('resource_type_id', $video)
                 ->orderBy('created_at', 'desc')
-                ->limit(5)
+                ->limit(4)
                 ->get();
 
         return json_encode($data);

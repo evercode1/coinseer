@@ -37931,15 +37931,21 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "sidebar-module"
   }, [_c('h4', [_vm._v("Videos")]), _vm._v(" "), _c('ol', {
     staticClass: "list-unstyled"
-  }, [_vm._l((_vm.videos), function(video) {
+  }, [_vm._m(0), _vm._v(" "), _vm._l((_vm.videos), function(video) {
     return _c('li', [_c('a', {
       attrs: {
         "href": video.url,
         "target": "_blank"
       }
     }, [_vm._v(_vm._s(video.title))])])
-  }), _vm._v(" "), _vm._m(0)], 2)])
+  }), _vm._v(" "), _vm._m(1)], 2)])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('li', [_c('a', {
+    attrs: {
+      "href": "https://youtu.be/Um63OQz3bjo"
+    }
+  }, [_vm._v("What is Bitcoin?")])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('li', [_c('a', {
     attrs: {
       "href": "/all-videos"

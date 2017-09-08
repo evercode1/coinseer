@@ -30,6 +30,11 @@ class VideoQuery implements DataQuery
 
     public function filteredData($column, $direction, $keyword)
     {
+        if ($column === 'Added'){
+
+            $column = 'created_at';
+
+        }
 
         $rows = DB::table('blog_resources')
                 ->select('blog_resources.id as Id',
