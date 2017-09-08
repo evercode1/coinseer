@@ -36,6 +36,14 @@
 
                     {!! $post->body !!}
 
+                    <div class="bp-10">
+
+                        <warning></warning>
+
+                    </div>
+
+
+
 
                     <a href="/post/{{ $post->id }}-{{ $post->slug }}#disqus_thread">
 
@@ -49,7 +57,7 @@
 
                     <signature></signature>
 
-                    <warning></warning>
+
 
                 </div><!-- end blog-post -->
 

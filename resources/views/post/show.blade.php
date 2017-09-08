@@ -28,6 +28,12 @@
 
                 {!! $post->body !!}
 
+                <div class="bp-10">
+
+                    <warning></warning>
+
+                </div>
+
                 <div class="comments">
 
                 <div id="disqus_thread"></div>
@@ -36,7 +42,7 @@
 
                 <signature></signature>
 
-                <warning></warning>
+                
 
             </div><!-- end blog-post -->
 
