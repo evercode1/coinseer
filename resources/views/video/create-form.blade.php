@@ -56,6 +56,36 @@
 
     </div> <!-- end category select -->
 
+    <!-- level select -->
+
+    <div class="form-group{{ $errors->has('level_id') ? ' has-error' : '' }}">
+
+        <label class="control-label">Level</label>
+
+        <select class="form-control" id="level_id" name="level_id">
+
+            <option value="">Please Choose One</option>
+
+            @foreach($levels as $levelsId => $levelsName)
+
+                <option value={{ $levelsId }}>{{ $levelsName }}</option>
+
+            @endforeach
+
+        </select>
+
+        @if ($errors->has('level_id'))
+
+            <span class="help-block">
+
+                <strong>{{ $errors->first('level_id') }}</strong>
+
+            </span>
+
+        @endif
+
+    </div> <!-- end level select -->
+
     <!-- author input -->
 
     <div class="form-group{{ $errors->has('author') ? ' has-error' : '' }}">
