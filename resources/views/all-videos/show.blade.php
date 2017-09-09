@@ -24,8 +24,17 @@
 
                     <p class="blog-post-meta">{{ $video->description }}</p>
 
+                    <div class="wrapper">
+                        <div class="h_iframe">
+                            <!-- a transparent image is preferable -->
+                            <img class="ratio" src="/imgs/video/16x9.png"/>
+                            <iframe src="http://www.youtube.com/embed/{{ $video->embed_code }}" frameborder="0" allowfullscreen></iframe>
+                        </div>
 
-                    {!! $video->embed_code !!}
+                    </div>
+
+
+
 
                     <signature></signature>
 
@@ -42,3 +51,4 @@
 
 
     @endsection
+

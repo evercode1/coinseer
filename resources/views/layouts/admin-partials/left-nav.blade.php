@@ -20,6 +20,12 @@
             </ul>
 
             <ul class="left-nav-list-group">
+                <li>videos</li>
+                <li><a href="/video"><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp; All Videos</a></li>
+                <li><a href="/video/create"><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp;Create New</a></li>
+            </ul>
+
+            <ul class="left-nav-list-group">
                 <li>Posts</li>
                 <li><a href="/post"><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp; All Posts</a></li>
                 <li><a href="/post/create"><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp;Create New</a></li>

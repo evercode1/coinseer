@@ -2,9 +2,9 @@
 
     <div class="row">
 
-        <div class="col-lg-16">
+        <div class="col-lg-12">
 
-
+            <h1>Videos</h1>
 
             <search-box></search-box>
 
@@ -16,29 +16,36 @@
 
 
 
-            <section class="panel mt-25 overflow">
+            <section class="panel mt-25">
                 <div class="panel-title"></div>
 
                 <div class="panel-body">
 
                     <table class="table table-bordered table-striped table-responsive">
 
-                        <video-table-head></video-table-head>
+                        <table-head></table-head>
 
                         <tbody>
 
                         <tr v-for="row in gridData">
 
-
                             <td>
 
-                                <a v-bind:href="'/all-videos/' + row.Id + '-' + row.Slug" target="_blank">{{ row.Title }}</a>
+                                {{ row.Id }}
 
                             </td>
 
                             <td>
 
-                                {{ row.Author }}
+                                <a v-bind:href="'/all-videos/' + row.Id"> {{ row.Title }} </a>
+
+                            </td>
+
+
+
+                            <td>
+
+                                <a v-bind:href="row.Url" target="_blank"> {{ row.Url }} </a>
 
                             </td>
 
@@ -55,7 +62,11 @@
                             </td>
 
 
+                            <td>
 
+                                {{ formatFeatured(row.Featured) }}
+
+                            </td>
 
                             <td>
 
@@ -64,6 +75,27 @@
                             </td>
 
 
+
+                            <td >
+
+                                <a v-bind:href="'/video/' + row.Id + '/edit'">
+
+                                    <button type="button" class="btn btn-default">
+
+                                        Edit
+
+                                    </button>
+
+                                </a>
+
+                                <button class="btn btn-danger pull-left mt-5"
+                                        @click="confirmDelete(row.Id)">
+
+                                    Delete
+
+                                </button>
+
+                            </td>
 
                         </tr>
 
@@ -93,20 +125,20 @@
     export default {
 
         components: {'pagination' : require('./Pagination'),
-            'search-box' : require('./SearchBox'),
-            'grid-count' : require('./GridCount'),
-            'page-number' : require('./PageNumber'),
-            'video-table-head' : require('./VideoTableHead')},
+                     'search-box' : require('./SearchBox'),
+                     'grid-count' : require('./GridCount'),
+                     'page-number' : require('./PageNumber'),
+                     'table-head' : require('./TableHead')},
 
         mounted: function () {
 
-            gridData.loadData('api/all-video-data', this);
+            gridData.loadData('api/video-data', this);
 
         },
         data: function () {
             return {
                 query: '',
-                gridColumns: ['Title', 'Author', 'Cat','Level', 'Added'],
+                gridColumns: ['Id', 'Title', 'External Url', 'Category', 'Level', 'Featured', 'Created'],
                 gridData: [],
                 total: null,
                 next_page_url: null,
@@ -120,7 +152,7 @@
                 sortOrder: 1,
                 sortKey: 'id',
                 createUrl: '/video/create',
-                showCreateButton: false
+                showCreateButton: true
             }
         },
 
@@ -139,7 +171,7 @@
 
             getData:  function(request){
 
-                gridData.getQueryData(request, 'api/all-video-data', this);
+                gridData.getQueryData(request, 'api/video-data', this);
 
             },
 
@@ -176,6 +208,22 @@
             formatFeatured: function(featured){
 
                 return featured == 1 ? 'Yes'  : 'No';
+
+            },
+
+            confirmDelete: function(id){
+
+                if(confirm("Are you sure you want to delete?")){
+
+                    axios.post('/video-delete/' + id)
+                            .then(response => {
+
+                                gridData.loadData('api/video-data', this);
+
+                            })
+
+
+                }
 
             },
 

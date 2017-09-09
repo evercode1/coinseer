@@ -28,7 +28,6 @@ class SearchQuery
                 ->leftJoin('categories', 'category_id', '=', 'categories.id')
                 ->leftJoin('users', 'user_id', '=', 'users.id')
                 ->where('posts.title', 'like', '%' . $keyword . '%')
-                ->orWhere('posts.body', 'like', '%' . $keyword . '%')
                 ->orWhere('categories.name', 'like', '%' . $keyword . '%')
                 ->orderBy('id', 'asc')
                 ->SimplePaginate(5);

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\UtilityTraits\Levels;
 use Illuminate\Http\Request;
 use App\ResourceType;
 
 class TestController extends Controller
 {
+    use Levels;
 
     public function __construct()
     {
@@ -19,7 +21,8 @@ class TestController extends Controller
     {
 
 
-        dd('test');
+
+        dd($this->levels());
 
     }
 }

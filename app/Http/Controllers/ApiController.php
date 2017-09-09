@@ -331,6 +331,14 @@ class ApiController extends Controller
 
     }
 
+    public function videoData(Request $request)
+    {
+
+        return GridQuery::sendData($request, new VideoQuery);
+
+
+    }
+
     public function walletListData()
     {
 

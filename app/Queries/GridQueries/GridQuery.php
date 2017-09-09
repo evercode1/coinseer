@@ -73,7 +73,7 @@ class GridQuery
                 $direction = 'desc';
                 break;
             case $query instanceof VideoQuery :
-                $column = 'blog_resources.created_at';
+                $column = 'videos.created_at';
                 $direction = 'desc';
                 break;
             default:

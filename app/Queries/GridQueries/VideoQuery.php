@@ -10,18 +10,18 @@ class VideoQuery implements DataQuery
     public function data($column, $direction)
     {
 
-        $rows = DB::table('blog_resources')
-                    ->select('blog_resources.id as Id',
-                             'blog_resources.title as Title',
-                             'blog_resources.author as Author',
-                             'blog_resources.slug as Slug',
-                             'blog_resources.url as Url',
-                             'resource_types.name as Type',
-                             'blog_resources.is_featured as Featured',
-                             DB::raw('DATE_FORMAT(blog_resources.created_at,
+        $rows = DB::table('videos')
+                    ->select('videos.id as Id',
+                             'videos.title as Title',
+                             'videos.author as Author',
+                             'videos.slug as Slug',
+                             'videos.url as Url',
+                             'categories.name as Category',
+                             'videos.level_id as Level',
+                             'videos.is_featured as Featured',
+                             DB::raw('DATE_FORMAT(videos.created_at,
                              "%m-%d-%Y") as Created'))
-                    ->leftJoin('resource_types', 'resource_type_id', '=', 'resource_types.id')
-                    ->where('resource_types.name', 'video')
+                    ->leftJoin('categories', 'category_id', '=', 'categories.id')
                     ->orderBy($column, $direction)
                     ->paginate(5);
 
@@ -36,25 +36,27 @@ class VideoQuery implements DataQuery
 
         if ($column === 'Added'){
 
-            $column = 'blog_resources.created_at';
+            $column = 'videos.created_at';
 
         }
 
 
-        $rows = DB::table('blog_resources')
-                ->select('blog_resources.id as Id',
-                    'blog_resources.title as Title',
-                    'blog_resources.author as Author',
-                    'blog_resources.slug as Slug',
-                    'blog_resources.url as Url',
-                    'resource_types.name as Type',
-                    'blog_resources.is_featured as Featured',
-                         DB::raw('DATE_FORMAT(blog_resources.created_at,
+
+        $rows = DB::table('videos')
+                ->select('videos.id as Id',
+                    'videos.title as Title',
+                    'videos.author as Author',
+                    'videos.slug as Slug',
+                    'videos.url as Url',
+                    'categories.name as Category',
+                    'videos.level_id as Level',
+                    'videos.is_featured as Featured',
+                         DB::raw('DATE_FORMAT(videos.created_at,
                                  "%m-%d-%Y") as Created'))
-                ->leftJoin('resource_types', 'resource_type_id', '=', 'resource_types.id')
-                ->where('resource_types.name', 'video')
-                ->Where('title', 'like', '%' . $keyword . '%')
-                ->orWhere('author', 'like', '%' . $keyword . '%')
+                ->leftJoin('categories', 'category_id', '=', 'categories.id')
+                ->Where('Title', 'like', '%' . $keyword . '%')
+                ->orWhere('Author', 'like', '%' . $keyword . '%')
+                ->orWhere('categories.name', 'like', '%' . $keyword . '%')
                 ->orderBy($column, $direction)
                 ->paginate(5);
 

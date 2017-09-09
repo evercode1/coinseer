@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Content;
-use App\BlogResource;
+use App\Video;
 use App\ResourceType;
 
 class PagesController extends Controller
@@ -13,13 +13,8 @@ class PagesController extends Controller
     public function index()
     {
 
-        $type = ResourceType::where('name', 'video')->first();
 
-        $type = $type->id;
-
-        $video = BlogResource::latest()
-                ->where('resource_type_id', $type)
-                ->first();
+        $video = Video::latest()->first();
 
         $post = Post::latest()->where('is_published', 1)->first();
 

@@ -29,4 +29,11 @@ class Category extends Model
 
     }
 
+    public function videos()
+    {
+
+        return $this->hasMany('App\Video');
+
+    }
+
 }

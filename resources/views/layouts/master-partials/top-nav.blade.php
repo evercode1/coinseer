@@ -10,6 +10,9 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
+
+            <li><a href="/all-videos">Videos</a></li>
+            <li><a href="/all-articles">Articles</a></li>
             @if(! Auth::check())
 
                 <li><a href="/register" ><span class="glyphicon glyphicon-user"></span> &nbsp; Sign Up</a></li>
@@ -59,6 +62,7 @@
 
 
             @endif
+
         </ul>
 
         @include('layouts.blog-partials.search')

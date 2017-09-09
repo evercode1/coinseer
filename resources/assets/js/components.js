@@ -36,6 +36,7 @@ Vue.component('total-resources', require('./components/TotalResources.vue'));
 Vue.component('total-users', require('./components/TotalUsers.vue'));
 Vue.component('user-grid', require('./components/UserGrid.vue'));
 Vue.component('video-list', require('./components/VideoList.vue'));
+Vue.component('video-grid', require('./components/VideoGrid.vue'));
 Vue.component('warning', require('./components/Warning.vue'));
 Vue.component('wallet-list', require('./components/WalletList.vue'));
 
