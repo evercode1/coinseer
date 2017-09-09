@@ -24,16 +24,18 @@
 
                     <p class="blog-post-meta">{{ $video->description }}</p>
 
-                    <div class="wrapper">
-                        <div class="h_iframe">
-                            <!-- a transparent image is preferable -->
-                            <img class="ratio" src="/imgs/video/16x9.png"/>
-                            <iframe src="http://www.youtube.com/embed/{{ $video->embed_code }}" frameborder="0" allowfullscreen></iframe>
+                    <div>
+                        <div class="video-container">
+
+                            <iframe src="https://www.youtube.com/embed/{{ $video->embed_code }}" frameborder="0" allowfullscreen></iframe>
+
                         </div>
 
                     </div>
 
+                    <div class="pull-right bm-10"><a href="/all-videos">more videos...</a></div>
 
+                    <br/>
 
 
                     <signature></signature>
