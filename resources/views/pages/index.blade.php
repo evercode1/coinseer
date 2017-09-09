@@ -38,14 +38,7 @@
 
                     <div>
 
-                        <div class="wrapper">
-                            <div class="h_iframe">
-                                <!-- a transparent image is preferable -->
-                                <img class="ratio" src="imgs/video/16x9.png"/>
-                                <iframe src="http://www.youtube.com/embed/{{ $video->embed_code }}" frameborder="0" allowfullscreen></iframe>
-                            </div>
-
-                        </div>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/Um63OQz3bjo" frameborder="0" allowfullscreen></iframe>
 
                     </div>
 
