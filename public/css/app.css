@@ -8357,29 +8357,17 @@ body {
   font-family: 'Raleway', sans-serif;
 }
 
-html,
-body {
-  height: 100%;
-}
-
-.wrapper {
-  width: 80%;
-  height: 100%;
-  margin: 0 auto;
-  background: #CCC;
-}
-
-.h_iframe {
+.video-container {
   position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
 }
 
-.h_iframe .ratio {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.h_iframe iframe {
+.video-container iframe,
+.video-container object,
+.video-container embed {
   position: absolute;
   top: 0;
   left: 0;

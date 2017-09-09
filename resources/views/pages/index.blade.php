@@ -37,13 +37,9 @@
                     <p class="blog-post-meta">{{ $video->description }}</p>
 
                     <div>
+                        <div class="video-container">
 
-                        <div class="wrapper">
-                            <div class="h_iframe">
-                                <!-- a transparent image is preferable -->
-                                <img class="ratio" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAGCAYAAAARx7TFAAAAE0lEQVR42mP8z/C/noEAYByqigBt5Q71w3KCVAAAAABJRU5ErkJggg=="/>
-                                <iframe src="http://www.youtube.com/embed/{{ $video->embed_code }}" frameborder="0" allowfullscreen></iframe>
-                            </div>
+                        <iframe src="https://www.youtube.com/embed/{{ $video->embed_code }}" frameborder="0" allowfullscreen></iframe>
 
                         </div>
 
