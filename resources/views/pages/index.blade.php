@@ -41,7 +41,7 @@
                         <div class="wrapper">
                             <div class="h_iframe">
                                 <!-- a transparent image is preferable -->
-                                <img class="ratio" src="imgs/video/16x9.png"/>
+                                <img class="ratio" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAGCAYAAAARx7TFAAAAE0lEQVR42mP8z/C/noEAYByqigBt5Q71w3KCVAAAAABJRU5ErkJggg=="/>
                                 <iframe src="http://www.youtube.com/embed/{{ $video->embed_code }}" frameborder="0" allowfullscreen></iframe>
                             </div>
 
