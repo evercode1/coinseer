@@ -1,6 +1,7 @@
 <about></about>
-<category-list></category-list>
 <video-list></video-list>
+<category-list></category-list>
+<article-list></article-list>
 <influencer-list></influencer-list>
 <site-list></site-list>
 <exchange-list></exchange-list>
