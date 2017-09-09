@@ -22,6 +22,8 @@
 
         <div class="container">
 
+            <!-- start video column -->
+
             <div class="col-md-8 mt-25">
 
                 <div class="blog-post">
@@ -34,19 +36,21 @@
 
                     <p class="blog-post-meta">{{ $video->description }}</p>
 
+                    <div>
 
                     {!! $video->embed_code !!}
 
+                    </div>
+
+                    <div class="pull-right bm-10"><a href="/all-videos">more videos...</a></div>
+                    <br/>
                     <signature></signature>
 
                     <warning></warning>
 
-                </div><!-- end blog-post -->
+                </div>
 
-            </div> <!-- end column -->
-
-        
-
+            </div> <!-- end video column -->
 
 
 
