@@ -18,15 +18,41 @@
 
 @section('content')
 
-
     <div class="col-sm-8 blog-main">
-
 
         <div class="container">
 
             <div class="col-md-8 mt-25">
 
-                @foreach($posts as $post)
+                <div class="blog-post">
+
+                    <h2 class="blog-post-title">{{ $video->title }}</h2>
+
+                    <p>by {{ $video->author }}</p>
+
+                    <P>Added on {{ $video->created_at }}</P>
+
+                    <p class="blog-post-meta">{{ $video->description }}</p>
+
+
+                    {!! $video->embed_code !!}
+
+                    <signature></signature>
+
+                    <warning></warning>
+
+                </div><!-- end blog-post -->
+
+            </div> <!-- end column -->
+
+        
+
+
+
+
+            <div class="col-md-8 mt-25">
+
+
 
                 <div class="blog-post">
 
@@ -44,7 +70,6 @@
 
 
 
-
                     <a href="/post/{{ $post->id }}-{{ $post->slug }}#disqus_thread">
 
                         <button class="btn btn-primary">
@@ -58,12 +83,9 @@
                     <signature></signature>
 
 
-
                 </div><!-- end blog-post -->
 
-                    @endforeach
 
-                @include('layouts.blog-partials.pagination')
 
             </div> <!-- end column -->
 
