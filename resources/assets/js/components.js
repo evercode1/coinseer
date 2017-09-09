@@ -1,9 +1,11 @@
 Vue.component('about', require('./components/About.vue'));
 Vue.component('alarm-bell', require('./components/AlarmBell.vue'));
 Vue.component('alarm-support', require('./components/AlarmSupport.vue'));
+Vue.component('all-articles', require('./components/AllArticles.vue'));
 Vue.component('all-influencers', require('./components/AllInfluencers.vue'));
 Vue.component('all-videos', require('./components/AllVideos.vue'));
 Vue.component('archives', require('./components/Archives.vue'));
+Vue.component('article-list', require('./components/ArticleList.vue'));
 Vue.component('book-grid', require('./components/BookGrid.vue'));
 Vue.component('blog-resource-grid', require('./components/BlogResourceGrid.vue'));
 Vue.component('blog-resources-list', require('./components/BlogResourcesList.vue'));

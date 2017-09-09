@@ -38,6 +38,8 @@ use App\Queries\ExchangeListQuery;
 use App\Queries\VideoListQuery;
 use App\Queries\WalletListQuery;
 use App\Queries\GridQueries\VideoQuery;
+use App\Queries\ArticleListQuery;
+use App\Queries\GridQueries\AllArticlesQuery;
 
 
 
@@ -70,6 +72,14 @@ class ApiController extends Controller
 
     }
 
+    public function allArticleData(Request $request)
+    {
+
+        return GridQuery::sendData($request, new AllArticlesQuery());
+
+
+    }
+
     public function allBooksData()
     {
 
@@ -98,6 +108,13 @@ class ApiController extends Controller
     {
 
         return ArchivesQuery::sendData();
+
+    }
+
+    public function articleListData()
+    {
+
+        return ArticleListQuery::sendData();
 
     }
 
