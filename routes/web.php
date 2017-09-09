@@ -20,6 +20,8 @@ Route::get('/admin', 'AdminController@index')->name('admin');
 // All Video Route
 
 Route::get('all-videos', 'AllVideosController@index');
+Route::get('all-videos/{id}-{slug?}', 'AllVideosController@show')->name('all-videos.show');
+//Route::get('all-videos/{id}', 'AllVideosController@show')->name('all-videos.show');
 
 // Api routes
 

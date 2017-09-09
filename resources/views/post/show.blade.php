@@ -42,7 +42,7 @@
 
                 <signature></signature>
 
-                
+
 
             </div><!-- end blog-post -->
 

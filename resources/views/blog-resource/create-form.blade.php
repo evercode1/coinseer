@@ -26,28 +26,6 @@
 
     </div>  <!-- end title input -->
 
-
-    <!-- url input -->
-
-    <div class="form-group{{ $errors->has('url') ? ' has-error' : '' }}">
-
-        <label class="control-label">Url</label>
-
-        <input type="text"
-               class="form-control"
-               name="url"
-               value="{{ old('url') }}" />
-
-        @if ($errors->has('url'))
-
-            <span class="help-block">
-                <strong>{{ $errors->first('url') }}</strong>
-            </span>
-
-        @endif
-
-    </div>  <!-- end url input -->
-
     <!-- resource type select -->
 
     <div class="form-group{{ $errors->has('resource_type_id') ? ' has-error' : '' }}">
@@ -77,6 +55,92 @@
         @endif
 
     </div> <!-- end resource type select -->
+
+    <!-- author input -->
+
+    <div class="form-group{{ $errors->has('author') ? ' has-error' : '' }}">
+
+        <label class="control-label">Author</label>
+
+        <input type="text"
+               class="form-control"
+               name="author"
+               value="{{ old('author') }}" />
+
+        @if ($errors->has('author'))
+
+            <span class="help-block">
+                <strong>{{ $errors->first('author') }}</strong>
+            </span>
+
+        @endif
+
+    </div>  <!-- end author input -->
+
+    <!-- description input -->
+
+    <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
+
+        <label class="control-label">Description</label>
+
+        <textarea class="form-control"
+                  rows="5"
+                  name="description"
+                  >{{ old('description') }}</textarea>
+
+        @if ($errors->has('description'))
+
+            <span class="help-block">
+                <strong>{{ $errors->first('description') }}</strong>
+            </span>
+
+        @endif
+
+    </div>  <!-- end description input -->
+
+
+    <!-- url input -->
+
+    <div class="form-group{{ $errors->has('url') ? ' has-error' : '' }}">
+
+        <label class="control-label">Url</label>
+
+        <input type="text"
+               class="form-control"
+               name="url"
+               value="{{ old('url') }}" />
+
+        @if ($errors->has('url'))
+
+            <span class="help-block">
+                <strong>{{ $errors->first('url') }}</strong>
+            </span>
+
+        @endif
+
+    </div>  <!-- end url input -->
+
+    <!-- embed_code input -->
+
+    <div class="form-group{{ $errors->has('embed_code') ? ' has-error' : '' }}">
+
+        <label class="control-label">Embed Code</label>
+
+        <textarea class="form-control"
+                  rows="5"
+                  name="embed_code"
+                  >{{ old('embed_code') }}</textarea>
+
+        @if ($errors->has('embed_code'))
+
+            <span class="help-block">
+                <strong>{{ $errors->first('embed_code') }}</strong>
+            </span>
+
+        @endif
+
+    </div>  <!-- end embed_code input -->
+
 
 
     <!-- is_featured select -->

@@ -35,9 +35,15 @@
 
                             </td>
 
-                            <td>
+                            <td v-if="row.Type == 'video'">
 
-                                {{ row.Title }}
+                                <a v-bind:href="'/all-videos/' + row.Id"> {{ row.Title }} </a>
+
+                            </td>
+
+                            <td v-else>
+
+                                 {{ row.Title }}
 
                             </td>
 
@@ -131,7 +137,7 @@
         data: function () {
             return {
                 query: '',
-                gridColumns: ['Id', 'Title', 'Url', 'Type','Featured', 'Created'],
+                gridColumns: ['Id', 'Title', 'External Url', 'Type','Featured', 'Created'],
                 gridData: [],
                 total: null,
                 next_page_url: null,
@@ -217,6 +223,13 @@
 
 
                 }
+
+            },
+
+            formatUrl: function(url){
+
+
+                url == 'video' ? '/all-video/' : url;
 
             }
 

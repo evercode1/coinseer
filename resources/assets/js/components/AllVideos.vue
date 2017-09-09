@@ -32,7 +32,13 @@
 
                             <td>
 
-                                <a v-bind:href="row.Url" target="_blank">{{ row.Title }}</a>
+                                <a v-bind:href="'/all-videos/' + row.Id + '-' + row.Slug" target="_blank">{{ row.Title }}</a>
+
+                            </td>
+
+                            <td>
+
+                                {{ row.Author }}
 
                             </td>
 
@@ -88,7 +94,7 @@
         data: function () {
             return {
                 query: '',
-                gridColumns: ['Title','Added'],
+                gridColumns: ['Title', 'Author', 'Added'],
                 gridData: [],
                 total: null,
                 next_page_url: null,

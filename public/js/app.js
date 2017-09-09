@@ -1910,6 +1910,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js");
@@ -1929,7 +1935,7 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
     data: function data() {
         return {
             query: '',
-            gridColumns: ['Title', 'Added'],
+            gridColumns: ['Title', 'Author', 'Added'],
             gridData: [],
             total: null,
             next_page_url: null,
@@ -2291,6 +2297,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js");
@@ -2310,7 +2322,7 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
     data: function data() {
         return {
             query: '',
-            gridColumns: ['Id', 'Title', 'Url', 'Type', 'Featured', 'Created'],
+            gridColumns: ['Id', 'Title', 'External Url', 'Type', 'Featured', 'Created'],
             gridData: [],
             total: null,
             next_page_url: null,
@@ -2389,6 +2401,11 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
                     gridData.loadData('api/blog-resource-data', _this);
                 });
             }
+        },
+
+        formatUrl: function formatUrl(url) {
+
+            url == 'video' ? '/all-video/' : url;
         }
 
     }
@@ -36768,7 +36785,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('table', {
     staticClass: "table table-bordered table-striped table-responsive"
   }, [_c('table-head'), _vm._v(" "), _c('tbody', _vm._l((_vm.gridData), function(row) {
-    return _c('tr', [_c('td', [_vm._v("\n\n                            " + _vm._s(row.Id) + "\n\n                        ")]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(row.Title) + "\n\n                        ")]), _vm._v(" "), _c('td', [_c('a', {
+    return _c('tr', [_c('td', [_vm._v("\n\n                            " + _vm._s(row.Id) + "\n\n                        ")]), _vm._v(" "), (row.Type == 'video') ? _c('td', [_c('a', {
+      attrs: {
+        "href": '/all-videos/' + row.Id
+      }
+    }, [_vm._v(" " + _vm._s(row.Title) + " ")])]) : _c('td', [_vm._v("\n\n                             " + _vm._s(row.Title) + "\n\n                        ")]), _vm._v(" "), _c('td', [_c('a', {
       attrs: {
         "href": row.Url,
         "target": "_blank"
@@ -37136,10 +37157,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('video-table-head'), _vm._v(" "), _c('tbody', _vm._l((_vm.gridData), function(row) {
     return _c('tr', [_c('td', [_c('a', {
       attrs: {
-        "href": row.Url,
+        "href": '/all-videos/' + row.Id + '-' + row.Slug,
         "target": "_blank"
       }
-    }, [_vm._v(_vm._s(row.Title))])]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(row.Created) + "\n\n                        ")])])
+    }, [_vm._v(_vm._s(row.Title))])]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(row.Author) + "\n\n                        ")]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(row.Created) + "\n\n                        ")])])
   }))], 1)]), _vm._v(" "), _c('page-number')], 1), _vm._v(" "), _c('pagination')], 1)])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
@@ -37937,7 +37958,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._m(0), _vm._v(" "), _vm._l((_vm.videos), function(video) {
     return _c('li', [_c('a', {
       attrs: {
-        "href": video.url,
+        "href": '/all-videos/' + video.id + '-' + video.slug,
         "target": "_blank"
       }
     }, [_vm._v(_vm._s(video.title))])])

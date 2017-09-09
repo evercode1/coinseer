@@ -59,13 +59,22 @@ class BlogResourceController extends Controller
 
             'title' => 'required|unique:blog_resources|string|max:100',
             'url' => 'required|unique:blog_resources|string|max:100',
+            'author' => 'string',
+            'description' => 'string|max:400',
+            'embed_code' => 'string|max:1200',
             'resource_type_id' => 'required|numeric',
             'is_featured' => 'required|boolean',
 
         ]);
 
+        $slug = str_slug($request->title, "-");
+
         $blogresource = BlogResource::create(['title' => $request->title,
                                               'url'   => $request->url,
+                                              'slug' => $slug,
+                                              'author' => $request->author,
+                                              'description' => $request->description,
+                                              'embed_code' => $request->embed_code,
                                               'resource_type_id' => $request->resource_type_id,
                                               'is_featured' => $request->is_featured
         ]);
@@ -115,16 +124,26 @@ class BlogResourceController extends Controller
 
             'title' => 'required|string|max:40|unique:blog_resources,title,' .$blogresource->id,
             'url' => 'required|string|max:100|unique:blog_resources,url,' .$blogresource->id,
+            'author' => 'string',
+            'description' => 'string|max:400',
+            'embed_code' => 'string|max:1200',
             'resource_type_id' => 'required|numeric',
             'is_featured' => 'required|boolean',
 
         ]);
 
+        $slug = str_slug($request->title, "-");
+
 
         $blogresource->update(['title' => $request->title,
                                'url'   => $request->url,
+                               'slug' => $slug,
+                               'author' => $request->author,
+                               'description' => $request->description,
+                               'embed_code' => $request->embed_code,
                                'resource_type_id' => $request->resource_type_id,
-                               'is_featured' => $request->is_featured]);
+                               'is_featured' => $request->is_featured
+        ]);
 
 
         return Redirect::route('blogresource.index');
