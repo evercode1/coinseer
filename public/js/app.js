@@ -5204,7 +5204,7 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
         sortBy: function sortBy(key) {
             this.sortKey = key;
             this.sortOrder = this.sortOrder == 1 ? -1 : 1;
-            this.getData(1);
+            this.getData(this.sortOrder);
         },
 
         search: function search(query) {
@@ -6448,6 +6448,384 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             axios.get('/api/video-list-data').then(function (response) {
 
                 _this.videos = response.data;
+            });
+        }
+    }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/VideosByCategoryGrid.vue":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+
+    props: ['category'],
+
+    components: { 'pagination': __webpack_require__("./resources/assets/js/components/Pagination.vue"),
+        'search-box': __webpack_require__("./resources/assets/js/components/SearchBox.vue"),
+        'grid-count': __webpack_require__("./resources/assets/js/components/GridCount.vue"),
+        'page-number': __webpack_require__("./resources/assets/js/components/PageNumber.vue"),
+        'video-table-head': __webpack_require__("./resources/assets/js/components/VideoTableHead.vue") },
+
+    mounted: function mounted() {
+
+        var url = '/api/videos-by-category-data?category=' + this.category;
+
+        this.loadPageData(url);
+    },
+    data: function data() {
+        return {
+            query: '',
+            gridColumns: ['Title', 'Author', 'Cat', 'Level', 'Added'],
+            gridData: [],
+            total: null,
+            next_page_url: null,
+            prev_page_url: null,
+            last_page: null,
+            current_page: null,
+            pages: [],
+            first_page_url: null,
+            last_page_url: null,
+            go_to_page: null,
+            sortOrder: 1,
+            sortKey: 'id',
+            createUrl: '/video/create',
+            showCreateButton: false
+        };
+    },
+
+    methods: {
+
+        loadPageData: function loadPageData(url) {
+
+            $.getJSON(url, function (data) {
+
+                this.gridData = data.data;
+                this.total = data.total;
+                this.last_page = data.last_page;
+                this.next_page_url = data.next_page_url;
+                this.prev_page_url = data.prev_page_url;
+                this.current_page = data.current_page;
+                this.first_page_url = url + '?page=1';
+                this.last_page_url = url + '?page=' + data.last_page;
+                this.setPageNumbers();
+            }.bind(this));
+        },
+
+        sortBy: function sortBy(key) {
+            this.sortKey = key;
+            this.sortOrder = this.sortOrder == 1 ? -1 : 1;
+            this.getData(this.sortOrder);
+        },
+
+        search: function search(query) {
+            this.getData(query);
+        },
+
+        getData: function getData(request) {
+
+            this.getQueryData(request);
+        },
+
+        setPageNumbers: function setPageNumbers() {
+            for (var i = 1; i <= this.last_page; i++) {
+                this.pages.push(i);
+            }
+        },
+
+        checkPage: function checkPage(page) {
+            return page == this.current_page;
+        },
+
+        resetPageNumbers: function resetPageNumbers() {
+            this.pages = [];
+            for (var i = 1; i <= this.last_page; i++) {
+                this.pages.push(i);
+            }
+        },
+
+        checkUrlNotNull: function checkUrlNotNull(url) {
+            return url != null;
+        },
+
+        clearPageNumberInputBox: function clearPageNumberInputBox() {
+            return this.go_to_page = '';
+        },
+
+        pageInRange: function pageInRange() {
+            return this.go_to_page <= parseInt(this.last_page);
+        },
+
+        formatFeatured: function formatFeatured(featured) {
+
+            return featured == 1 ? 'Yes' : 'No';
+        },
+
+        formatLevel: function formatLevel(level) {
+
+            switch (level) {
+
+                case 10:
+
+                    return 'beginner';
+                    break;
+
+                case 20:
+
+                    return 'intermediate';
+                    break;
+
+                case 30:
+
+                    return 'advanced';
+                    break;
+
+                default:
+
+                    return 'beginner';
+                    break;
+
+            }
+        },
+        getQueryData: function getQueryData(request) {
+
+            var url = '/api/videos-by-category-data';
+
+            url = this.formatUrlGetRequest(url, request);
+
+            if (this.query == '' && url != null) {
+
+                $.getJSON(url, function (data) {
+
+                    this.gridData = data.data;
+                    this.total = data.total;
+                    this.last_page = data.last_page;
+                    this.next_page_url = data.next_page_url;
+                    this.prev_page_url = data.prev_page_url;
+                    this.current_page = data.current_page;
+                }.bind(this));
+            } else {
+
+                if (url != null) {
+
+                    $.getJSON(url, function (data) {
+
+                        this.gridData = data.data;
+                        this.total = data.total;
+                        this.last_page = data.last_page;
+                        this.next_page_url = data.next_page_url == null ? null : data.next_page_url + '&keyword=' + this.query;
+                        this.prev_page_url = data.prev_page_url == null ? null : data.prev_page_url + '&keyword=' + this.query;
+                        this.first_page_url = url + '?page=1&keyword=' + this.query;
+                        this.last_page_url = url + '?page=' + this.last_page + '&keyword=' + this.query;
+                        this.current_page = data.current_page;
+                        this.resetPageNumbers();
+                    }.bind(this));
+                }
+            }
+        },
+        formatUrlGetRequest: function formatUrlGetRequest(url, request) {
+
+            var formattedUrl = void 0;
+
+            var sortParams = '&column=' + this.sortKey + '&direction=' + this.sortOrder + '&category=' + this.category;
+
+            var searchParams = sortParams + '&keyword=' + this.query + '&category=' + this.category;
+
+            switch (request) {
+
+                case this.prev_page_url:
+
+                    formattedUrl = this.prev_page_url + sortParams;
+
+                    break;
+
+                case this.next_page_url:
+
+                    formattedUrl = this.next_page_url + sortParams;
+
+                    break;
+
+                case this.first_page_url:
+
+                    formattedUrl = this.first_page_url + sortParams;
+
+                    break;
+
+                case this.last_page_url:
+
+                    formattedUrl = this.last_page_url + sortParams;
+
+                    break;
+
+                case this.query:
+
+                    formattedUrl = url + '?' + 'keyword=' + this.query + sortParams;
+
+                    break;
+
+                case this.go_to_page:
+
+                    if (this.go_to_page != '' && this.pageInRange()) {
+
+                        formattedUrl = url + '?' + 'page=' + this.go_to_page + searchParams;
+
+                        this.clearPageNumberInputBox();
+                    } else {
+
+                        alert('Please enter a valid page number');
+                    }
+
+                    break;
+
+                default:
+
+                    formattedUrl = url + '?' + 'page=' + request + searchParams;
+
+                    break;
+
+            }
+
+            return formattedUrl;
+        }
+    }
+
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/VideosByCategoryList.vue":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+
+    mounted: function mounted() {
+
+        this.loadData();
+    },
+
+    data: function data() {
+        return {
+
+            categories: []
+
+        };
+    },
+
+    methods: {
+        loadData: function loadData() {
+            var _this = this;
+
+            axios.get('/api/videos-by-category-list-data').then(function (response) {
+
+                _this.categories = response.data;
             });
         }
     }
@@ -36728,7 +37106,7 @@ module.exports = function normalizeComponent (
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "sidebar-module"
-  }, [_c('h4', [_vm._v("Blog Categories")]), _vm._v(" "), _c('ol', {
+  }, [_c('h4', [_vm._v("Articles By Category")]), _vm._v(" "), _c('ol', {
     staticClass: "list-unstyled"
   }, _vm._l((_vm.categories), function(category) {
     return _c('li', [_c('a', {
@@ -36955,6 +37333,32 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
      require("vue-hot-reload-api").rerender("data-v-109fa068", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-129df8e2\",\"hasScoped\":false}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/VideosByCategoryList.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "sidebar-module"
+  }, [_c('h4', [_vm._v("Videos By Category")]), _vm._v(" "), _c('ol', {
+    staticClass: "list-unstyled"
+  }, _vm._l((_vm.categories), function(category) {
+    return _c('li', [_c('a', {
+      attrs: {
+        "href": '/videos-by-category/' + category.id
+      }
+    }, [_vm._v("\n            " + _vm._s(category.name) + " - " + _vm._s(category.videos_count))])])
+  }))])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-129df8e2", module.exports)
   }
 }
 
@@ -38297,6 +38701,42 @@ if (false) {
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-8d1d6b92\",\"hasScoped\":false}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/VideosByCategoryGrid.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "row"
+  }, [_c('div', {
+    staticClass: "col-lg-16"
+  }, [_c('search-box'), _vm._v(" "), _c('div', {
+    staticClass: "pull-right"
+  }, [_c('grid-count')], 1), _vm._v(" "), _c('section', {
+    staticClass: "panel mt-25 overflow"
+  }, [_c('div', {
+    staticClass: "panel-title"
+  }), _vm._v(" "), _c('div', {
+    staticClass: "panel-body"
+  }, [_c('table', {
+    staticClass: "table table-bordered table-striped table-responsive"
+  }, [_c('video-table-head'), _vm._v(" "), _c('tbody', _vm._l((_vm.gridData), function(row) {
+    return _c('tr', [_c('td', [_c('a', {
+      attrs: {
+        "href": '/all-videos/' + row.Id + '-' + row.Slug
+      }
+    }, [_vm._v(_vm._s(row.Title))])]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(row.Author) + "\n\n                        ")]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(row.Category) + "\n\n                        ")]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(_vm.formatLevel(row.Level)) + "\n\n                        ")]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(row.Created) + "\n\n                        ")])])
+  }))], 1)]), _vm._v(" "), _c('page-number')], 1), _vm._v(" "), _c('pagination')], 1)])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-8d1d6b92", module.exports)
+  }
+}
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-910526aa\",\"hasScoped\":false}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/ContentGrid.vue":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -38557,7 +38997,7 @@ if (false) {
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "sidebar-module"
-  }, [_c('h4', [_vm._v("Sites")]), _vm._v(" "), _c('ol', {
+  }, [_c('h4', [_vm._v("Useful Sites")]), _vm._v(" "), _c('ol', {
     staticClass: "list-unstyled"
   }, _vm._l((_vm.sites), function(site) {
     return _c('li', [_c('a', {
@@ -38584,7 +39024,7 @@ if (false) {
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "sidebar-module"
-  }, [_c('h4', [_vm._v("Videos")]), _vm._v(" "), _c('ol', {
+  }, [_c('h4', [_vm._v("All Videos")]), _vm._v(" "), _c('ol', {
     staticClass: "list-unstyled"
   }, [_vm._m(0), _vm._v(" "), _vm._l((_vm.videos), function(video) {
     return _c('li', [_c('a', {
@@ -49256,6 +49696,8 @@ Vue.component('total-posts', __webpack_require__("./resources/assets/js/componen
 Vue.component('total-resources', __webpack_require__("./resources/assets/js/components/TotalResources.vue"));
 Vue.component('total-users', __webpack_require__("./resources/assets/js/components/TotalUsers.vue"));
 Vue.component('user-grid', __webpack_require__("./resources/assets/js/components/UserGrid.vue"));
+Vue.component('videos-by-category-list', __webpack_require__("./resources/assets/js/components/VideosByCategoryList.vue"));
+Vue.component('videos-by-category-grid', __webpack_require__("./resources/assets/js/components/VideosByCategoryGrid.vue"));
 Vue.component('video-list', __webpack_require__("./resources/assets/js/components/VideoList.vue"));
 Vue.component('video-grid', __webpack_require__("./resources/assets/js/components/VideoGrid.vue"));
 Vue.component('warning', __webpack_require__("./resources/assets/js/components/Warning.vue"));
@@ -51116,6 +51558,88 @@ module.exports = Component.exports
 
 /***/ }),
 
+/***/ "./resources/assets/js/components/VideosByCategoryGrid.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var Component = __webpack_require__("./node_modules/vue-loader/lib/component-normalizer.js")(
+  /* script */
+  __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/VideosByCategoryGrid.vue"),
+  /* template */
+  __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-8d1d6b92\",\"hasScoped\":false}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/VideosByCategoryGrid.vue"),
+  /* styles */
+  null,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/Users/billk/var/www/coinseer/resources/assets/js/components/VideosByCategoryGrid.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] VideosByCategoryGrid.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-8d1d6b92", Component.options)
+  } else {
+    hotAPI.reload("data-v-8d1d6b92", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/VideosByCategoryList.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var Component = __webpack_require__("./node_modules/vue-loader/lib/component-normalizer.js")(
+  /* script */
+  __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/VideosByCategoryList.vue"),
+  /* template */
+  __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-129df8e2\",\"hasScoped\":false}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/VideosByCategoryList.vue"),
+  /* styles */
+  null,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/Users/billk/var/www/coinseer/resources/assets/js/components/VideosByCategoryList.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] VideosByCategoryList.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-129df8e2", Component.options)
+  } else {
+    hotAPI.reload("data-v-129df8e2", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
 /***/ "./resources/assets/js/components/WalletList.vue":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -51207,58 +51731,7 @@ var dataHelper = {
 
         var getPage = void 0;
 
-        switch (request) {
-
-            case vm.prev_page_url:
-
-                getPage = vm.prev_page_url + '&column=' + vm.sortKey + '&direction=' + vm.sortOrder;
-
-                break;
-
-            case vm.next_page_url:
-
-                getPage = vm.next_page_url + '&column=' + vm.sortKey + '&direction=' + vm.sortOrder;
-
-                break;
-
-            case vm.first_page_url:
-
-                getPage = vm.first_page_url + '&column=' + vm.sortKey + '&direction=' + vm.sortOrder;
-
-                break;
-
-            case vm.last_page_url:
-
-                getPage = vm.last_page_url + '&column=' + vm.sortKey + '&direction=' + vm.sortOrder;
-
-                break;
-
-            case vm.query:
-
-                getPage = url + '?' + 'keyword=' + vm.query + '&column=' + vm.sortKey + '&direction=' + vm.sortOrder;
-
-                break;
-
-            case vm.go_to_page:
-
-                if (vm.go_to_page != '' && vm.pageInRange()) {
-
-                    getPage = url + '?' + 'page=' + vm.go_to_page + '&column=' + vm.sortKey + '&direction=' + vm.sortOrder + '&keyword=' + vm.query;
-                    vm.clearPageNumberInputBox();
-                } else {
-
-                    alert('Please enter a valid page number');
-                }
-
-                break;
-
-            default:
-
-                getPage = url + '?' + 'page=' + request + '&column=' + vm.sortKey + '&direction=' + vm.sortOrder + '&keyword=' + vm.query;
-
-                break;
-
-        }
+        getPage = this.formatGetRequest(request, url, vm);
 
         if (vm.query == '' && getPage != null) {
 
@@ -51289,6 +51762,70 @@ var dataHelper = {
                 }.bind(vm));
             }
         }
+    },
+    formatGetRequest: function formatGetRequest(request, url, vm) {
+
+        var getPage = void 0;
+
+        var sortParams = '&column=' + vm.sortKey + '&direction=' + vm.sortOrder;
+
+        var searchParams = '&column=' + sortParams + '&keyword=' + vm.query;
+
+        switch (request) {
+
+            case vm.prev_page_url:
+
+                getPage = vm.prev_page_url + sortParams;
+
+                break;
+
+            case vm.next_page_url:
+
+                getPage = vm.next_page_url + sortParams;
+
+                break;
+
+            case vm.first_page_url:
+
+                getPage = vm.first_page_url + sortParams;
+
+                break;
+
+            case vm.last_page_url:
+
+                getPage = vm.last_page_url + sortParams;
+
+                break;
+
+            case vm.query:
+
+                getPage = url + '?' + searchParams;
+
+                break;
+
+            case vm.go_to_page:
+
+                if (vm.go_to_page != '' && vm.pageInRange()) {
+
+                    getPage = url + '?' + 'page=' + vm.go_to_page + searchParams;
+
+                    vm.clearPageNumberInputBox();
+                } else {
+
+                    alert('Please enter a valid page number');
+                }
+
+                break;
+
+            default:
+
+                getPage = url + '?' + 'page=' + request + searchParams;
+
+                break;
+
+        }
+
+        return getPage;
     },
     loadData: function loadData(url, vm) {
 

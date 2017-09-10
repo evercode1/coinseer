@@ -1,7 +1,7 @@
 <template>
 
     <div class="sidebar-module">
-        <h4>Videos</h4>
+        <h4>All Videos</h4>
         <ol class="list-unstyled">
 
             <li><a href="/all-videos/1">What is Bitcoin?</a>

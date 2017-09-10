@@ -1,17 +1,18 @@
 <template>
 
     <div class="sidebar-module">
-        <h4>Useful Sites</h4>
+        <h4>Videos By Category</h4>
         <ol class="list-unstyled">
 
-
-            <li v-for="site in sites"><a v-bind:href="site.url" target="_blank">{{ site.title }}</a></li>
+            <li v-for="category in categories"><a v-bind:href="'/videos-by-category/' + category.id">
+                {{ category.name }} - {{ category.videos_count }}</a></li>
 
         </ol>
     </div>
 
-
 </template>
+
+
 
 <script>
 
@@ -26,7 +27,7 @@
         data: function () {
             return {
 
-                sites: [],
+                categories: [],
 
             }
 
@@ -36,16 +37,15 @@
 
             loadData(){
 
-                axios.get('/api/site-list-data').then( (response) => {
+                axios.get('/api/videos-by-category-list-data').then( (response) => {
 
-                    this.sites = response.data;
+                    this.categories = response.data;
+
 
 
                 });
 
             }
-
-
 
         }
     }

@@ -6,7 +6,9 @@ use App\ChartHelpers\PostPieChartBuilder;
 use App\Queries\AlarmQuery;
 use App\Queries\ArchivesQuery;
 use App\Queries\FeaturedBookQuery;
+use App\Queries\GridQueries\VideoByCategoryQuery;
 use App\Queries\PostCountQuery;
+use App\Queries\VideosByCategoryListQuery;
 use Illuminate\Http\Request;
 use App\Queries\GridQueries\GridQuery;
 use App\Queries\GridQueries\UserQuery;
@@ -40,6 +42,7 @@ use App\Queries\WalletListQuery;
 use App\Queries\GridQueries\VideoQuery;
 use App\Queries\ArticleListQuery;
 use App\Queries\GridQueries\AllArticlesQuery;
+use App\Queries\GridQueries\VideoCategoryGridQuery;
 
 
 
@@ -147,6 +150,7 @@ class ApiController extends Controller
         return CategoryListQuery::sendData();
 
     }
+
 
     public function closedContactData(Request $request)
     {
@@ -320,6 +324,22 @@ class ApiController extends Controller
     {
 
         return GridQuery::sendData($request, new UserQuery);
+
+    }
+
+    public function videosByCategoryData(Request $request)
+    {
+
+
+        return VideoCategoryGridQuery::sendData($request,  new VideoByCategoryQuery);
+
+    }
+
+    public function videosByCategoryListData()
+    {
+
+
+        return VideosByCategoryListQuery::sendData();
 
     }
 

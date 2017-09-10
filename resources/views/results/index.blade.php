@@ -8,29 +8,29 @@
     <div class="col-sm-8 blog-main">
 
 
-        <div class="container">
+                        <div class="container">
 
-            <div class="col-md-8 mt-25">
+                            <div class="col-md-8 mt-25">
 
-                <p class="blog-post-meta">Showing {{ $count }} results for {{ $keyword }}:</p>
+                                <p class="blog-post-meta">Showing {{ $count }} results for {{ $keyword }}:</p>
 
-                @forelse($videos as $video)
+                                @forelse($videos as $video)
 
-                <div class="blog-post">
+                                    <div class="blog-post">
 
-                    <h1 class="blog-post-title"><a href="/all-videos/{{ $video->Id }}">{{ $video->Title }}</a></h1>
+                                        <h1 class="blog-post-title"><a href="/all-videos/{{ $video->Id }}">{{ $video->Title }}</a></h1>
 
-                    <p class="blog-post-meta">Added on {{ $video->Created }}</p>
+                                        <p class="blog-post-meta">Added on {{ $video->Created }}</p>
 
-                    <p class="blog-post-meta"> Video by  {{ $video->Author }}</p>
+                                        <p class="blog-post-meta"> Video by  {{ $video->Author }}</p>
 
-                    <p class="blog-post-meta"> Category:  {{ $video->Category }}</p>
+                                        <p class="blog-post-meta"> Category:  {{ $video->Category }}</p>
 
-                    <p class="blog-post-meta"> Level:  {{ App\Video::showLevelOf($video) }}</p>
+                                        <p class="blog-post-meta"> Level:  {{ App\Video::showLevelOf($video) }}</p>
 
-                    <a href="/all-videos/{{ $video->Id }}">{!! \App\Utilities\Summarize::longSummary($video->Description) !!}</a>
+                                        <a href="/all-videos/{{ $video->Id }}">{!! \App\Utilities\Summarize::longSummary($video->Description) !!}</a>
 
-                    <hr />
+                                        <hr />
 
 
                 </div><!-- end blog-post -->

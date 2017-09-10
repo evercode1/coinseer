@@ -5,79 +5,8 @@ var dataHelper = {
 
             let getPage;
 
-            switch (request){
+             getPage = this.formatGetRequest(request, url, vm);
 
-                case vm.prev_page_url :
-
-                    getPage = vm.prev_page_url +
-                        '&column=' + vm.sortKey +
-                        '&direction=' + vm.sortOrder;
-
-                    break;
-
-                case vm.next_page_url :
-
-                    getPage = vm.next_page_url +
-                        '&column=' + vm.sortKey +
-                        '&direction=' + vm.sortOrder;
-
-                    break;
-
-                case vm.first_page_url :
-
-                    getPage = vm.first_page_url +
-                        '&column=' + vm.sortKey +
-                        '&direction=' + vm.sortOrder;
-
-                    break;
-
-                case vm.last_page_url :
-
-                    getPage = vm.last_page_url +
-                        '&column=' + vm.sortKey +
-                        '&direction=' + vm.sortOrder;
-
-                    break;
-
-                case vm.query :
-                    
-                    getPage = url + '?' +
-                        'keyword=' + vm.query +
-                        '&column=' + vm.sortKey +
-                        '&direction=' + vm.sortOrder;
-
-                    break;
-
-                case vm.go_to_page :
-
-                    if( vm.go_to_page != '' && vm.pageInRange()){
-
-                        getPage = url + '?' +
-                            'page=' + vm.go_to_page +
-                            '&column=' + vm.sortKey +
-                            '&direction=' + vm.sortOrder +
-                            '&keyword=' + vm.query;
-                        vm.clearPageNumberInputBox();
-
-                    } else {
-
-                        alert('Please enter a valid page number');
-
-                    }
-
-                    break;
-
-                default :
-
-                    getPage = url + '?' +
-                        'page=' + request +
-                        '&column=' + vm.sortKey +
-                        '&direction=' + vm.sortOrder +
-                        '&keyword=' + vm.query;
-
-                    break;
-
-            }
 
             if (vm.query == '' && getPage != null){
 
@@ -113,11 +42,81 @@ var dataHelper = {
                 }
             }
         },
+
+        formatGetRequest(request, url, vm){
+
+            let getPage;
+
+            let sortParams = '&column=' + vm.sortKey +
+                '&direction=' + vm.sortOrder;
+
+            let searchParams = '&column=' + sortParams +
+                '&keyword=' + vm.query;
+
+            switch (request){
+
+                case vm.prev_page_url :
+
+                    getPage = vm.prev_page_url + sortParams;
+
+                    break;
+
+                case vm.next_page_url :
+
+                    getPage = vm.next_page_url + sortParams;
+
+                    break;
+
+                case vm.first_page_url :
+
+                    getPage = vm.first_page_url + sortParams;
+
+                    break;
+
+                case vm.last_page_url :
+
+                    getPage = vm.last_page_url + sortParams;
+
+                    break;
+
+                case vm.query :
+
+                    getPage = url + '?' + searchParams;
+
+                    break;
+
+                case vm.go_to_page :
+
+                    if( vm.go_to_page != '' && vm.pageInRange()){
+
+                        getPage = url + '?' + 'page=' + vm.go_to_page + searchParams;
+
+                        vm.clearPageNumberInputBox();
+
+                    } else {
+
+                        alert('Please enter a valid page number');
+
+                    }
+
+                    break;
+
+                default :
+
+                    getPage = url + '?' + 'page=' + request + searchParams;
+
+                    break;
+
+            }
+
+            return getPage;
+
+        },
     
         loadData(url, vm) {
 
 
-            $.getJSON(url, function (data) {
+            $.getJSON(url,function (data) {
 
                 vm.gridData = data.data;
                 vm.total = data.total;
@@ -129,8 +128,9 @@ var dataHelper = {
                 vm.last_page_url = url + '?page=' + vm.last_page;
                 vm.setPageNumbers();
 
-
             }.bind(vm));
+
+
 
             
         }

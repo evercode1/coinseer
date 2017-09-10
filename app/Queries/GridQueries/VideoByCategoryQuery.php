@@ -2,12 +2,12 @@
 
 namespace App\Queries\GridQueries;
 use DB;
-use App\Queries\GridQueries\Contracts\DataQuery;
 
-class VideoQuery implements DataQuery
+
+class VideoByCategoryQuery
 {
 
-    public function data($column, $direction)
+    public function data($column, $direction, $category)
     {
 
         $rows = DB::table('videos')
@@ -22,6 +22,7 @@ class VideoQuery implements DataQuery
                              DB::raw('DATE_FORMAT(videos.created_at,
                              "%m-%d-%Y") as Created'))
                     ->leftJoin('categories', 'category_id', '=', 'categories.id')
+                    ->where('videos.category_id', $category)
                     ->orderBy($column, $direction)
                     ->paginate(5);
 
@@ -30,7 +31,7 @@ class VideoQuery implements DataQuery
 
     }
 
-    public function filteredData($column, $direction, $keyword)
+    public function filteredData($column, $direction, $keyword, $category)
     {
 
 
@@ -48,7 +49,6 @@ class VideoQuery implements DataQuery
 
 
 
-
         $rows = DB::table('videos')
                 ->select('videos.id as Id',
                     'videos.title as Title',
@@ -61,9 +61,9 @@ class VideoQuery implements DataQuery
                          DB::raw('DATE_FORMAT(videos.created_at,
                                  "%m-%d-%Y") as Created'))
                 ->leftJoin('categories', 'category_id', '=', 'categories.id')
+                ->where('videos.category_id', $category)
                 ->Where('Title', 'like', '%' . $keyword . '%')
                 ->orWhere('Author', 'like', '%' . $keyword . '%')
-                ->orWhere('categories.name', 'like', '%' . $keyword . '%')
                 ->orderBy($column, $direction)
                 ->paginate(5);
 

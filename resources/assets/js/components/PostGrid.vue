@@ -158,7 +158,7 @@
             sortBy: function (key){
                 this.sortKey = key;
                 this.sortOrder = (this.sortOrder == 1) ? -1 : 1;
-                this.getData(1);
+                this.getData(this.sortOrder);
             },
 
             search: function(query){

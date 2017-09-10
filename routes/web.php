@@ -63,6 +63,8 @@ Route::get('api/total-posts', 'ApiController@totalPosts');
 Route::get('api/total-resources', 'ApiController@totalResources');
 Route::get('api/total-users', 'ApiController@totalUsers');
 Route::get('api/user-data', 'ApiController@userData');
+Route::get('api/videos-by-category-data', 'ApiController@videosByCategoryData');
+Route::get('api/videos-by-category-list-data', 'ApiController@videosByCategoryListData');
 Route::get('api/video-data', 'ApiController@videoData');
 Route::get('api/video-list-data', 'ApiController@videoListData');
 Route::get('api/wallet-list-data', 'ApiController@walletListData');
@@ -205,6 +207,10 @@ Route::get('/unsubscribe/confirmation', 'UnsubscribeController@confirm')->name('
 Route::resource('user', 'UserController');
 
 // Video Routes
+
+Route::get('videos-by-category/{id}', 'VideosByCategoryController@index');
+
+Route::get('videos-by-category-data/{id}', 'ApiController@videosByCategoryData');
 
 Route::post('video-delete/{video}', 'VideoController@destroy');
 
