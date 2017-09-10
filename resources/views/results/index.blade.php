@@ -18,7 +18,7 @@
 
                 <div class="blog-post">
 
-                    <h1 class="blog-post-title"><a href="/video/{{ $video->Id }}">{{ $video->Title }}</a></h1>
+                    <h1 class="blog-post-title"><a href="/all-videos/{{ $video->Id }}">{{ $video->Title }}</a></h1>
 
                     <p class="blog-post-meta">Added on {{ $video->Created }}</p>
 
@@ -26,7 +26,7 @@
 
                     <p class="blog-post-meta"> Level:  {{ App\Video::showLevelOf($video) }}</p>
 
-                    <a href="/video/{{ $video->Id }}">{!! \App\Utilities\Summarize::longSummary($video->Description) !!}</a>
+                    <a href="/all-videos/{{ $video->Id }}">{!! \App\Utilities\Summarize::longSummary($video->Description) !!}</a>
 
                     <hr />
 
