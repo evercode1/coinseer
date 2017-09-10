@@ -33,10 +33,9 @@
 
                     </div>
 
-                    <div class="pull-right bm-10"><a href="/all-videos">more videos...</a></div>
+                    <div class="pull-right mt-10 bm-10"><a href="/all-videos">more videos...</a></div>
 
-                    <br/>
-
+                    <br />
 
                     <signature></signature>
 

@@ -14,15 +14,19 @@
 
                 <p class="blog-post-meta">Showing {{ $count }} results for {{ $keyword }}:</p>
 
-                @forelse($posts as $post)
+                @forelse($videos as $video)
 
                 <div class="blog-post">
 
-                    <h1 class="blog-post-title"><a href="/post/{{ $post->Id }}">{{ $post->Title }}</a></h1>
+                    <h1 class="blog-post-title"><a href="/video/{{ $video->Id }}">{{ $video->Title }}</a></h1>
 
-                    <p class="blog-post-meta">{{ $post->Published }} by <a href="/about">{{ $post->Author }}</a></p>
+                    <p class="blog-post-meta">Added on {{ $video->Created }}</p>
 
-                    <a href="/post/{{ $post->Id }}">{!! \App\Utilities\Summarize::longSummary($post->Body) !!}</a>
+                    <p class="blog-post-meta"> Video by  {{ $video->Author }}</p>
+
+                    <p class="blog-post-meta"> Level:  {{ App\Video::showLevelOf($video) }}</p>
+
+                    <a href="/video/{{ $video->Id }}">{!! \App\Utilities\Summarize::longSummary($video->Description) !!}</a>
 
                     <hr />
 
@@ -43,7 +47,9 @@
 
                     @endforelse
 
-                @include('layouts.blog-partials.pagination')
+                <nav class="text-center">
+                    {{ $videos->links() }}
+                </nav>
 
             </div> <!-- end column -->
 

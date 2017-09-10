@@ -14,20 +14,17 @@ class SearchQuery
 
 
 
-        $rows = DB::table('posts')
-                ->select('posts.id as Id',
-                'posts.title as Title',
-                'posts.body as Body',
-                'posts.is_published as Status',
-                'users.name as Author',
+        $rows = DB::table('videos')
+                ->select('videos.id as Id',
+                'videos.title as Title',
+                'videos.description as Description',
+                'videos.author as Author',
+                'videos.level_id as level_id',
                 'categories.name as Category',
-                DB::raw('DATE_FORMAT(posts.created_at,
-                                 "%m-%d-%Y") as Created'),
-                DB::raw('DATE_FORMAT(posts.published_at,
-                                 "%m-%d-%Y") as Published'))
+                DB::raw('DATE_FORMAT(videos.created_at,
+                                 "%m-%d-%Y") as Created'))
                 ->leftJoin('categories', 'category_id', '=', 'categories.id')
-                ->leftJoin('users', 'user_id', '=', 'users.id')
-                ->where('posts.title', 'like', '%' . $keyword . '%')
+                ->where('videos.title', 'like', '%' . $keyword . '%')
                 ->orWhere('categories.name', 'like', '%' . $keyword . '%')
                 ->orderBy('id', 'asc')
                 ->SimplePaginate(5);

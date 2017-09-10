@@ -13,11 +13,11 @@ class SearchController extends Controller
 
         $keyword = $request->get('q');
 
-        $posts = SearchQuery::sendData($keyword);
+        $videos = SearchQuery::sendData($keyword);
 
-        $count = count($posts);
+        $count = count($videos);
 
-        return view('results.index', compact('posts', 'keyword', 'count'));
+        return view('results.index', compact('videos', 'keyword', 'count'));
 
 
     }

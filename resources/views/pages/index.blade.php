@@ -34,6 +34,7 @@
 
                     <P>Added on {{ $video->created_at }}</P>
 
+
                     <p class="blog-post-meta">{{ $video->description }}</p>
 
                     <div>
@@ -45,8 +46,8 @@
 
                     </div>
 
-                    <div class="pull-right bm-10"><a href="/all-videos">more videos...</a></div>
-                    <br/>
+                    <div class="pull-right mt-10 bm-10"><a href="/all-videos">more videos...</a></div>
+                    <br />
                     <signature></signature>
 
                     <warning></warning>
