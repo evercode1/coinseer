@@ -14,7 +14,7 @@ class Summarize
     public static function Longsummary($string)
     {
 
-        return substr($string, 0, 40) . '...';
+        return substr($string, 0, 140) . '...';
 
     }
 
