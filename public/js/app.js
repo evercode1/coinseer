@@ -6512,7 +6512,7 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
         sortBy: function sortBy(key) {
             this.sortKey = key;
             this.sortOrder = this.sortOrder == 1 ? -1 : 1;
-            this.getData(this.current_page);
+            this.getData();
         },
 
         search: function search(query) {
@@ -52609,6 +52609,8 @@ var dataHelper = {
         }
     },
     formatGetRequest: function formatGetRequest(request, url, vm) {
+
+        request = request || vm.current_page;
 
         var sortParams = '&column=' + vm.sortKey + '&direction=' + vm.sortOrder;
 

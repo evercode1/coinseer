@@ -45,7 +45,7 @@ var dataHelper = {
 
         formatGetRequest(request, url, vm){
 
-
+            request = request || vm.current_page;
 
 
             let sortParams = '&column=' + vm.sortKey +
