@@ -52616,13 +52616,6 @@ var dataHelper = {
 
         var searchParams = sortParams + '&keyword=' + vm.query;
 
-        if (vm.pages.indexOf(request) >= -1) {
-
-            request = url + '?page=' + request;
-        }
-
-        console.log(request);
-
         switch (request) {
 
             case vm.prev_page_url:
@@ -52671,7 +52664,7 @@ var dataHelper = {
 
             default:
 
-                url = url + '?' + 'page=' + request + searchParams;
+                url = url + '?' + 'page=' + request + sortParams + searchParams;
 
                 break;
 
