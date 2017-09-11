@@ -9,11 +9,6 @@
 
 @endsection
 
-@section('blog-header')
-
-    @include('layouts.blog-partials.blog-header')
-
-@endsection
 
 @section('content')
 
@@ -26,11 +21,9 @@
 
             <div class="col-md-8 mt-25">
 
-                <div class="by-query-heading text-center">
+                <h2 class="blog-post-title">{{ $category }}</h2>
 
-                Category: {{ $category }}
-
-                </div>
+                <p class="blog-post-meta">a list of videos in the {{ $category }} category</p>
 
                 <br/>
 

@@ -9,11 +9,6 @@
 
 @endsection
 
-@section('blog-header')
-
-    @include('layouts.blog-partials.blog-header')
-
-@endsection
 
 @section('content')
 
@@ -26,11 +21,15 @@
 
             <div class="col-md-8 mt-25">
 
-                <div class="by-query-heading">
+                <h2 class="blog-post-title">{{ $category }}</h2>
 
-                {{ $category }}
+                    <p class="blog-post-meta">a list of articles in the {{ $category }} category</p>
 
-                </div>
+
+
+
+
+                <br/>
 
                 @foreach($posts as $post)
 

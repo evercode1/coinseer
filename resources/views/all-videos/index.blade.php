@@ -18,7 +18,7 @@
 
                     <h2 class="blog-post-title">Videos</h2>
 
-                    <p class="blog-post-meta">Bitcoin and Cryptocurrency Videos</p>
+                    <p class="blog-post-meta">All Bitcoin and Cryptocurrency Videos</p>
 
 
                     <all-videos></all-videos>

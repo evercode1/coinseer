@@ -54,8 +54,9 @@
 
                 </div>
 
-            </div> <!-- end video column -->
+                <hr class="divider" />
 
+            </div> <!-- end video column -->
 
 
             <div class="col-md-8 mt-25">

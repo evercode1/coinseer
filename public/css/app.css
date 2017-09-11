@@ -9987,6 +9987,10 @@ a.post-title:hover {
   overflow-y: scroll;
 }
 
+.divider {
+  border-top: 1px solid #8c8b8b;
+}
+
 .carousel-inner img {
   margin: auto;
 }

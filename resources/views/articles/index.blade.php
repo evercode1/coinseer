@@ -18,7 +18,7 @@
 
                     <h2 class="blog-post-title">Articles</h2>
 
-                    <p class="blog-post-meta">Bitcoin and Cryptocurrency Articles</p>
+                    <p class="blog-post-meta">All Bitcoin and Cryptocurrency Articles</p>
 
 
                     <all-articles></all-articles>

@@ -9,11 +9,7 @@
 
 @endsection
 
-@section('blog-header')
 
-    @include('layouts.blog-partials.blog-header')
-
-@endsection
 
 @section('content')
 
@@ -26,11 +22,9 @@
 
             <div class="col-md-8 mt-25">
 
-                <div class="by-query-heading text-center">
+                <h2 class="blog-post-title">{{ $levelName }}</h2>
 
-                Level: {{ $levelName }}
-
-                </div>
+                <p class="blog-post-meta">a list of videos in the {{ $levelName }} level</p>
 
                 <br/>
 
@@ -38,7 +32,7 @@
                     <div class="blog-post">
 
                         <videos-by-level-grid
-                                :level="{{ json_encode($levelId)}}">
+                                :level="{{ json_encode($levelId) }}">
                         </videos-by-level-grid>
 
                         <div class="pull-right"><a href="/all-videos">all videos...</a></div>
