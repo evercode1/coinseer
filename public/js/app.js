@@ -52612,6 +52612,8 @@ var dataHelper = {
     },
     formatGetRequest: function formatGetRequest(request, url, vm) {
 
+        console.log(request);
+
         var sortParams = '&column=' + vm.sortKey + '&direction=' + vm.sortOrder;
 
         var searchParams = sortParams + '&keyword=' + vm.query;
