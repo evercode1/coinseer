@@ -5,21 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\UtilityTraits\Levels;
+use App\Level;
 
 class VideosByLevelController extends Controller
 {
 
-    use Levels;
 
-    public $levels = [];
-
-    public function __construct()
-    {
-
-        $this->levels = $this->levels();
-
-
-    }
 
     public function index($id)
     {
@@ -35,7 +26,9 @@ class VideosByLevelController extends Controller
     public function getLevelName($id)
     {
 
-        return $this->levels[$id];
+        $name = Level::where('id', $id)->pluck('name')->first();
+
+        return $name;
 
     }
 }

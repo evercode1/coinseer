@@ -4,6 +4,7 @@ namespace App\Queries\GridQueries;
 
 use Illuminate\Http\Request;
 use App\Queries\GridQueries\VideoByLevelQuery;
+use App\Level;
 
 class VideoLevelGridQuery
 {
@@ -86,6 +87,8 @@ class VideoLevelGridQuery
 
         $level = $request->get('level');
 
+        $level = Level::where('name', $level)->pluck('id')->first();
+
 
         return response()->json($query->filteredData($column, $direction, $keyword, $level));
 
@@ -95,6 +98,9 @@ class VideoLevelGridQuery
     {
 
         $level = $request->get('level');
+
+        $level = Level::where('name', $level)->pluck('id')->first();
+
 
         return response()->json($query->data($column, $direction, $level));
 

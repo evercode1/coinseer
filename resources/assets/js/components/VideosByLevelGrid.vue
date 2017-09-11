@@ -205,24 +205,24 @@
 
                 switch(level){
 
-                    case 10:
+                    case 1:
 
                         return 'beginner';
                         break;
 
-                    case 20:
+                    case 2:
 
                         return 'intermediate';
                         break;
 
-                    case 30:
+                    case 3:
 
                         return 'advanced';
                         break;
 
                     default:
 
-                        return 'beginner';
+                        return 'no level';
                         break;
 
                 }
@@ -233,12 +233,10 @@
 
 
 
-                let url = '/api/videos-by-category-data';
+                let url = '/api/videos-by-level-data';
 
                 url = this.formatUrlGetRequest(url, request);
 
-
-                console.log(url);
 
                 if (this.query == '' && url != null){
 
@@ -284,7 +282,8 @@
                                  '&direction=' + this.sortOrder +
                                  '&level=' + this.level;
 
-                let searchParams = sortParams +
+                let searchParams = '&column=' + this.sortKey +
+                                   '&direction=' + this.sortOrder +
                                    '&keyword=' + this.query +
                                    '&level=' + this.level;
 

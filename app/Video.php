@@ -4,6 +4,7 @@ namespace App;
 
 use App\UtilityTraits\Levels;
 use App\Category;
+use App\Level;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 
@@ -29,37 +30,20 @@ class Video extends Model
         $categoryName = ($categoryName['name']);
 
         return $categoryName;
+
     }
 
-    public static function showLevelOf($model)
+    public static function getLevelName($model)
     {
+        $levelName = Level::where('id', $model->level_id)->first();
 
-        switch($model){
+        $levelName = ($levelName['name']);
 
-            case $model->level_id == 10:
-
-                return 'beginner';
-                break;
-
-            case $model->level_id == 20:
-
-                return 'intermediate';
-
-            case $model->level_id == 30:
-
-                return 'technical';
-
-            default:
-
-                return 'beginner';
-
-
-
-        }
-
-
+        return $levelName;
 
     }
+
+
 
     public function getCreatedAtAttribute($value)
     {
@@ -72,6 +56,13 @@ class Video extends Model
     {
 
         return $this->belongsTo('App\Category');
+
+    }
+
+    public function level()
+    {
+
+        return $this->belongsTo('App\Level');
 
     }
 }

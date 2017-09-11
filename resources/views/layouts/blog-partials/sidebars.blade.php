@@ -1,7 +1,7 @@
 <about></about>
 <video-list></video-list>
 <videos-by-category-list></videos-by-category-list>
-
+<videos-by-level-list></videos-by-level-list>
 <article-list></article-list>
 <category-list></category-list>
 <influencer-list></influencer-list>

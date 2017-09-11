@@ -22,6 +22,7 @@ Vue.component('exchange-list', require('./components/ExchangeList.vue'));
 Vue.component('featured-book', require('./components/FeaturedBook.vue'));
 Vue.component('influencer-grid', require('./components/InfluencerGrid.vue'));
 Vue.component('influencer-list', require('./components/InfluencerList.vue'));
+Vue.component('level-grid', require('./components/LevelGrid.vue'));
 Vue.component('open-contact-grid', require('./components/OpenContactGrid.vue'));
 Vue.component('post-chart', require('./components/PostChart.vue'));
 Vue.component('post-pie-chart', require('./components/PostPieChart.vue'));

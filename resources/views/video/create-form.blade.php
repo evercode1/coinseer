@@ -66,9 +66,9 @@
 
             <option value="">Please Choose One</option>
 
-            @foreach($levels as $levelsId => $levelsName)
+            @foreach($levels as $level)
 
-                <option value={{ $levelsId }}>{{ $levelsName }}</option>
+                <option value={{ $level->id }}>{{ $level->name }}</option>
 
             @endforeach
 

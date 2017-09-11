@@ -3,8 +3,7 @@
 namespace App\Queries;
 
 use Illuminate\Http\Request;
-use App\Category;
-use App\Videos;
+use App\Level;
 use DB;
 
 class VideosByLevelListQuery
@@ -15,24 +14,7 @@ class VideosByLevelListQuery
 
 
 
-        $rows = DB::table('videos')
-                ->select(
-                          'videos.level_id as level',
-
-                          DB::raw('COUNT(videos.id) as count'))
-
-                ->groupBy('videos.level_id')
-                ->orderBy('videos.level_id', 'asc')
-                ->get();
-
-        foreach($rows as $row){
-
-            $data[$row->level] = $row->count;
-
-        }
-
-
-        return $data;
+        return Level::withCount('videos')->get();
 
 
 

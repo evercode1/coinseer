@@ -6,11 +6,10 @@ use Illuminate\Http\Request;
 use App\Video;
 use App\Category;
 use Illuminate\Support\Facades\Redirect;
-use App\UtilityTraits\Levels;
+use App\Level;
 
 class VideoController extends Controller
 {
-    use Levels;
 
 
     public function __construct()
@@ -45,7 +44,7 @@ class VideoController extends Controller
 
         $categories = Category::all();
 
-        $levels = $this->levels();
+        $levels = Level::all();
 
         return view('video.create', compact('categories', 'levels'));
 
@@ -112,9 +111,9 @@ class VideoController extends Controller
 
         $levelId = $video->level_id;
 
-        $levelName = $this->showLevelOf($video);
+        $levelName = $video->getLevelName($video);
 
-        $levels = $this->levels();
+        $levels = Level::all();
 
         return view('video.edit', compact('video',
                                           'categoryId',

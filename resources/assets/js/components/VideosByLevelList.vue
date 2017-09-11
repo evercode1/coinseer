@@ -4,8 +4,8 @@
         <h4>Videos By Level</h4>
         <ol class="list-unstyled">
 
-            <li v-for="level in levels"><a v-bind:href="'/videos-by-level/' + level[0]">
-                {{ formatLevelName(level[0]) }} - {{ level[1] }}</a></li>
+            <li v-for="level in levels"><a v-bind:href="'/videos-by-level/' + level.name">
+                {{ level.name }} - {{ level.videos_count }}</a></li>
 
         </ol>
     </div>
@@ -52,19 +52,24 @@
 
                 switch (level){
 
-                    case 10 :
+                    case 1 :
 
-                        return "Beginner";
+                        return "beginner";
                         break;
 
-                    case 20 :
+                    case 2 :
 
-                        return "Intermediate";
+                        return "intermediate";
                         break;
 
-                    case 30 :
+                    case 3 :
 
-                        return "Technical";
+                        return "technical";
+                        break;
+
+                    default:
+
+                        return 'no level';
                         break;
 
                 }

@@ -65,6 +65,8 @@
                         <li><a href="/contact-topic/create"><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp;Create New</a></li>
                         <li><a href="/resource-type"><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp; All Resource Types</a></li>
                         <li><a href="/resource-type/create"><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp;Create New</a></li>
+                        <li><a href="/level"><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp; All Level Types</a></li>
+                        <li><a href="/level/create"><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp;Create New</a></li>
                     </ul>
                         </li>
             </ul>

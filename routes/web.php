@@ -51,6 +51,7 @@ Route::get('api/exchange-list-data', 'ApiController@exchangeListData');
 Route::get('api/featured-book', 'ApiController@featuredBook');
 Route::get('api/influencer-data', 'ApiController@influencerData');
 Route::get('api/influencer-list', 'ApiController@influencerList');
+Route::get('api/level-data', 'ApiController@levelData');
 Route::get('api/open-contact-data', 'ApiController@openContactData');
 Route::get('api/post-pie-chart', 'ApiController@pieChartData');
 Route::get('api/post-chart', 'ApiController@postChartData');
@@ -122,6 +123,12 @@ Route::get('all-influencers', 'AllInfluencersController@index');
 Route::post('influencer-delete/{influencer}', 'InfluencerController@destroy');
 
 Route::resource('influencer', 'InfluencerController', ['except' => ['destroy']]);
+
+// Category Routes
+
+Route::post('level-delete/{level}', 'LevelController@destroy');
+
+Route::resource('level', 'LevelController');
 
 // Messages route
 

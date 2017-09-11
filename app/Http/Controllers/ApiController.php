@@ -46,6 +46,7 @@ use App\Queries\GridQueries\VideoCategoryGridQuery;
 use App\Queries\GridQueries\VideoByLevelQuery;
 use App\Queries\GridQueries\VideoLevelGridQuery;
 use App\Queries\VideosByLevelListQuery;
+use App\Queries\GridQueries\LevelQuery;
 
 
 
@@ -219,6 +220,13 @@ class ApiController extends Controller
     {
 
         return InfluencerListQuery::sendData();
+
+    }
+
+    public function levelData(Request $request)
+    {
+
+        return GridQuery::sendData($request, new LevelQuery);
 
     }
 

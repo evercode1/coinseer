@@ -4,7 +4,7 @@
 
         <div class="col-lg-12">
 
-            <h1>Videos</h1>
+            <h1>Levels</h1>
 
             <search-box></search-box>
 
@@ -31,13 +31,13 @@
 
                             <td>
 
-                                {{ row.Id }}
+                                   {{ row.Id }}
 
                             </td>
 
                             <td>
 
-                                <a v-bind:href="'/all-videos/' + row.Id"> {{ row.Title }} </a>
+                                <a v-bind:href="'/level/' + row.Id"> {{ row.Name }}</a>
 
                             </td>
 
@@ -45,55 +45,31 @@
 
                             <td>
 
-                                <a v-bind:href="row.Url" target="_blank"> {{ row.Url }} </a>
+                                   {{ row.Created }}
 
                             </td>
-
-                            <td>
-
-                                {{ row.Category }}
-
-                            </td>
-
-                            <td>
-
-                                {{ formatLevel(row.Level) }}
-
-                            </td>
-
-
-                            <td>
-
-                                {{ formatFeatured(row.Featured) }}
-
-                            </td>
-
-                            <td>
-
-                                {{ row.Created }}
-
-                            </td>
-
-
 
                             <td >
 
-                                <a v-bind:href="'/video/' + row.Id + '/edit'">
+                                <a v-bind:href="'/level/' + row.Id + '/edit'">
 
-                                    <button type="button" class="btn btn-default">
+                                <button type="button" class="btn btn-default ml-10">
 
                                         Edit
 
-                                    </button>
+                                </button>
 
                                 </a>
 
-                                <button class="btn btn-danger pull-left mt-5"
+
+                                <button class="btn btn-danger pull-right mr-10"
                                         @click="confirmDelete(row.Id)">
 
-                                    Delete
+                                        Delete
 
                                 </button>
+
+
 
                             </td>
 
@@ -132,13 +108,13 @@
 
         mounted: function () {
 
-            gridData.loadData('api/video-data', this);
+            gridData.loadData('/api/level-data', this);
 
         },
         data: function () {
             return {
                 query: '',
-                gridColumns: ['Id', 'Title', 'External Url', 'Category', 'Level', 'Featured', 'Created'],
+                gridColumns: ['Id', 'Name', 'Created'],
                 gridData: [],
                 total: null,
                 next_page_url: null,
@@ -151,7 +127,7 @@
                 go_to_page: null,
                 sortOrder: 1,
                 sortKey: 'id',
-                createUrl: '/video/create',
+                createUrl: '/level/create',
                 showCreateButton: true
             }
         },
@@ -171,7 +147,7 @@
 
             getData:  function(request){
 
-                gridData.getQueryData(request, 'api/video-data', this);
+                gridData.getQueryData(request, '/api/level-data', this);
 
             },
 
@@ -188,7 +164,7 @@
             resetPageNumbers: function(){
                 this.pages = [];
                 for (var i = 1; i <= this.last_page; i++) {
-                    this.pages.push(i);
+                     this.pages.push(i);
                 }
             },
 
@@ -204,57 +180,24 @@
                 return this.go_to_page <= parseInt(this.last_page);
             },
 
-
-            formatFeatured: function(featured){
-
-                return featured == 1 ? 'Yes'  : 'No';
-
-            },
-
             confirmDelete: function(id){
 
                 if(confirm("Are you sure you want to delete?")){
 
-                    axios.post('/video-delete/' + id)
+                    axios.post('/category-delete/' + id)
                             .then(response => {
 
-                                gridData.loadData('api/video-data', this);
+                                gridData.loadData('/api/level-data', this);
 
                             })
 
 
                 }
 
-            },
 
-            formatLevel: function(level){
-
-
-                switch(level){
-
-                    case 1:
-
-                        return 'beginner';
-                        break;
-
-                    case 2:
-
-                        return 'intermediate';
-                        break;
-
-                    case 3:
-
-                        return 'advanced';
-                        break;
-
-                    default:
-
-                        return 'beginner';
-                        break;
-
-                }
 
             }
+
 
         }
 
