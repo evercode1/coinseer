@@ -2192,17 +2192,17 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
 
             switch (level) {
 
-                case 10:
+                case 1:
 
                     return 'beginner';
                     break;
 
-                case 20:
+                case 2:
 
                     return 'intermediate';
                     break;
 
-                case 30:
+                case 3:
 
                     return 'advanced';
                     break;
@@ -52576,13 +52576,11 @@ module.exports = Component.exports
 var dataHelper = {
     getQueryData: function getQueryData(request, url, vm) {
 
-        var getPage = void 0;
+        url = this.formatGetRequest(request, url, vm);
 
-        getPage = this.formatGetRequest(request, url, vm);
+        if (vm.query == '' && url != null) {
 
-        if (vm.query == '' && getPage != null) {
-
-            $.getJSON(getPage, function (data) {
+            $.getJSON(url, function (data) {
 
                 vm.gridData = data.data;
                 vm.total = data.total;
@@ -52593,9 +52591,9 @@ var dataHelper = {
             }.bind(vm));
         } else {
 
-            if (getPage != null) {
+            if (url != null) {
 
-                $.getJSON(getPage, function (data) {
+                $.getJSON(url, function (data) {
 
                     vm.gridData = data.data;
                     vm.total = data.total;
@@ -52612,41 +52610,39 @@ var dataHelper = {
     },
     formatGetRequest: function formatGetRequest(request, url, vm) {
 
-        var getPage = void 0;
-
         var sortParams = '&column=' + vm.sortKey + '&direction=' + vm.sortOrder;
 
-        var searchParams = '&column=' + sortParams + '&keyword=' + vm.query;
+        var searchParams = sortParams + '&keyword=' + vm.query;
 
         switch (request) {
 
             case vm.prev_page_url:
 
-                getPage = vm.prev_page_url + sortParams;
+                url = vm.prev_page_url + sortParams;
 
                 break;
 
             case vm.next_page_url:
 
-                getPage = vm.next_page_url + sortParams;
+                url = vm.next_page_url + sortParams;
 
                 break;
 
             case vm.first_page_url:
 
-                getPage = vm.first_page_url + sortParams;
+                url = vm.first_page_url + sortParams;
 
                 break;
 
             case vm.last_page_url:
 
-                getPage = vm.last_page_url + sortParams;
+                url = vm.last_page_url + sortParams;
 
                 break;
 
             case vm.query:
 
-                getPage = url + '?' + searchParams;
+                url = url + '?' + searchParams;
 
                 break;
 
@@ -52654,7 +52650,7 @@ var dataHelper = {
 
                 if (vm.go_to_page != '' && vm.pageInRange()) {
 
-                    getPage = url + '?' + 'page=' + vm.go_to_page + searchParams;
+                    url = url + '?' + 'page=' + vm.go_to_page + searchParams;
 
                     vm.clearPageNumberInputBox();
                 } else {
@@ -52666,13 +52662,13 @@ var dataHelper = {
 
             default:
 
-                getPage = url + '?' + 'page=' + request + searchParams;
+                url = url + '?' + 'page=' + request + searchParams;
 
                 break;
 
         }
 
-        return getPage;
+        return url;
     },
     loadData: function loadData(url, vm) {
 

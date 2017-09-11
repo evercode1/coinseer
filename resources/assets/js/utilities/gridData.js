@@ -3,14 +3,14 @@ var dataHelper = {
 
     getQueryData(request, url, vm){
 
-            let getPage;
-
-             getPage = this.formatGetRequest(request, url, vm);
 
 
-            if (vm.query == '' && getPage != null){
+             url = this.formatGetRequest(request, url, vm);
 
-                $.getJSON(getPage, function (data) {
+
+            if (vm.query == '' && url != null){
+
+                $.getJSON(url, function (data) {
 
                     vm.gridData = data.data;
                     vm.total = data.total;
@@ -23,9 +23,9 @@ var dataHelper = {
 
             } else {
 
-                if (getPage != null){
+                if (url != null){
 
-                    $.getJSON(getPage, function (data) {
+                    $.getJSON(url, function (data) {
 
                         vm.gridData = data.data;
                         vm.total = data.total;
@@ -45,43 +45,42 @@ var dataHelper = {
 
         formatGetRequest(request, url, vm){
 
-            let getPage;
 
             let sortParams = '&column=' + vm.sortKey +
-                '&direction=' + vm.sortOrder;
+                             '&direction=' + vm.sortOrder;
 
-            let searchParams = '&column=' + sortParams +
-                '&keyword=' + vm.query;
+            let searchParams = sortParams +
+                               '&keyword=' + vm.query;
 
             switch (request){
 
                 case vm.prev_page_url :
 
-                    getPage = vm.prev_page_url + sortParams;
+                    url = vm.prev_page_url + sortParams;
 
                     break;
 
                 case vm.next_page_url :
 
-                    getPage = vm.next_page_url + sortParams;
+                    url = vm.next_page_url + sortParams;
 
                     break;
 
                 case vm.first_page_url :
 
-                    getPage = vm.first_page_url + sortParams;
+                    url = vm.first_page_url + sortParams;
 
                     break;
 
                 case vm.last_page_url :
 
-                    getPage = vm.last_page_url + sortParams;
+                    url = vm.last_page_url + sortParams;
 
                     break;
 
                 case vm.query :
 
-                    getPage = url + '?' + searchParams;
+                    url = url + '?' + searchParams;
 
                     break;
 
@@ -89,7 +88,7 @@ var dataHelper = {
 
                     if( vm.go_to_page != '' && vm.pageInRange()){
 
-                        getPage = url + '?' + 'page=' + vm.go_to_page + searchParams;
+                        url = url + '?' + 'page=' + vm.go_to_page + searchParams;
 
                         vm.clearPageNumberInputBox();
 
@@ -103,13 +102,13 @@ var dataHelper = {
 
                 default :
 
-                    getPage = url + '?' + 'page=' + request + searchParams;
+                    url = url + '?' + 'page=' + request + searchParams;
 
                     break;
 
             }
 
-            return getPage;
+            return url;
 
         },
     

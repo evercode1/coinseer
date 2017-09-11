@@ -184,17 +184,17 @@
 
                 switch(level){
 
-                    case 10:
+                    case 1:
 
                         return 'beginner';
                         break;
 
-                    case 20:
+                    case 2:
 
                         return 'intermediate';
                         break;
 
-                    case 30:
+                    case 3:
 
                         return 'advanced';
                         break;
