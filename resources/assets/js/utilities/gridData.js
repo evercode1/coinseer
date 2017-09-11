@@ -54,7 +54,7 @@ var dataHelper = {
             let searchParams = sortParams +
                                '&keyword=' + vm.query;
 
-            if( vm.pages.indexOf(reqeust) >= -1 ){
+            if( vm.pages.indexOf(request) >= -1 ){
 
 
                 request = url + '?page=' + request;
