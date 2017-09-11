@@ -161,8 +161,8 @@
             sortBy: function (key){
                 this.sortKey = key;
                 this.sortOrder = (this.sortOrder == 1) ? -1 : 1;
-                this.getData(this.current_page);
-                console.log('latest code');
+                this.getData(1);
+
             },
 
             search: function(query){
