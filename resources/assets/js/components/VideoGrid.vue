@@ -160,7 +160,8 @@
 
             sortBy: function (key){
                 this.sortKey = key;
-                this.sortOrder = (this.sortOrder == 1) ? -1 : 1;
+                //this.sortOrder = (this.sortOrder == 1) ? -1 : 1;
+                this.sortOrder = -1;
                 this.getData(1);
             },
 
