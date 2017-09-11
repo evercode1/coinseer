@@ -117,7 +117,7 @@
                 first_page_url: null,
                 last_page_url: null,
                 go_to_page: null,
-                sortOrder: 1,
+                sortOrder: -1,
                 sortKey: 'id',
                 createUrl: '/video/create',
                 showCreateButton: false
@@ -129,7 +129,7 @@
             sortBy: function (key){
                 this.sortKey = key;
                 this.sortOrder = (this.sortOrder == 1) ? -1 : 1;
-                this.getData(1);
+                this.getData(this.current_page);
             },
 
             search: function(query){
