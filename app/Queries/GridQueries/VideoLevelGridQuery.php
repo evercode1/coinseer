@@ -3,11 +3,11 @@
 namespace App\Queries\GridQueries;
 
 use Illuminate\Http\Request;
-use App\Queries\GridQueries\VideoByCategoryQuery;
+use App\Queries\GridQueries\VideoByLevelQuery;
 
-class VideoCategoryGridQuery
+class VideoLevelGridQuery
 {
-    public static function sendData(Request $request, VideoByCategoryQuery $query)
+    public static function sendData(Request $request, VideoByLevelQuery $query)
     {
         // set sort by column and direction
 
@@ -63,22 +63,12 @@ class VideoCategoryGridQuery
 
         switch ($query){
 
-            case $query instanceof PostQuery :
-                $column = 'posts.created_at';
-                $direction = 'desc';
-                break;
-            case $query instanceof ContactQuery :
-                $column = 'id';
-                $direction = 'desc';
-                break;
-            case $query instanceof VideoQuery :
+                case $query instanceof VideoByLevelQuery :
+
                 $column = 'videos.created_at';
                 $direction = 'desc';
                 break;
-            case $query instanceof VideoByCategoryQuery :
-                $column = 'videos.created_at';
-                $direction = 'desc';
-                break;
+
             default:
                 $column = 'id';
                 $direction = 'asc';
@@ -94,19 +84,19 @@ class VideoCategoryGridQuery
     {
         $keyword = $request->get('keyword');
 
-        $category = $request->get('category');
+        $level = $request->get('level');
 
 
-        return response()->json($query->filteredData($column, $direction, $keyword, $category));
+        return response()->json($query->filteredData($column, $direction, $keyword, $level));
 
     }
 
     public static function getData($query, $column, $direction, $request)
     {
 
-        $category = $request->get('category');
+        $level = $request->get('level');
 
-        return response()->json($query->data($column, $direction, $category));
+        return response()->json($query->data($column, $direction, $level));
 
     }
 

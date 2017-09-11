@@ -87,7 +87,7 @@
 
     export default {
 
-        props: ['category'],
+        props: ['level'],
 
         components: {'pagination' : require('./Pagination'),
             'search-box' : require('./SearchBox'),
@@ -97,7 +97,7 @@
 
         mounted: function () {
 
-            let url = '/api/videos-by-category-data?category=' + this.category;
+            let url = '/api/videos-by-level-data?level=' + this.level;
 
             this.loadPageData(url);
 
@@ -282,11 +282,11 @@
 
                 let sortParams = '&column=' + this.sortKey +
                                  '&direction=' + this.sortOrder +
-                                 '&category=' + this.category;
+                                 '&level=' + this.level;
 
                 let searchParams = sortParams +
                                    '&keyword=' + this.query +
-                                   '&category=' + this.category;
+                                   '&level=' + this.level;
 
                 switch (request){
 

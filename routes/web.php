@@ -64,7 +64,9 @@ Route::get('api/total-resources', 'ApiController@totalResources');
 Route::get('api/total-users', 'ApiController@totalUsers');
 Route::get('api/user-data', 'ApiController@userData');
 Route::get('api/videos-by-category-data', 'ApiController@videosByCategoryData');
+Route::get('api/videos-by-level-data', 'ApiController@videosByLevelData');
 Route::get('api/videos-by-category-list-data', 'ApiController@videosByCategoryListData');
+Route::get('api/videos-by-level-list-data', 'ApiController@videosByLevelListData');
 Route::get('api/video-data', 'ApiController@videoData');
 Route::get('api/video-list-data', 'ApiController@videoListData');
 Route::get('api/wallet-list-data', 'ApiController@walletListData');
@@ -210,7 +212,7 @@ Route::resource('user', 'UserController');
 
 Route::get('videos-by-category/{id}', 'VideosByCategoryController@index');
 
-Route::get('videos-by-category-data/{id}', 'ApiController@videosByCategoryData');
+Route::get('videos-by-level/{id}', 'VideosByLevelController@index');
 
 Route::post('video-delete/{video}', 'VideoController@destroy');
 

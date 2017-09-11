@@ -43,6 +43,9 @@ use App\Queries\GridQueries\VideoQuery;
 use App\Queries\ArticleListQuery;
 use App\Queries\GridQueries\AllArticlesQuery;
 use App\Queries\GridQueries\VideoCategoryGridQuery;
+use App\Queries\GridQueries\VideoByLevelQuery;
+use App\Queries\GridQueries\VideoLevelGridQuery;
+use App\Queries\VideosByLevelListQuery;
 
 
 
@@ -53,7 +56,6 @@ class ApiController extends Controller
     {
 
         return Content::where('name', 'About')->first();
-
 
     }
 
@@ -340,6 +342,22 @@ class ApiController extends Controller
 
 
         return VideosByCategoryListQuery::sendData();
+
+    }
+
+    public function videosByLevelData(Request $request)
+    {
+
+
+        return VideoLevelGridQuery::sendData($request,  new VideoByLevelQuery);
+
+    }
+
+    public function videosByLevelListData(Request $request)
+    {
+
+
+        return VideosByLevelListQuery::sendData();
 
     }
 

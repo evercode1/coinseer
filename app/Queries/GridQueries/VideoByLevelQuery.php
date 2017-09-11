@@ -4,10 +4,10 @@ namespace App\Queries\GridQueries;
 use DB;
 
 
-class VideoByCategoryQuery
+class VideoByLevelQuery
 {
 
-    public function data($column, $direction, $category)
+    public function data($column, $direction, $level)
     {
 
         $rows = DB::table('videos')
@@ -22,7 +22,7 @@ class VideoByCategoryQuery
                              DB::raw('DATE_FORMAT(videos.created_at,
                              "%m-%d-%Y") as Created'))
                     ->leftJoin('categories', 'category_id', '=', 'categories.id')
-                    ->where('videos.category_id', $category)
+                    ->where('videos.level_id', $level)
                     ->orderBy($column, $direction)
                     ->paginate(5);
 
@@ -31,7 +31,7 @@ class VideoByCategoryQuery
 
     }
 
-    public function filteredData($column, $direction, $keyword, $category)
+    public function filteredData($column, $direction, $keyword, $level)
     {
 
 
@@ -44,6 +44,12 @@ class VideoByCategoryQuery
         if ($column === 'Cat'){
 
             $column = 'videos.category_id';
+
+        }
+
+        if ($column === 'Level'){
+
+            $column = 'videos.level_id';
 
         }
 
@@ -64,7 +70,7 @@ class VideoByCategoryQuery
                 ->leftJoin('categories', 'category_id', '=', 'categories.id')
                 ->Where('Title', 'like', '%' . $keyword . '%')
                 //->Where('Author', 'like', '%' . $keyword . '%')
-                ->Where('videos.category_id', $category)
+                ->Where('videos.level_id', $level)
                 ->orderBy($column, $direction)
                 ->paginate(5);
 
