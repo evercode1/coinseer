@@ -26,7 +26,7 @@ class VideosByLevelController extends Controller
     public function getLevelName($id)
     {
 
-        $name = Level::where('id', $id)->pluck('name')->first();
+        $name = Level::where('name', $id)->pluck('name')->first();
 
         return $name;
 

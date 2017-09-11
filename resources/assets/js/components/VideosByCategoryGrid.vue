@@ -230,7 +230,7 @@
             },
 
             getQueryData(request){
-                
+
 
                 let url = '/api/videos-by-category-data';
 

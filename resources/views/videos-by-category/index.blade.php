@@ -26,7 +26,7 @@
 
             <div class="col-md-8 mt-25">
 
-                <div class="by-query-heading">
+                <div class="by-query-heading text-center">
 
                 Category: {{ $category }}
 
