@@ -45,7 +45,7 @@ var dataHelper = {
 
         formatGetRequest(request, url, vm){
 
-            console.log(request);
+
 
 
             let sortParams = '&column=' + vm.sortKey +
@@ -53,6 +53,14 @@ var dataHelper = {
 
             let searchParams = sortParams +
                                '&keyword=' + vm.query;
+
+            if( vm.pages.indexOf(reqeust) >= -1 ){
+
+
+                request = url + '?page=' + request;
+            }
+
+            console.log(request);
 
             switch (request){
 

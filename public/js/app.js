@@ -6511,9 +6511,9 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
 
         sortBy: function sortBy(key) {
             this.sortKey = key;
-            //this.sortOrder = (this.sortOrder == 1) ? -1 : 1;
-            this.sortOrder = -1;
-            this.getData(1);
+            this.sortOrder = this.sortOrder == 1 ? -1 : 1;
+            //this.sortOrder = -1;
+            this.getData(this.sortOrder);
             console.log('latest code');
         },
 
@@ -52612,11 +52612,16 @@ var dataHelper = {
     },
     formatGetRequest: function formatGetRequest(request, url, vm) {
 
-        console.log(request);
-
         var sortParams = '&column=' + vm.sortKey + '&direction=' + vm.sortOrder;
 
         var searchParams = sortParams + '&keyword=' + vm.query;
+
+        if (vm.pages.indexOf(reqeust) >= -1) {
+
+            request = url + '?page=' + request;
+        }
+
+        console.log(request);
 
         switch (request) {
 
