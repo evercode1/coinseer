@@ -57,7 +57,7 @@
 
                             <td>
 
-                                {{ formatLevelName(row.Level) }}
+                                {{ row.Level }}
 
                             </td>
 
@@ -225,13 +225,6 @@
 
 
                 }
-
-            },
-
-            formatLevelName(level){
-
-                return level.charAt(0).toUpperCase() + level.slice(1);
-
 
             }
 

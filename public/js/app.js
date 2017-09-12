@@ -6545,12 +6545,8 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
                     gridData.loadData('api/video-data', _this);
                 });
             }
-        },
-
-        formatLevelName: function formatLevelName(level) {
-
-            return level.charAt(0).toUpperCase() + level.slice(1);
         }
+
     }
 
 });
@@ -38296,7 +38292,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "href": row.Url,
         "target": "_blank"
       }
-    }, [_vm._v(" " + _vm._s(row.Url) + " ")])]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(row.Category) + "\n\n                        ")]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(_vm.formatLevelName(row.Level)) + "\n\n                        ")]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(_vm.formatFeatured(row.Featured)) + "\n\n                        ")]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(row.Created) + "\n\n                        ")]), _vm._v(" "), _c('td', [_c('a', {
+    }, [_vm._v(" " + _vm._s(row.Url) + " ")])]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(row.Category) + "\n\n                        ")]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(row.Level) + "\n\n                        ")]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(_vm.formatFeatured(row.Featured)) + "\n\n                        ")]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(row.Created) + "\n\n                        ")]), _vm._v(" "), _c('td', [_c('a', {
       attrs: {
         "href": '/video/' + row.Id + '/edit'
       }
