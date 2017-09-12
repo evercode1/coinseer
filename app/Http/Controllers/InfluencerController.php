@@ -99,7 +99,7 @@ class InfluencerController extends Controller
     {
         $this->validate($request, [
 
-            'name' => 'required|string|max:40|unique:influencers,name,' .$influencer,
+            'name' => 'required|string|max:40|unique:influencers,name,' .$influencer->id,
             'url' => 'required|string|max:100|unique:influencers,url',
             'is_featured' => 'required|boolean',
 

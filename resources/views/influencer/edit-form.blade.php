@@ -6,7 +6,7 @@
 {{ method_field('PATCH') }}
 {{ csrf_field() }}
 
-<!-- title input -->
+<!-- name input -->
 
     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
 
@@ -14,7 +14,7 @@
 
         <input type="text"
                class="form-control"
-               name="title"
+               name="name"
                value="{{ $influencer->name }}" />
 
         @if ($errors->has('name'))
@@ -25,7 +25,7 @@
 
         @endif
 
-    </div>  <!-- end title input -->
+    </div>  <!-- end name input -->
 
 
     <!-- url input -->

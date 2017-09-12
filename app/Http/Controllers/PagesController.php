@@ -7,6 +7,7 @@ use App\Post;
 use App\Content;
 use App\Video;
 use App\ResourceType;
+use App\Influencer;
 
 class PagesController extends Controller
 {
@@ -18,7 +19,9 @@ class PagesController extends Controller
 
         $post = Post::latest()->where('is_published', 1)->first();
 
-        return view('pages.index', compact('post', 'video'));
+        $influencers = Influencer::orderBy('created_at', 'desc')->limit(3)->get();
+
+        return view('pages.index', compact('post', 'video', 'influencers'));
 
     }
 

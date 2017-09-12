@@ -54,14 +54,26 @@
 
                 </div>
 
+                <div class="text-center">
+
+                    <a href="/all-videos"><i class="fa fa-video-camera" aria-hidden="true"></i>  Click here for all videos</a>
+
+                </div>
+
+
+
+
                 <hr class="divider" />
+
 
             </div> <!-- end video column -->
 
 
+
+
             <div class="col-md-8 mt-25">
 
-
+              Featured Article
 
                 <div class="blog-post">
 
@@ -90,6 +102,73 @@
                     </a>
 
                     <signature></signature>
+
+                    <div class="text-center mt-20">
+
+                        <a href="/all-articles"><i class="fa fa-newspaper-o" aria-hidden="true"></i>  Click here for all articles</a>
+
+                    </div>
+
+                    <hr class="divider" />
+
+
+
+
+
+
+                </div><!-- end blog-post -->
+
+
+
+            </div> <!-- end column -->
+
+            <!-- begin Influncers -->
+
+            <div class="col-md-8 mt-25">
+
+                Recently Added Influencers
+
+                <div class="blog-post">
+
+                    <a href="/all-influencers"><h1 class="post-title">Influencers</h1></a>
+
+                    <p class="blog-post-meta">These are some interesting people to follow on Twitter</a></p>
+                    <ul>
+
+                    @foreach($influencers as $influencer)
+
+
+
+                         <li><a href="{{ $influencer->url }}" target="_blank">{{ $influencer->name }}</a></li>
+
+
+
+                        @endforeach
+                        <li><a href="/all-influencers">more influencers...</a></li>
+
+                    </ul>
+
+
+                    <div class="bp-10">
+
+                        <warning></warning>
+
+                    </div>
+
+
+                    <signature></signature>
+
+                    <div class="text-center mt-20">
+
+                        <a href="/all-influencers"><i class="fa fa-users" aria-hidden="true"></i>  Click here for all Influencers</a>
+
+                    </div>
+
+                   
+
+
+
+
 
 
                 </div><!-- end blog-post -->

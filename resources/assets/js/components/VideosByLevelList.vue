@@ -40,7 +40,7 @@
                 axios.get('/api/videos-by-level-list-data').then( (response) => {
 
                     this.levels = response.data;
-                    
+
 
                 });
 
