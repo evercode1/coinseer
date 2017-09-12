@@ -7315,8 +7315,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             axios.get('/api/videos-by-level-list-data').then(function (response) {
 
                 _this.levels = response.data;
-
-                console.log(_this.levels);
             });
         },
         formatLevelName: function formatLevelName(level) {
