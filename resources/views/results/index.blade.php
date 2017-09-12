@@ -33,7 +33,7 @@
 
                                         <p class="blog-post-meta"><a href="/all-videos/{{ $video->Id }}">click here to see video</a></p>
 
-                                        <hr />
+                                        <hr class="divider" />
 
 
                 </div><!-- end blog-post -->
