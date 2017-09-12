@@ -9,9 +9,9 @@ class VideosByCategoryController extends Controller
 {
     public function index($id)
     {
-        $category = Category::where('id', $id)->pluck('name')->first();
+        $catId = Category::where('name', $id)->pluck('id')->first();
 
-        $catId = $id;
+        $category = Category::where('name', $id)->pluck('name')->first();
 
         return view('videos-by-category.index', compact('category', 'catId'));
 

@@ -21,9 +21,9 @@
 
             <div class="col-md-8 mt-25">
 
-                <h2 class="blog-post-title">{{ $category }}</h2>
+                <h2 class="blog-post-title">{{ ucfirst($category) }}</h2>
 
-                <p class="blog-post-meta">a list of videos in the {{ $category }} category</p>
+                <p class="blog-post-meta">a list of videos in the {{ ucfirst($category) }} category</p>
 
                 <br/>
 

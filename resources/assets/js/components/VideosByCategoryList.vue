@@ -4,7 +4,7 @@
         <h4>Videos By Category</h4>
         <ol class="list-unstyled">
 
-            <li v-for="category in categories"><a v-bind:href="'/videos-by-category/' + category.id">
+            <li v-for="category in categories"><a v-bind:href="'/videos-by-category/' + formatCategoryName(category.name)">
                 {{ category.name }} - {{ category.videos_count }}</a></li>
 
         </ol>
@@ -44,6 +44,13 @@
 
 
                 });
+
+            },
+
+            formatCategoryName(category){
+
+                return category.toLowerCase();
+
 
             }
 

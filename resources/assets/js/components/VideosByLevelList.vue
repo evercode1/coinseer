@@ -5,7 +5,7 @@
         <ol class="list-unstyled">
 
             <li v-for="level in levels"><a v-bind:href="'/videos-by-level/' + level.name">
-                {{ level.name }} - {{ level.videos_count }}</a></li>
+                {{ formatLevelName(level.name) }} - {{ level.videos_count }}</a></li>
 
         </ol>
     </div>
@@ -50,29 +50,7 @@
 
             formatLevelName(level){
 
-                switch (level){
-
-                    case 1 :
-
-                        return "beginner";
-                        break;
-
-                    case 2 :
-
-                        return "intermediate";
-                        break;
-
-                    case 3 :
-
-                        return "technical";
-                        break;
-
-                    default:
-
-                        return 'no level';
-                        break;
-
-                }
+                return level.charAt(0).toUpperCase() + level.slice(1);
 
 
             }

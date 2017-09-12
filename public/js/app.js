@@ -2188,33 +2188,10 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
             return featured == 1 ? 'Yes' : 'No';
         },
 
-        formatLevel: function formatLevel(level) {
+        formatLevelName: function formatLevelName(level) {
 
-            switch (level) {
-
-                case 1:
-
-                    return 'beginner';
-                    break;
-
-                case 2:
-
-                    return 'intermediate';
-                    break;
-
-                case 3:
-
-                    return 'advanced';
-                    break;
-
-                default:
-
-                    return 'beginner';
-                    break;
-
-            }
+            return level.charAt(0).toUpperCase() + level.slice(1);
         }
-
     }
 
 });
@@ -6570,33 +6547,10 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
             }
         },
 
-        formatLevel: function formatLevel(level) {
+        formatLevelName: function formatLevelName(level) {
 
-            switch (level) {
-
-                case 1:
-
-                    return 'beginner';
-                    break;
-
-                case 2:
-
-                    return 'intermediate';
-                    break;
-
-                case 3:
-
-                    return 'advanced';
-                    break;
-
-                default:
-
-                    return 'beginner';
-                    break;
-
-            }
+            return level.charAt(0).toUpperCase() + level.slice(1);
         }
-
     }
 
 });
@@ -6776,7 +6730,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             first_page_url: null,
             last_page_url: null,
             go_to_page: null,
-            sortOrder: 1,
+            sortOrder: -1,
             sortKey: 'id',
             createUrl: '/video/create',
             showCreateButton: false
@@ -6804,7 +6758,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         sortBy: function sortBy(key) {
             this.sortKey = key;
             this.sortOrder = this.sortOrder == 1 ? -1 : 1;
-            this.getData(1);
+            this.getData(this.current_page);
         },
 
         search: function search(query) {
@@ -6850,31 +6804,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             return featured == 1 ? 'Yes' : 'No';
         },
 
-        formatLevel: function formatLevel(level) {
+        formatLevelName: function formatLevelName(level) {
 
-            switch (level) {
-
-                case 1:
-
-                    return 'beginner';
-                    break;
-
-                case 2:
-
-                    return 'intermediate';
-                    break;
-
-                case 3:
-
-                    return 'technical';
-                    break;
-
-                default:
-
-                    return 'no level';
-                    break;
-
-            }
+            return level.charAt(0).toUpperCase() + level.slice(1);
         },
         getQueryData: function getQueryData(request) {
 
@@ -7028,6 +6960,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
                 _this.categories = response.data;
             });
+        },
+        formatCategoryName: function formatCategoryName(category) {
+
+            return category.toLowerCase();
         }
     }
 });
@@ -7154,7 +7090,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             first_page_url: null,
             last_page_url: null,
             go_to_page: null,
-            sortOrder: 1,
+            sortOrder: -1,
             sortKey: 'id',
             createUrl: '/video/create',
             showCreateButton: false
@@ -7182,7 +7118,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         sortBy: function sortBy(key) {
             this.sortKey = key;
             this.sortOrder = this.sortOrder == 1 ? -1 : 1;
-            this.getData(1);
+            this.getData(this.current_page);
         },
 
         search: function search(query) {
@@ -7228,31 +7164,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             return featured == 1 ? 'Yes' : 'No';
         },
 
-        formatLevel: function formatLevel(level) {
+        formatLevelName: function formatLevelName(level) {
 
-            switch (level) {
-
-                case 1:
-
-                    return 'beginner';
-                    break;
-
-                case 2:
-
-                    return 'intermediate';
-                    break;
-
-                case 3:
-
-                    return 'advanced';
-                    break;
-
-                default:
-
-                    return 'no level';
-                    break;
-
-            }
+            return level.charAt(0).toUpperCase() + level.slice(1);
         },
         getQueryData: function getQueryData(request) {
 
@@ -7411,29 +7325,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         formatLevelName: function formatLevelName(level) {
 
-            switch (level) {
-
-                case 1:
-
-                    return "beginner";
-                    break;
-
-                case 2:
-
-                    return "intermediate";
-                    break;
-
-                case 3:
-
-                    return "technical";
-                    break;
-
-                default:
-
-                    return 'no level';
-                    break;
-
-            }
+            return level.charAt(0).toUpperCase() + level.slice(1);
         }
     }
 });
@@ -37956,7 +37848,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, _vm._l((_vm.categories), function(category) {
     return _c('li', [_c('a', {
       attrs: {
-        "href": '/videos-by-category/' + category.id
+        "href": '/videos-by-category/' + _vm.formatCategoryName(category.name)
       }
     }, [_vm._v("\n            " + _vm._s(category.name) + " - " + _vm._s(category.videos_count))])])
   }))])
@@ -38404,7 +38296,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "href": row.Url,
         "target": "_blank"
       }
-    }, [_vm._v(" " + _vm._s(row.Url) + " ")])]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(row.Category) + "\n\n                        ")]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(_vm.formatLevel(row.Level)) + "\n\n                        ")]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(_vm.formatFeatured(row.Featured)) + "\n\n                        ")]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(row.Created) + "\n\n                        ")]), _vm._v(" "), _c('td', [_c('a', {
+    }, [_vm._v(" " + _vm._s(row.Url) + " ")])]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(row.Category) + "\n\n                        ")]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(_vm.formatLevelName(row.Level)) + "\n\n                        ")]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(_vm.formatFeatured(row.Featured)) + "\n\n                        ")]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(row.Created) + "\n\n                        ")]), _vm._v(" "), _c('td', [_c('a', {
       attrs: {
         "href": '/video/' + row.Id + '/edit'
       }
@@ -38516,7 +38408,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       attrs: {
         "href": '/all-videos/' + row.Id + '-' + row.Slug
       }
-    }, [_vm._v(_vm._s(row.Title))])]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(row.Author) + "\n\n                        ")]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(row.Category) + "\n\n                        ")]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(_vm.formatLevel(row.Level)) + "\n\n                        ")]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(row.Created) + "\n\n                        ")])])
+    }, [_vm._v(_vm._s(row.Title))])]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(row.Author) + "\n\n                        ")]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(row.Category) + "\n\n                        ")]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(_vm.formatLevelName(row.Level)) + "\n\n                        ")]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(row.Created) + "\n\n                        ")])])
   }))], 1)]), _vm._v(" "), _c('page-number')], 1), _vm._v(" "), _c('pagination')], 1)])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
@@ -38803,10 +38695,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('video-table-head'), _vm._v(" "), _c('tbody', _vm._l((_vm.gridData), function(row) {
     return _c('tr', [_c('td', [_c('a', {
       attrs: {
-        "href": '/all-videos/' + row.Id + '-' + row.Slug,
-        "target": "_blank"
+        "href": '/all-videos/' + row.Id + '-' + row.Slug
       }
-    }, [_vm._v(_vm._s(row.Title))])]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(row.Author) + "\n\n                        ")]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(row.Category) + "\n\n                        ")]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(_vm.formatLevel(row.Level)) + "\n\n                        ")]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(row.Created) + "\n\n                        ")])])
+    }, [_vm._v(_vm._s(row.Title))])]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(row.Author) + "\n\n                        ")]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(row.Category) + "\n\n                        ")]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(_vm.formatLevelName(row.Level)) + "\n\n                        ")]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(row.Created) + "\n\n                        ")])])
   }))], 1)]), _vm._v(" "), _c('page-number')], 1), _vm._v(" "), _c('pagination')], 1)])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
@@ -39367,7 +39258,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       attrs: {
         "href": '/all-videos/' + row.Id + '-' + row.Slug
       }
-    }, [_vm._v(_vm._s(row.Title))])]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(row.Author) + "\n\n                        ")]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(row.Category) + "\n\n                        ")]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(_vm.formatLevel(row.Level)) + "\n\n                        ")]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(row.Created) + "\n\n                        ")])])
+    }, [_vm._v(_vm._s(row.Title))])]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(row.Author) + "\n\n                        ")]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(row.Category) + "\n\n                        ")]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(_vm.formatLevelName(row.Level)) + "\n\n                        ")]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(row.Created) + "\n\n                        ")])])
   }))], 1)]), _vm._v(" "), _c('page-number')], 1), _vm._v(" "), _c('pagination')], 1)])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
@@ -39699,7 +39590,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       attrs: {
         "href": '/videos-by-level/' + level.name
       }
-    }, [_vm._v("\n            " + _vm._s(level.name) + " - " + _vm._s(level.videos_count))])])
+    }, [_vm._v("\n            " + _vm._s(_vm.formatLevelName(level.name)) + " - " + _vm._s(level.videos_count))])])
   }))])
 },staticRenderFns: []}
 module.exports.render._withStripped = true

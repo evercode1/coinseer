@@ -22,9 +22,9 @@
 
             <div class="col-md-8 mt-25">
 
-                <h2 class="blog-post-title">{{ $levelName }}</h2>
+                <h2 class="blog-post-title">{{ ucfirst($levelName ) }}</h2>
 
-                <p class="blog-post-meta">a list of videos in the {{ $levelName }} level</p>
+                <p class="blog-post-meta">List of videos at the {{ ucfirst($levelName ) }} level.</p>
 
                 <br/>
 

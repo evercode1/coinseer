@@ -57,7 +57,7 @@
 
                             <td>
 
-                                {{ formatLevel(row.Level) }}
+                                {{ formatLevelName(row.Level) }}
 
                             </td>
 
@@ -228,32 +228,10 @@
 
             },
 
-            formatLevel: function(level){
+            formatLevelName(level){
 
+                return level.charAt(0).toUpperCase() + level.slice(1);
 
-                switch(level){
-
-                    case 1:
-
-                        return 'beginner';
-                        break;
-
-                    case 2:
-
-                        return 'intermediate';
-                        break;
-
-                    case 3:
-
-                        return 'advanced';
-                        break;
-
-                    default:
-
-                        return 'beginner';
-                        break;
-
-                }
 
             }
 

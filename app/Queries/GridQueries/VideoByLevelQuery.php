@@ -17,11 +17,12 @@ class VideoByLevelQuery
                              'videos.slug as Slug',
                              'videos.url as Url',
                              'categories.name as Category',
-                             'videos.level_id as Level',
+                             'levels.name as Level',
                              'videos.is_featured as Featured',
                              DB::raw('DATE_FORMAT(videos.created_at,
                              "%m-%d-%Y") as Created'))
                     ->leftJoin('categories', 'category_id', '=', 'categories.id')
+                    ->leftJoin('levels', 'level_id', '=', 'levels.id')
                     ->where('videos.level_id', $level)
                     ->orderBy($column, $direction)
                     ->paginate(5);
@@ -63,11 +64,12 @@ class VideoByLevelQuery
                          'videos.slug as Slug',
                          'videos.url as Url',
                          'categories.name as Category',
-                         'videos.level_id as Level',
+                         'levels.name as Level',
                          'videos.is_featured as Featured',
                          DB::raw('DATE_FORMAT(videos.created_at,
                                  "%m-%d-%Y") as Created'))
                 ->leftJoin('categories', 'category_id', '=', 'categories.id')
+                ->leftJoin('levels', 'level_id', '=', 'levels.id')
                 ->Where('Title', 'like', '%' . $keyword . '%')
                 //->Where('Author', 'like', '%' . $keyword . '%')
                 ->Where('videos.level_id', $level)

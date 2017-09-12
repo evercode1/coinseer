@@ -26,7 +26,7 @@
 
                                         <p class="blog-post-meta"> <span class="plain-meta">Category:</span>  {{ $video->Category }}</p>
 
-                                        <p class="blog-post-meta"> <span class="plain-meta">Level:</span>  {{ \App\Video::getLevelName($video) }}</p>
+                                        <p class="blog-post-meta"> <span class="plain-meta">Level:</span>  {{ ucfirst(\App\Video::getLevelName($video))  }}</p>
 
                                         <p class="blog-post-meta"><span class="plain-meta">Description:</span>
                                                 {!! \App\Utilities\Summarize::longSummary($video->Description) !!}</p>
@@ -46,7 +46,7 @@
 
                         <hr />
 
-                        <p>Sorry, there are no results.  Please try another search query.</p>
+                        <p>Please try another search using just the keyword.</p>
 
 
                     </div><!-- end blog-post -->
