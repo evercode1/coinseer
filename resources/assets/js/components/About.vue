@@ -2,11 +2,18 @@
 
     <div class="sidebar-module sidebar-module-inset">
 
-        <h4>{{ contents.name }}</h4>
+        <h4>About</h4>
 
-        <div v-html="contents.body">
+        <div v-html="contents">
 
         </div>
+
+        <div class="pull-right mb-10">
+
+        <a href="/about">more...</a>
+
+        </div>
+        <br />
 
     </div>
 
@@ -25,7 +32,7 @@
         data: function () {
             return {
 
-                contents: [],
+                contents: '',
 
             }
 

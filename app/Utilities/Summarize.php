@@ -11,10 +11,17 @@ class Summarize
 
     }
 
-    public static function Longsummary($string)
+    public static function longSummary($string)
     {
 
         return substr($string, 0, 140) . '...';
+
+    }
+
+    public static function componentSummary($string)
+    {
+
+        return substr($string, 0, 156);
 
     }
 

@@ -47,16 +47,31 @@ use App\Queries\GridQueries\VideoByLevelQuery;
 use App\Queries\GridQueries\VideoLevelGridQuery;
 use App\Queries\VideosByLevelListQuery;
 use App\Queries\GridQueries\LevelQuery;
+use App\Utilities\Summarize;
 
 
 
 class ApiController extends Controller
 {
 
+
+
     public function aboutData()
     {
 
-        return Content::where('name', 'About')->first();
+        $summary = Content::where('name', 'About')->first();
+
+        $summary = ($summary['body']);
+
+        $summary = Summarize::componentSummary($summary);
+
+
+
+        //dd($summary);
+
+        return $summary;
+
+
 
     }
 

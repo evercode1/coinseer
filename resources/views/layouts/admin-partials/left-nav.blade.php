@@ -49,8 +49,15 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         <span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span>
                         &nbsp; Content &nbsp;<span class="caret"></span></a>
-                    <content-list></content-list>
-                </li></ul>
+                    <ul class="dropdown-menu" style="background-color:white;">
+                        <li><a href="/content"><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp; All Content</a></li>
+                        <li><a href="/content/create"><span class="glyphicon glyphicon-list-alt" style="color:#9f9f9f;"></span> &nbsp;Create New</a></li>
+
+                    </ul>
+                </li>
+            </ul>
+
+
 
             <ul class="left-nav-list-group">
                 <li>Categories</li>

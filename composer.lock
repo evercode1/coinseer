@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6c4ca26e6a8f6b013bf4db819cb9f9e9",
+    "content-hash": "81af339a8921298001f63bc604e8fa59",
     "packages": [
         {
             "name": "creativeorange/gravatar",

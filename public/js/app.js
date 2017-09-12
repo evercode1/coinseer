@@ -1634,6 +1634,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1646,7 +1653,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
 
-            contents: []
+            contents: ''
 
         };
     },
@@ -39341,12 +39348,20 @@ if (false) {
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "sidebar-module sidebar-module-inset"
-  }, [_c('h4', [_vm._v(_vm._s(_vm.contents.name))]), _vm._v(" "), _c('div', {
+  }, [_c('h4', [_vm._v("About")]), _vm._v(" "), _c('div', {
     domProps: {
-      "innerHTML": _vm._s(_vm.contents.body)
+      "innerHTML": _vm._s(_vm.contents)
     }
-  })])
-},staticRenderFns: []}
+  }), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('br')])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "pull-right mb-10"
+  }, [_c('a', {
+    attrs: {
+      "href": "/about"
+    }
+  }, [_vm._v("more...")])])
+}]}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
