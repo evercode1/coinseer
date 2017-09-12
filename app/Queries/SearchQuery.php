@@ -17,6 +17,7 @@ class SearchQuery
         $rows = DB::table('videos')
                 ->select('videos.id as Id',
                 'videos.title as Title',
+                'videos.slug as Slug',
                 'videos.description as Description',
                 'videos.author as Author',
                 'videos.level_id as level_id',

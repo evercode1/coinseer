@@ -9764,6 +9764,10 @@ li.dropdown-header {
   font-weight: bold;
 }
 
+.plain-meta {
+  color: #686868;
+}
+
 .list-group-item-custom {
   position: relative;
   display: block;

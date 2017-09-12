@@ -20,19 +20,21 @@
 
                                         <h1 class="blog-post-title"><a href="/all-videos/{{ $video->Id }}">{{ $video->Title }}</a></h1>
 
-                                        <p class="blog-post-meta">Added on {{ $video->Created }}</p>
+                                        <p class="blog-post-meta  mt-10"><span class="plain-meta">Added:</span> {{ $video->Created }}</p>
 
-                                        <p class="blog-post-meta"> Video by  {{ $video->Author }}</p>
+                                        <p class="blog-post-meta  mt-10"><span class="plain-meta">Author:</span> {{ $video->Author }}</p>
 
-                                        <p class="blog-post-meta"> Category:  {{ $video->Category }}</p>
+                                        <p class="blog-post-meta"> <span class="plain-meta">Category:</span>  {{ $video->Category }}</p>
 
-                                        <p class="blog-post-meta"> Level:  {{ \App\Video::getLevelName($video) }}</p>
+                                        <p class="blog-post-meta"> <span class="plain-meta">Level:</span>  {{ \App\Video::getLevelName($video) }}</p>
 
-                                        <p class="blog-post-meta">Description:
+                                        <p class="blog-post-meta"><span class="plain-meta">Description:</span>
                                                 {!! \App\Utilities\Summarize::longSummary($video->Description) !!}</p>
 
-                                        <p class="blog-post-meta">Link:  click<a href="/all-videos/{{ $video->Id }}"> {{ $video->Title }}</a> to see video</p>
+                                        <p class="blog-post-meta"><span class="plain-meta">Link:</span>  <a href="/all-videos/{{ $video->Id }}-{{$video->Slug}}">
+                                                https://www.coinseer.com/all-videos/{{ $video->Id }}-{{ $video->Slug }}</a></p>
 
+                                        <br />
                                         <hr class="divider" />
 
 
