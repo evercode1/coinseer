@@ -28,7 +28,7 @@
 
                                         <p class="blog-post-meta"> Level:  {{ \App\Video::getLevelName($video) }}</p>
 
-                                        <a href="/all-videos/{{ $video->Id }}">{!! \App\Utilities\Summarize::longSummary($video->Description) !!}</a>
+                                        <a href="/all-videos/{{ $video->Id }}">{!! \App\Utilities\Summarize::longSummary($video->Description) !!} see video</a>
 
                                         <hr />
 
