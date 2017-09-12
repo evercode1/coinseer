@@ -12,7 +12,7 @@
 
                             <div class="col-md-8 mt-25">
 
-                                <p class="blog-post-meta">Showing {{ $count }} results for {{ $keyword }}:</p>
+                                <p class="blog-post-meta">Showing {{ $count }} video results for {{ $keyword }}:</p>
 
                                 @forelse($videos as $video)
 
@@ -28,7 +28,8 @@
 
                                         <p class="blog-post-meta"> Level:  {{ \App\Video::getLevelName($video) }}</p>
 
-                                        <a href="/all-videos/{{ $video->Id }}">{!! \App\Utilities\Summarize::longSummary($video->Description) !!} see video</a>
+                                        <a href="/all-videos/{{ $video->Id }}">{!! \App\Utilities\Summarize::longSummary($video->Description) !!}</a>
+                                        <a href="/all-videos/{{ $video->Id }}">click here to see video</a>
 
                                         <hr />
 
