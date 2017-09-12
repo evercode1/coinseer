@@ -132,7 +132,7 @@
 
                     <a href="/all-influencers"><h1 class="post-title">Influencers</h1></a>
 
-                    <p class="blog-post-meta">These are some interesting people to follow on Twitter</a></p>
+                    <p class="blog-post-meta">These are some interesting people to follow on Twitter:</a></p>
                     <ul>
 
                     @foreach($influencers as $influencer)
@@ -144,9 +144,15 @@
 
 
                         @endforeach
-                        <li><a href="/all-influencers">more influencers...</a></li>
+                        
 
                     </ul>
+
+                    <div class="text-center mt-20">
+
+                        <a href="/all-influencers"><i class="fa fa-users" aria-hidden="true"></i>  Click here for all Influencers</a>
+
+                    </div>
 
 
                     <div class="bp-10">
@@ -158,13 +164,9 @@
 
                     <signature></signature>
 
-                    <div class="text-center mt-20">
 
-                        <a href="/all-influencers"><i class="fa fa-users" aria-hidden="true"></i>  Click here for all Influencers</a>
 
-                    </div>
 
-                   
 
 
 
