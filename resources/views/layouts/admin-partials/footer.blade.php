@@ -9,10 +9,11 @@
 
             </div>  <!--  end column copyright -->
 
+
             <div class="col-md-4 col-md-offset-2 pt-20">
 
                 <div class="pull-right">
-                    <a href="/privacy-policy">Site Privacy Policy</a> | <a href="/terms-of-service">Terms of Use</a> | <a href="/contact/create">Contact Us</a>
+                    <a href="/about">About</a> | <a href="/privacy-policy">Privacy Policy</a> | <a href="/terms-of-service">Terms of Use</a> | <a href="/contact/create">Contact</a>
                 </div>
 
             </div>  <!--  end column -->
