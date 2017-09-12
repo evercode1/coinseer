@@ -161,7 +161,7 @@
             sortBy: function (key){
                 this.sortKey = key;
                 this.sortOrder = (this.sortOrder == 1) ? -1 : 1;
-                this.getData();
+                this.getData(this.current_page);
 
             },
 

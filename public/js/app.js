@@ -6489,7 +6489,7 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
         sortBy: function sortBy(key) {
             this.sortKey = key;
             this.sortOrder = this.sortOrder == 1 ? -1 : 1;
-            this.getData();
+            this.getData(this.current_page);
         },
 
         search: function search(query) {
