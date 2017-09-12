@@ -25,7 +25,7 @@ class PagesController extends Controller
 
         $articleWarning = 'article-warning';
 
-        $influencersWarning = 'influencer-warning';
+        $influencersWarning = 'influencers-warning';
 
         return view('pages.index', compact('post',
                                            'video',
