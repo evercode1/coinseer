@@ -31,7 +31,7 @@ class ContentQuery implements DataQuery
                     'name as Name',
                     DB::raw('DATE_FORMAT(created_at,
                                  "%m-%d-%Y") as Created'))
-                ->where('title', 'like', '%' . $keyword . '%')
+                ->where('name', 'like', '%' . $keyword . '%')
                 ->orderBy($column, $direction)
                 ->paginate(5);
 

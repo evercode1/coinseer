@@ -14,6 +14,8 @@
 
     export default {
 
+            props:  ['message'],
+
         mounted: function () {
 
             this.loadData();
@@ -33,7 +35,7 @@
 
             loadData(){
 
-                axios.get('/api/warning-data').then( (response) => {
+                axios.get('/api/warning-data/' + this.message).then( (response) => {
 
                     this.warning = response.data;
 

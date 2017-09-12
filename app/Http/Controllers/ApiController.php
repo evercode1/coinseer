@@ -394,10 +394,16 @@ class ApiController extends Controller
 
     }
 
-    public function WarningData()
+    public function WarningData($id)
     {
 
-        return Content::where('name', 'Warning')->first();
 
+
+        $warning = strtolower($id);
+
+        $warning = Content::where('name', $warning)->first();
+
+         return $warning
+;
     }
 }

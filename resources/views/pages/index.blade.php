@@ -50,7 +50,7 @@
                     <br />
                     <signature></signature>
 
-                    <warning></warning>
+                    <warning :message="{{ json_encode($videoWarning)}}"></warning>
 
                 </div>
 
@@ -85,7 +85,7 @@
 
                     <div class="bp-10">
 
-                        <warning></warning>
+                        <warning :message="{{ json_encode($articleWarning)}}"></warning>
 
                     </div>
 
@@ -144,7 +144,7 @@
 
 
                         @endforeach
-                        
+
 
                     </ul>
 
@@ -157,7 +157,7 @@
 
                     <div class="bp-10">
 
-                        <warning></warning>
+                        <warning :message="{{ json_encode($influencersWarning)}}"></warning>
 
                     </div>
 

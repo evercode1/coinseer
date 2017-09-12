@@ -224,13 +224,6 @@
 
                 }
 
-            },
-
-            formatUrl: function(url){
-
-
-                url == 'video' ? '/all-video/' : url;
-
             }
 
         }

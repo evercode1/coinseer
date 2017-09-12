@@ -30,9 +30,11 @@
 
                 <div class="bp-10">
 
-                    <warning></warning>
+                    <warning :message="{{ json_encode($articleWarning)}}"></warning>
 
                 </div>
+
+                <signature></signature>
 
                 <div class="comments">
 
@@ -40,7 +42,7 @@
 
                 </div>
 
-                <signature></signature>
+
 
 
 

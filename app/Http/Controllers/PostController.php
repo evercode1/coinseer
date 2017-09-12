@@ -107,7 +107,9 @@ class PostController extends Controller
 
         }
 
-        return view('post.show', compact('post'));
+        $articleWarning = 'article-warning';
+
+        return view('post.show', compact('post', 'articleWarning'));
 
     }
 

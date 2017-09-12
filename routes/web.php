@@ -71,7 +71,7 @@ Route::get('api/videos-by-level-list-data', 'ApiController@videosByLevelListData
 Route::get('api/video-data', 'ApiController@videoData');
 Route::get('api/video-list-data', 'ApiController@videoListData');
 Route::get('api/wallet-list-data', 'ApiController@walletListData');
-Route::get('api/warning-data', 'ApiController@warningData');
+Route::get('api/warning-data/{id}', 'ApiController@warningData');
 
 
 // Authentication routes

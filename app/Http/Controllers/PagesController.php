@@ -21,7 +21,18 @@ class PagesController extends Controller
 
         $influencers = Influencer::orderBy('created_at', 'desc')->limit(3)->get();
 
-        return view('pages.index', compact('post', 'video', 'influencers'));
+        $videoWarning = 'video-warning';
+
+        $articleWarning = 'article-warning';
+
+        $influencersWarning = 'influencer-warning';
+
+        return view('pages.index', compact('post',
+                                           'video',
+                                           'influencers',
+                                           'videoWarning',
+                                           'articleWarning',
+                                           'influencersWarning'));
 
     }
 

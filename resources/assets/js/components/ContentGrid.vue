@@ -108,7 +108,7 @@
 
         mounted: function () {
 
-            gridData.loadData('api/content-data', this);
+            gridData.loadData('/api/content-data', this);
 
         },
         data: function () {
@@ -147,7 +147,7 @@
 
             getData:  function(request){
 
-                gridData.getQueryData(request, 'api/content-data', this);
+                gridData.getQueryData(request, '/api/content-data', this);
 
             },
 
@@ -187,7 +187,7 @@
                     axios.post('/content-delete/' + id)
                             .then(response => {
 
-                        gridData.loadData('api/content-data', this);
+                        gridData.loadData('/api/content-data', this);
 
                 })
 

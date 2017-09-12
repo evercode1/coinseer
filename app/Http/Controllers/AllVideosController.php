@@ -24,9 +24,11 @@ class AllVideosController extends Controller
 
         $this->requireSlug($video, $slug);
 
+        $videoWarning = 'video-warning';
 
 
-        return view('all-videos.show', compact('video'));
+
+        return view('all-videos.show', compact('video', 'videoWarning'));
 
     }
 

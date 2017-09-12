@@ -39,7 +39,7 @@
 
                     <signature></signature>
 
-                    <warning></warning>
+                    <warning :message="{{ json_encode($videoWarning)}}"></warning>
 
                 </div><!-- end blog-post -->
 

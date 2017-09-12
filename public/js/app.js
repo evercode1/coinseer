@@ -2627,11 +2627,6 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
                     gridData.loadData('api/blog-resource-data', _this);
                 });
             }
-        },
-
-        formatUrl: function formatUrl(url) {
-
-            url == 'video' ? '/all-video/' : url;
         }
 
     }
@@ -4000,7 +3995,7 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
 
     mounted: function mounted() {
 
-        gridData.loadData('api/content-data', this);
+        gridData.loadData('/api/content-data', this);
     },
     data: function data() {
         return {
@@ -4037,7 +4032,7 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
 
         getData: function getData(request) {
 
-            gridData.getQueryData(request, 'api/content-data', this);
+            gridData.getQueryData(request, '/api/content-data', this);
         },
 
         setPageNumbers: function setPageNumbers() {
@@ -4076,7 +4071,7 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
 
                 axios.post('/content-delete/' + id).then(function (response) {
 
-                    gridData.loadData('api/content-data', _this);
+                    gridData.loadData('/api/content-data', _this);
                 });
             }
         }
@@ -7398,6 +7393,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
+    props: ['message'],
+
     mounted: function mounted() {
 
         this.loadData();
@@ -7415,7 +7412,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         loadData: function loadData() {
             var _this = this;
 
-            axios.get('/api/warning-data').then(function (response) {
+            axios.get('/api/warning-data/' + this.message).then(function (response) {
 
                 _this.warning = response.data;
             });
