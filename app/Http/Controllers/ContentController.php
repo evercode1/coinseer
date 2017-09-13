@@ -55,7 +55,7 @@ class ContentController extends Controller
         $this->validate($request, [
 
             'name' => 'required|unique:contents|string|max:100',
-            'body' => 'required|string|max:10000',
+            'body' => 'required|string|max:40000',
             'is_active' => 'required|boolean',
 
         ]);
@@ -115,7 +115,7 @@ class ContentController extends Controller
         $this->validate($request, [
 
             'name' => 'required|string|max:100|unique:contents,name,' .$content->id,
-            'body' => 'required|string|max:10000',
+            'body' => 'required|string|max:40000',
             'is_active' => 'required|boolean',
 
         ]);
