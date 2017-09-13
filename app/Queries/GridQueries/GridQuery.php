@@ -76,6 +76,10 @@ class GridQuery
                 $column = 'videos.created_at';
                 $direction = 'desc';
                 break;
+            case $query instanceof AllArticlesQuery :
+                $column = 'posts.created_at';
+                $direction = 'desc';
+                break;
             default:
                 $column = 'id';
                 $direction = 'asc';
