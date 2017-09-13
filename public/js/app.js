@@ -3351,7 +3351,7 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
             first_page_url: null,
             last_page_url: null,
             go_to_page: null,
-            sortOrder: 1,
+            sortOrder: -1,
             sortKey: '',
             createUrl: '/contact/create',
             showCreateButton: false
@@ -3363,7 +3363,7 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
         sortBy: function sortBy(key) {
             this.sortKey = key;
             this.sortOrder = this.sortOrder == 1 ? -1 : 1;
-            this.getData(1);
+            this.getData(this.current_page);
         },
 
         search: function search(query) {
@@ -4888,7 +4888,7 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
             first_page_url: null,
             last_page_url: null,
             go_to_page: null,
-            sortOrder: 1,
+            sortOrder: -1,
             sortKey: '',
             createUrl: '/contact/create',
             showCreateButton: false
@@ -4900,7 +4900,7 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
         sortBy: function sortBy(key) {
             this.sortKey = key;
             this.sortOrder = this.sortOrder == 1 ? -1 : 1;
-            this.getData(1);
+            this.getData(this.current_page);
         },
 
         search: function search(query) {

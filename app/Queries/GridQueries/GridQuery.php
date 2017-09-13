@@ -72,6 +72,14 @@ class GridQuery
                 $column = 'id';
                 $direction = 'desc';
                 break;
+            case $query instanceof ClosedContactQuery :
+                $column = 'id';
+                $direction = 'desc';
+                break;
+            case $query instanceof OpenContactQuery :
+                $column = 'id';
+                $direction = 'desc';
+                break;
             case $query instanceof VideoQuery :
                 $column = 'videos.created_at';
                 $direction = 'desc';
