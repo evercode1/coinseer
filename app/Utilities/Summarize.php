@@ -21,7 +21,7 @@ class Summarize
     public static function componentSummary($string)
     {
 
-        return substr($string, 0, 156);
+        return substr($string, 0, 145);
 
     }
 
