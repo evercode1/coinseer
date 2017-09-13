@@ -5940,6 +5940,60 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/TotalInfluencers.vue":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+
+    mounted: function mounted() {
+
+        this.loadData();
+    },
+
+    data: function data() {
+        return {
+
+            influencers: ''
+
+        };
+    },
+
+    methods: {
+        loadData: function loadData() {
+            var _this = this;
+
+            axios.get('/api/total-influencers').then(function (response) {
+
+                _this.influencers = response.data;
+            });
+        }
+    }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/TotalPosts.vue":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -6101,6 +6155,60 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             axios.get('/api/total-users').then(function (response) {
 
                 _this.users = response.data;
+            });
+        }
+    }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/TotalVideos.vue":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+
+    mounted: function mounted() {
+
+        this.loadData();
+    },
+
+    data: function data() {
+        return {
+
+            videos: ''
+
+        };
+    },
+
+    methods: {
+        loadData: function loadData() {
+            var _this = this;
+
+            axios.get('/api/total-videos').then(function (response) {
+
+                _this.videos = response.data;
             });
         }
     }
@@ -6317,6 +6425,246 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
         showSubscribed: function showSubscribed(subscribed) {
 
             return subscribed == 1 ? 'Yes' : 'No';
+        }
+
+    }
+
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/VideoChart.vue":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+var $myVideoChart;
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+
+    data: function data() {
+
+        return {
+            labels: [],
+            values1: [],
+            name: 'Videos',
+            formOptions: false,
+            type: 'line',
+            period: '1year',
+            custom: false,
+            startDate: '',
+            endDate: ''
+        };
+    },
+
+    mounted: function mounted() {
+
+        this.loadData();
+    },
+
+    methods: {
+
+        changeType: function changeType() {
+
+            this.setConfig();
+        },
+
+        displayOptions: function displayOptions() {
+
+            this.formOptions = !this.formOptions;
+        },
+
+
+        loadData: function loadData() {
+
+            $.getJSON('api/video-chart', function (data) {
+
+                this.labels = data.data.labels;
+                this.values1 = data.data.values1;
+                this.setConfig();
+            }.bind(this));
+        },
+
+        changePeriod: function changePeriod() {
+
+            if (this.period == 'Custom') {
+
+                return this.customPeriod();
+            }
+
+            this.custom = false;
+            this.startDate = '';
+            this.endDate = '';
+
+            $.getJSON('api/video-chart?period=' + this.period, function (data) {
+
+                this.labels = data.data.labels;
+                this.values1 = data.data.values1;
+
+                this.setConfig();
+            }.bind(this));
+        },
+
+        submitCustom: function submitCustom() {
+
+            $.getJSON('api/video-chart?period=custom&start_date=' + this.startDate + '&end_date=' + this.endDate, function (data) {
+
+                this.labels = data.data.labels;
+                this.values1 = data.data.values1;
+
+                this.setConfig();
+            }.bind(this));
+
+            this.startDate = '';
+            this.endDate = '';
+        },
+
+        customPeriod: function customPeriod() {
+
+            this.custom = true;
+        },
+
+        showCustom: function showCustom() {
+
+            return this.custom == true;
+        },
+
+        setConfig: function setConfig() {
+
+            var ctx = document.getElementById('canvass-video-chart').getContext('2d');
+            var config = {
+                type: this.type,
+                data: {
+                    labels: this.labels,
+                    datasets: [{
+                        label: this.name,
+                        data: this.values1,
+                        fill: true,
+                        // Tension - bezier curve tension of the line. Set to 0 to draw straight lines connecting points
+                        // Used to be called "tension" but was renamed for consistency. The old option name continues to work for compatibility.
+                        lineTension: 0.1,
+
+                        // String - the color to fill the area under the line with if fill is true
+                        backgroundColor: "rgba(75,192,192,0.4)",
+
+                        // String - Line color
+                        borderColor: "rgba(75,192,192,1)",
+
+                        // String - cap style of the line. See https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineCap
+                        borderCapStyle: 'butt',
+                        borderDash: []
+                    }]
+                },
+                options: {
+                    responsive: false,
+                    legend: {
+                        position: 'bottom'
+                    },
+                    hover: {
+                        mode: 'label'
+                    },
+                    scales: {
+                        xAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: false,
+                                labelString: 'months'
+                            }
+                        }],
+                        yAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: '# of ' + this.name
+                            }
+                        }]
+                    },
+                    title: {
+                        display: true,
+                        text: this.name
+                    }
+                }
+            };
+
+            // destroy existing chart
+
+            if (typeof $myVideoChart !== "undefined") {
+
+                $myVideoChart.destroy();
+            }
+
+            // set instance, so we can destroy when rendering new chart
+
+
+            $myVideoChart = new Chart(ctx, { type: this.type, data: config.data, options: config.options });
         }
 
     }
@@ -6604,6 +6952,98 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
         }
     }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/VideoPieChart.vue":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+var $myVideoPieChart;
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+
+    data: function data() {
+
+        return {
+            labels: [],
+            values: [],
+            name: 'Categories',
+            formOptions: false,
+            type: 'pie',
+            period: '1year',
+            startDate: '',
+            endDate: ''
+        };
+    },
+
+    mounted: function mounted() {
+
+        this.loadData();
+    },
+
+    methods: {
+
+        loadData: function loadData() {
+
+            $.getJSON('api/video-pie-chart', function (data) {
+
+                this.labels = data.data.labels;
+                this.values = data.data.values;
+                this.setConfig();
+            }.bind(this));
+        },
+
+        setConfig: function setConfig() {
+
+            var ctx = document.getElementById('canvass-video-pie').getContext('2d');
+            var config = {
+                type: this.type,
+                data: {
+                    labels: this.labels,
+                    datasets: [{
+                        backgroundColor: ["#2ecc71", "#3498db", "#95a5a6", "#9b59b6", "#f1c40f", "#e74c3c", "#34495e"],
+                        data: this.values
+                    }]
+                }
+            };
+
+            // destroy existing chart
+
+            if (typeof $myVideoPieChart !== "undefined") {
+
+                $myVideoPieChart.destroy();
+            }
+
+            // set instance, so we can destroy when rendering new chart
+
+
+            $myVideoPieChart = new Chart(ctx, { type: 'pie', data: config.data });
+        }
+
+    }
+
 });
 
 /***/ }),
@@ -38002,6 +38442,189 @@ if (false) {
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-27650887\",\"hasScoped\":false}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/VideoChart.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('canvas', {
+    attrs: {
+      "id": "canvass-video-chart",
+      "height": "300",
+      "width": "300"
+    }
+  }), _vm._v(" "), _c('div', {
+    staticClass: "pull-right"
+  }, [_c('button', {
+    on: {
+      "click": function($event) {
+        $event.preventDefault();
+        _vm.displayOptions($event)
+      }
+    }
+  }, [_vm._v("options")])]), _vm._v(" "), (_vm.formOptions) ? _c('div', {
+    staticClass: "col-md-3"
+  }, [_c('div', {
+    staticClass: "form-group pull-left"
+  }, [_c('label', {
+    attrs: {
+      "for": "type"
+    }
+  }, [_vm._v("chart type:")]), _vm._v(" "), _c('select', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.type),
+      expression: "type"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "id": "type"
+    },
+    on: {
+      "change": [function($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function(o) {
+          return o.selected
+        }).map(function(o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val
+        });
+        _vm.type = $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+      }, _vm.changeType]
+    }
+  }, [_c('option', [_vm._v("line")]), _vm._v(" "), _c('option', [_vm._v("bar")])]), _vm._v(" "), _c('label', {
+    attrs: {
+      "for": "period",
+      "id": "label"
+    }
+  }, [_vm._v("chart periods:")]), _vm._v(" "), _c('select', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.period),
+      expression: "period"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "id": "period"
+    },
+    on: {
+      "change": [function($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function(o) {
+          return o.selected
+        }).map(function(o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val
+        });
+        _vm.period = $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+      }, _vm.changePeriod]
+    }
+  }, [_c('option', {
+    attrs: {
+      "value": "1year"
+    }
+  }, [_vm._v("1 year")]), _vm._v(" "), _c('option', {
+    attrs: {
+      "value": "3months"
+    }
+  }, [_vm._v("3 months")]), _vm._v(" "), _c('option', {
+    attrs: {
+      "value": "30days"
+    }
+  }, [_vm._v("30 days")]), _vm._v(" "), _c('option', {
+    attrs: {
+      "value": "1week"
+    }
+  }, [_vm._v("1 week")]), _vm._v(" "), _c('option', {
+    attrs: {
+      "value": "yesterday"
+    }
+  }, [_vm._v("Yesterday")]), _vm._v(" "), _c('option', {
+    attrs: {
+      "value": "today"
+    }
+  }, [_vm._v("Today")]), _vm._v(" "), _c('option', {
+    attrs: {
+      "value": "Custom"
+    }
+  }, [_vm._v("Custom")])])])]) : _vm._e(), _vm._v(" "), _c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.showCustom()),
+      expression: "showCustom()"
+    }],
+    staticClass: "col-sm-offset-4"
+  }, [_c('label', {
+    attrs: {
+      "for": "custom-date",
+      "id": "label"
+    }
+  }, [_vm._v("Choose Custom Period:")]), _vm._v(" "), _c('form', {
+    attrs: {
+      "id": "custom-date"
+    }
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.startDate),
+      expression: "startDate"
+    }],
+    attrs: {
+      "type": "date",
+      "name": "start_date",
+      "value": ""
+    },
+    domProps: {
+      "value": (_vm.startDate)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.startDate = $event.target.value
+      }
+    }
+  }), _vm._v("\n\n                to    \n\n            "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.endDate),
+      expression: "endDate"
+    }],
+    attrs: {
+      "type": "date",
+      "name": "end_date",
+      "value": ""
+    },
+    domProps: {
+      "value": (_vm.endDate)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.endDate = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _c('button', {
+    staticClass: "btn-default",
+    on: {
+      "click": function($event) {
+        $event.preventDefault();
+        _vm.submitCustom()
+      }
+    }
+  }, [_vm._v("Go!")])])])])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-27650887", module.exports)
+  }
+}
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-2775d52d\",\"hasScoped\":false}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/BlogResourcesList.vue":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -39372,6 +39995,45 @@ if (false) {
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-bf7d32f0\",\"hasScoped\":false}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/TotalVideos.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "col-md-3 col-sm-6 col-xs-12"
+  }, [_c('a', {
+    attrs: {
+      "href": "/video"
+    }
+  }, [_c('div', {
+    staticClass: "info-box"
+  }, [_vm._m(0), _vm._v(" "), _c('div', {
+    staticClass: "info-box-content"
+  }, [_c('span', {
+    staticClass: "text-center"
+  }, [_vm._v("Total Videos")]), _vm._v(" "), _c('span', {
+    staticClass: "info-box-number text-center"
+  }, [_vm._v(_vm._s(_vm.videos))])])])])])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('span', {
+    staticClass: "info-box-icon bg-red"
+  }, [_c('i', {
+    staticClass: "fa fa-video-camera",
+    attrs: {
+      "aria-hidden": "true"
+    }
+  })])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-bf7d32f0", module.exports)
+  }
+}
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-bf808a80\",\"hasScoped\":false}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/AlarmBell.vue":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -39401,6 +40063,32 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
      require("vue-hot-reload-api").rerender("data-v-bf808a80", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-c79c56ce\",\"hasScoped\":false}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/VideoPieChart.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _vm._m(0)
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('div', {
+    staticClass: "blog-post-meta text-center"
+  }, [_vm._v("Videos By Category")]), _vm._v(" "), _c('canvas', {
+    attrs: {
+      "id": "canvass-video-pie",
+      "height": "300",
+      "width": "300"
+    }
+  })])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-c79c56ce", module.exports)
   }
 }
 
@@ -39604,6 +40292,45 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
      require("vue-hot-reload-api").rerender("data-v-e3edb502", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-e470f414\",\"hasScoped\":false}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/TotalInfluencers.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "col-md-3 col-sm-6 col-xs-12"
+  }, [_c('a', {
+    attrs: {
+      "href": "/blogresource"
+    }
+  }, [_c('div', {
+    staticClass: "info-box"
+  }, [_vm._m(0), _vm._v(" "), _c('div', {
+    staticClass: "info-box-content"
+  }, [_c('span', {
+    staticClass: "text-center"
+  }, [_vm._v("Influencers")]), _vm._v(" "), _c('span', {
+    staticClass: "info-box-number text-center"
+  }, [_vm._v(_vm._s(_vm.influencers))])])])])])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('span', {
+    staticClass: "info-box-icon"
+  }, [_c('i', {
+    staticClass: "fa fa-users",
+    attrs: {
+      "aria-hidden": "true"
+    }
+  })])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-e470f414", module.exports)
   }
 }
 
@@ -50311,14 +51038,18 @@ Vue.component('signature', __webpack_require__("./resources/assets/js/components
 Vue.component('site-list', __webpack_require__("./resources/assets/js/components/SiteList.vue"));
 Vue.component('site-search', __webpack_require__("./resources/assets/js/components/SiteSearch.vue"));
 Vue.component('total-books', __webpack_require__("./resources/assets/js/components/TotalBooks.vue"));
+Vue.component('total-influencers', __webpack_require__("./resources/assets/js/components/TotalInfluencers.vue"));
 Vue.component('total-posts', __webpack_require__("./resources/assets/js/components/TotalPosts.vue"));
 Vue.component('total-resources', __webpack_require__("./resources/assets/js/components/TotalResources.vue"));
 Vue.component('total-users', __webpack_require__("./resources/assets/js/components/TotalUsers.vue"));
+Vue.component('total-videos', __webpack_require__("./resources/assets/js/components/TotalVideos.vue"));
 Vue.component('user-grid', __webpack_require__("./resources/assets/js/components/UserGrid.vue"));
 Vue.component('videos-by-category-list', __webpack_require__("./resources/assets/js/components/VideosByCategoryList.vue"));
 Vue.component('videos-by-category-grid', __webpack_require__("./resources/assets/js/components/VideosByCategoryGrid.vue"));
 Vue.component('videos-by-level-grid', __webpack_require__("./resources/assets/js/components/VideosByLevelGrid.vue"));
 Vue.component('videos-by-level-list', __webpack_require__("./resources/assets/js/components/VideosByLevelList.vue"));
+Vue.component('video-chart', __webpack_require__("./resources/assets/js/components/VideoChart.vue"));
+Vue.component('video-pie-chart', __webpack_require__("./resources/assets/js/components/VideoPieChart.vue"));
 Vue.component('video-list', __webpack_require__("./resources/assets/js/components/VideoList.vue"));
 Vue.component('video-grid', __webpack_require__("./resources/assets/js/components/VideoGrid.vue"));
 Vue.component('warning', __webpack_require__("./resources/assets/js/components/Warning.vue"));
@@ -51933,6 +52664,47 @@ module.exports = Component.exports
 
 /***/ }),
 
+/***/ "./resources/assets/js/components/TotalInfluencers.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var Component = __webpack_require__("./node_modules/vue-loader/lib/component-normalizer.js")(
+  /* script */
+  __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/TotalInfluencers.vue"),
+  /* template */
+  __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-e470f414\",\"hasScoped\":false}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/TotalInfluencers.vue"),
+  /* styles */
+  null,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/Users/billk/var/www/coinseer/resources/assets/js/components/TotalInfluencers.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] TotalInfluencers.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-e470f414", Component.options)
+  } else {
+    hotAPI.reload("data-v-e470f414", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
 /***/ "./resources/assets/js/components/TotalPosts.vue":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -52056,6 +52828,47 @@ module.exports = Component.exports
 
 /***/ }),
 
+/***/ "./resources/assets/js/components/TotalVideos.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var Component = __webpack_require__("./node_modules/vue-loader/lib/component-normalizer.js")(
+  /* script */
+  __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/TotalVideos.vue"),
+  /* template */
+  __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-bf7d32f0\",\"hasScoped\":false}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/TotalVideos.vue"),
+  /* styles */
+  null,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/Users/billk/var/www/coinseer/resources/assets/js/components/TotalVideos.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] TotalVideos.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-bf7d32f0", Component.options)
+  } else {
+    hotAPI.reload("data-v-bf7d32f0", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
 /***/ "./resources/assets/js/components/UserGrid.vue":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -52086,6 +52899,47 @@ if (false) {(function () {
     hotAPI.createRecord("data-v-634f9a15", Component.options)
   } else {
     hotAPI.reload("data-v-634f9a15", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/VideoChart.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var Component = __webpack_require__("./node_modules/vue-loader/lib/component-normalizer.js")(
+  /* script */
+  __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/VideoChart.vue"),
+  /* template */
+  __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-27650887\",\"hasScoped\":false}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/VideoChart.vue"),
+  /* styles */
+  null,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/Users/billk/var/www/coinseer/resources/assets/js/components/VideoChart.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] VideoChart.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-27650887", Component.options)
+  } else {
+    hotAPI.reload("data-v-27650887", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -52168,6 +53022,47 @@ if (false) {(function () {
     hotAPI.createRecord("data-v-efa43df6", Component.options)
   } else {
     hotAPI.reload("data-v-efa43df6", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/VideoPieChart.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var Component = __webpack_require__("./node_modules/vue-loader/lib/component-normalizer.js")(
+  /* script */
+  __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/VideoPieChart.vue"),
+  /* template */
+  __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-c79c56ce\",\"hasScoped\":false}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/VideoPieChart.vue"),
+  /* styles */
+  null,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/Users/billk/var/www/coinseer/resources/assets/js/components/VideoPieChart.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] VideoPieChart.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-c79c56ce", Component.options)
+  } else {
+    hotAPI.reload("data-v-c79c56ce", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true

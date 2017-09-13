@@ -48,6 +48,9 @@ use App\Queries\GridQueries\VideoLevelGridQuery;
 use App\Queries\VideosByLevelListQuery;
 use App\Queries\GridQueries\LevelQuery;
 use App\Utilities\Summarize;
+use App\ChartHelpers\VideoPieChartBuilder;
+use App\Video;
+use App\Influencer;
 
 
 
@@ -319,6 +322,15 @@ class ApiController extends Controller
 
     }
 
+    public function totalInfluencers()
+    {
+
+
+        return Influencer::all()->count();
+
+
+    }
+
     public function totalPosts()
     {
 
@@ -341,6 +353,15 @@ class ApiController extends Controller
 
 
         return User::all()->count();
+
+
+    }
+
+    public function totalVideos()
+    {
+
+
+        return Video::all()->count();
 
 
     }
@@ -384,6 +405,14 @@ class ApiController extends Controller
 
     }
 
+    public function videoChartData(Request $request, BuildsCharts $chart)
+    {
+
+        return $chart->buildChart($request, ['videos']);
+
+
+    }
+
     public function videoListData()
     {
 
@@ -405,6 +434,17 @@ class ApiController extends Controller
 
 
         return WalletListQuery::sendData();
+
+
+    }
+
+    public function videoPieChartData()
+    {
+
+        $data = new VideoPieChartBuilder;
+
+
+        return $data->getData();
 
 
     }
