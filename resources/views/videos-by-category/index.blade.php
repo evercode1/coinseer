@@ -4,8 +4,8 @@
 
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="https://www.coinseer.com/videos-by-category/{{ $category }}" />
-    <meta name="twitter:title" content="CoinSeer Videos By Category {{ $category }}" />
-    <meta name="twitter:description" content="Bitcoin and Cryptocurrency Videos By Category {{ $category }}" />
+    <meta name="twitter:title" content="CoinSeer Videos By Category: {{ $category }}" />
+    <meta name="twitter:description" content="Bitcoin and Cryptocurrency Videos By Category: {{ $category }}" />
     <meta name="twitter:image" content="{{ config('twitter-cards.thumbnail.url') }}" />
 
 
