@@ -11,6 +11,17 @@ class Summarize
 
     }
 
+    public static function summaryWithoutTags($string)
+    {
+
+        $string = str_replace('<p>', '', $string );
+
+        $string = str_replace('</p>', '', $string );
+
+        return substr($string, 0, 20) . '...';
+
+    }
+
     public static function longSummary($string)
     {
 

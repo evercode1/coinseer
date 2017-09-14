@@ -2,9 +2,15 @@
 
 @section('meta')
 
-    <meta name="description" content="List of Influential twitter users.  Updated daily.">
-    <meta name="keywords" content="influencers">
-    <meta name="author" content="CoinSeer">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="https://www.coinseer.com/all-influencers" />
+    <meta name="twitter:title" content="Crypto Influencers On Twitter" />
+    <meta name="twitter:description" content="List of Influential twitter users.  Updated daily." />
+    <meta name="twitter:image" content="{{ config('twitter-cards.thumbnail.url') }}" />
+
+    <meta name="description" content="List of Influential twitter users.  Updated daily." >
+    <meta name="keywords" content="influencers" >
+    <meta name="author" content="CoinSeer" >
 
 
     <title>Influnceners</title>

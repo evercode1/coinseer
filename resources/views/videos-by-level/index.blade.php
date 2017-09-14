@@ -2,10 +2,17 @@
 
 @section('meta')
 
-    <meta name="description" content="{{ $levelName }} crytpocurrency videos">
-    <meta name="keywords" content="{{ $levelName }} crytpocurrency videos">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="https://www.coinseer.com/videos-by-level/{{ $levelName }}" />
+    <meta name="twitter:title" content="CoinSeer Videos By Level {{ ucfirst($levelName) }}" />
+    <meta name="twitter:description" content="Bitcoin and Cryptocurrency Videos By Level: {{ ucfirst($levelName) }}" />
+    <meta name="twitter:image" content="{{ config('twitter-cards.thumbnail.url') }}" />
+
+
+    <meta name="description" content="{{ ucfirst($levelName) }} crytpocurrency videos">
+    <meta name="keywords" content="{{ ucfirst($levelName) }} crytpocurrency videos">
     <meta name="author" content="CoinSeer">
-    <title>Videos by Level</title>
+    <title>{{ ucfirst($levelName) }} Crytpocurrency Videos</title>
 
 @endsection
 

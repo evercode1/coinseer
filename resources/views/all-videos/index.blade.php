@@ -2,7 +2,14 @@
 
 @section('meta')
 
-    <meta name="description" content="All Bitcoin and Cryptocurrency Videos  Updated daily.">
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="https://www.coinseer.com/all-videos" />
+    <meta name="twitter:title" content="CoinSeer Videos" />
+    <meta name="twitter:description" content="All Bitcoin and Cryptocurrency Videos" />
+    <meta name="twitter:image" content="{{ config('twitter-cards.thumbnail.url') }}" />
+
+    <meta name="description" content="All Bitcoin and Cryptocurrency Videos">
     <meta name="keywords" content="bitcoin videos, cryptocurrency videos">
     <meta name="author" content="CoinSeer">
 

@@ -6,7 +6,7 @@
     <meta name="twitter:site" content="https://www.coinseer.com/all-videos/{{ $video->id }}-{{ $video->slug }}" />
     <meta name="twitter:title" content="{{ $video->title }}" />
     <meta name="twitter:description" content="{{ $video->description }}" />
-    <meta name="twitter:image" content="{{ config('twitter-cards.thumbnail.url') }}>
+    <meta name="twitter:image" content="{{ config('twitter-cards.thumbnail.url') }}" />
 
     <meta name="description" content="{{ $video->description }}">
     <meta name="keywords" content="{{ $video->title }} video">

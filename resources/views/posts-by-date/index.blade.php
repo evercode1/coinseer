@@ -2,10 +2,16 @@
 
 @section('meta')
 
-    <meta name="description" content="Bitcoin, ICO and Cryptocurrency Posts by Date">
-    <meta name="keywords" content="Bitcoin, ICO and Cryptocurrency Posts by Date">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="https://www.coinseer.com/posts-by-date/{{ $fullMonthName }}-{{ $year }}" />
+    <meta name="twitter:title" content="All CoinSeer Articles in {{ $fullMonthName }}  {{ $year }}" />
+    <meta name="twitter:description" content="Complete list of CoinSeer Articles from {{ $fullMonthName }}  {{ $year }}" />
+    <meta name="twitter:image" content="{{ config('twitter-cards.thumbnail.url') }}" />
+
+    <meta name="description" content="Bitcoin, ICO and Cryptocurrency Articles by Date">
+    <meta name="keywords" content="Bitcoin, ICO and Cryptocurrency Articles by Date">
     <meta name="author" content="CoinSeer">
-    <title>Bitcoin, ICO and Cryptocurrency Posts by Date</title>
+    <title>CoinSeer Cryptocurrency Articles by Date</title>
 
 @endsection
 

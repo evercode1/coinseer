@@ -2,6 +2,12 @@
 
 @section('meta')
 
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="https://www.coinseer.com/post/{{$post->id}}-{{ $post->slug }}" />
+    <meta name="twitter:title" content="{{ $post->title }}" />
+    <meta name="twitter:description" content="{{ \App\Utilities\Summarize::summaryWithoutTags($post->body) }}" />
+    <meta name="twitter:image" content="{{ config('twitter-cards.thumbnail.url') }}" />
+
     <meta name="description" content="{{ $post->title }}">
     <meta name="keywords" content="{{ $post->title }}">
     <meta name="author" content="{{ $post->user->name }}">

@@ -22,11 +22,11 @@ class TestController extends Controller
     public function index()
     {
 
-      $url = config('twitter-cards.thumbnail.url');
+        $str = '<p>this is my sonly';
 
-        dd($url);
+      $str = str_replace('<p>', '', $str );
 
-        return 'here';
+        dd($str);
 
     }
 

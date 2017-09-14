@@ -2,10 +2,19 @@
 
 @section('meta')
 
-    <meta name="description" content="{{ $category }} Posts">
-    <meta name="keywords" content="{{ $category }}">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="https://www.coinseer.com/videos-by-category/{{ $category }}" />
+    <meta name="twitter:title" content="CoinSeer Videos By Category {{ $category }}" />
+    <meta name="twitter:description" content="Bitcoin and Cryptocurrency Videos By Category {{ $category }}" />
+    <meta name="twitter:image" content="{{ config('twitter-cards.thumbnail.url') }}" />
+
+
+
+
+    <meta name="description" content="{{ $category }} videos">
+    <meta name="keywords" content="{{ $category }} videos">
     <meta name="author" content="CoinSeer">
-    <title>Videos by Category</title>
+    <title>{{ $category }} Videos</title>
 
 @endsection
 

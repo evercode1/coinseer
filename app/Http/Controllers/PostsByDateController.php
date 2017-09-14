@@ -15,13 +15,14 @@ class PostsByDateController extends Controller
 
         $year = Carbon::parse($date)->format('Y');
         $month = Carbon::parse($date)->format('m');
+        $fullMonthName = Carbon::parse($date)->format('F');
 
         $posts = Post::live()
             ->byDate($year, $month)
             ->simplePaginate(2);
 
 
-        return view('posts-by-date.index', compact('posts', 'date', 'year', 'month'));
+        return view('posts-by-date.index', compact('posts', 'date', 'year', 'month', 'fullMonthName'));
 
     }
 }
