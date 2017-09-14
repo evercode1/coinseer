@@ -22,11 +22,8 @@ class TestController extends Controller
     public function index()
     {
 
-        $str = '<p>this is my sonly';
 
-      $str = str_replace('<p>', '', $str );
-
-        dd($str);
+        return view('test.index');
 
     }
 

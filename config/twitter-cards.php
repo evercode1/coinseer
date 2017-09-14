@@ -12,7 +12,7 @@ return [
     */
 
     'thumbnail' => [
-        'url' => '/imgs/twitter/thumbnail.jpg']
+        'url' => 'https://www.coinseer.com/imgs/twitter/thumbnail.jpg']
 
 
 
