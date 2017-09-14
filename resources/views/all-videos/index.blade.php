@@ -2,6 +2,11 @@
 
 @section('meta')
 
+    <meta name="description" content="All Bitcoin and Cryptocurrency Videos  Updated daily.">
+    <meta name="keywords" content="bitcoin videos, cryptocurrency videos">
+    <meta name="author" content="CoinSeer">
+
+
     <title>Bitcoin and Cryptocurrency Videos</title>
 
     @endsection

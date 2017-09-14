@@ -2,6 +2,11 @@
 
 @section('meta')
 
+    <meta name="description" content="List of Influential twitter users.  Updated daily.">
+    <meta name="keywords" content="influencers">
+    <meta name="author" content="CoinSeer">
+
+
     <title>Influnceners</title>
 
     @endsection

@@ -2,10 +2,10 @@
 
 @section('meta')
 
-    <meta name="description" content="The latest news on cyrptocurrencies, including top trends, influencers and market movement.  Updated daily.">
-    <meta name="keywords" content="bitcoin, ico, crytpocurrencies">
+    <meta name="description" content="The latest videos and articles on cyrptocurrencies, including top trends, influencers and market movement.  Updated daily.">
+    <meta name="keywords" content="bitcoin, ico, crytpocurrencies, videos, articles">
     <meta name="author" content="CoinSeer">
-    <title>Bitcoin, ICO and Cryptocurrency Articles</title>
+    <title>Bitcoin, ICO and Cryptocurrency video directory/title>
 
 @endsection
 
