@@ -39762,7 +39762,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       value: (_vm.$parent.total > 5),
       expression: "$parent.total > 5"
     }],
-    staticClass: "col-md-4 col-md-offset-2"
+    staticClass: "col-md-4"
   }, [_c('div', {
     staticClass: "pull-right"
   }, [_c('button', {
