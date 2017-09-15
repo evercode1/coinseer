@@ -4,7 +4,7 @@
 
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="https://www.coinseer.com" />
-    <meta name="twitter:title" content="CoinSeer Video Directory" />
+    <meta name="twitter:title" content="CoinSeer Crypto Blog" />
     <meta name="twitter:description" content="Bitcoin and Cryptocurrency Videos and Articles. Updated Daily" />
     <meta name="twitter:image" content="{{ config('twitter-cards.thumbnail.url') }}" />
 
