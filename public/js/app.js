@@ -1923,6 +1923,9 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
         },
 
         setPageNumbers: function setPageNumbers() {
+
+            this.pages = [];
+
             for (var i = 1; i <= this.last_page; i++) {
                 this.pages.push(i);
             }
@@ -1933,10 +1936,8 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
         },
 
         resetPageNumbers: function resetPageNumbers() {
-            this.pages = [];
-            for (var i = 1; i <= this.last_page; i++) {
-                this.pages.push(i);
-            }
+
+            this.setPageNumbers();
         },
 
         checkUrlNotNull: function checkUrlNotNull(url) {
@@ -2162,6 +2163,9 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
         },
 
         setPageNumbers: function setPageNumbers() {
+
+            this.pages = [];
+
             for (var i = 1; i <= this.last_page; i++) {
                 this.pages.push(i);
             }
@@ -2172,10 +2176,8 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
         },
 
         resetPageNumbers: function resetPageNumbers() {
-            this.pages = [];
-            for (var i = 1; i <= this.last_page; i++) {
-                this.pages.push(i);
-            }
+
+            this.setPageNumbers();
         },
 
         checkUrlNotNull: function checkUrlNotNull(url) {
@@ -2593,6 +2595,7 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
         setPageNumbers: function setPageNumbers() {
 
             this.pages = [];
+
             for (var i = 1; i <= this.last_page; i++) {
                 this.pages.push(i);
             }
@@ -2603,10 +2606,8 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
         },
 
         resetPageNumbers: function resetPageNumbers() {
-            this.pages = [];
-            for (var i = 1; i <= this.last_page; i++) {
-                this.pages.push(i);
-            }
+
+            this.setPageNumbers();
         },
 
         checkUrlNotNull: function checkUrlNotNull(url) {
@@ -2873,10 +2874,8 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
         },
 
         resetPageNumbers: function resetPageNumbers() {
-            this.pages = [];
-            for (var i = 1; i <= this.last_page; i++) {
-                this.pages.push(i);
-            }
+
+            this.setPageNumbers();
         },
 
         checkUrlNotNull: function checkUrlNotNull(url) {
@@ -3121,10 +3120,8 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
         },
 
         resetPageNumbers: function resetPageNumbers() {
-            this.pages = [];
-            for (var i = 1; i <= this.last_page; i++) {
-                this.pages.push(i);
-            }
+
+            this.setPageNumbers();
         },
 
         checkUrlNotNull: function checkUrlNotNull(url) {
@@ -3397,10 +3394,8 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
         },
 
         resetPageNumbers: function resetPageNumbers() {
-            this.pages = [];
-            for (var i = 1; i <= this.last_page; i++) {
-                this.pages.push(i);
-            }
+
+            this.setPageNumbers();
         },
 
         checkUrlNotNull: function checkUrlNotNull(url) {
@@ -3643,10 +3638,8 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
         },
 
         resetPageNumbers: function resetPageNumbers() {
-            this.pages = [];
-            for (var i = 1; i <= this.last_page; i++) {
-                this.pages.push(i);
-            }
+
+            this.setPageNumbers();
         },
 
         checkUrlNotNull: function checkUrlNotNull(url) {
@@ -3869,10 +3862,8 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
         },
 
         resetPageNumbers: function resetPageNumbers() {
-            this.pages = [];
-            for (var i = 1; i <= this.last_page; i++) {
-                this.pages.push(i);
-            }
+
+            this.setPageNumbers();
         },
 
         checkUrlNotNull: function checkUrlNotNull(url) {
@@ -4073,10 +4064,8 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
         },
 
         resetPageNumbers: function resetPageNumbers() {
-            this.pages = [];
-            for (var i = 1; i <= this.last_page; i++) {
-                this.pages.push(i);
-            }
+
+            this.setPageNumbers();
         },
 
         checkUrlNotNull: function checkUrlNotNull(url) {
@@ -4468,10 +4457,8 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
         },
 
         resetPageNumbers: function resetPageNumbers() {
-            this.pages = [];
-            for (var i = 1; i <= this.last_page; i++) {
-                this.pages.push(i);
-            }
+
+            this.setPageNumbers();
         },
 
         checkUrlNotNull: function checkUrlNotNull(url) {
@@ -4728,10 +4715,8 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
         },
 
         resetPageNumbers: function resetPageNumbers() {
-            this.pages = [];
-            for (var i = 1; i <= this.last_page; i++) {
-                this.pages.push(i);
-            }
+
+            this.setPageNumbers();
         },
 
         checkUrlNotNull: function checkUrlNotNull(url) {
@@ -4952,10 +4937,8 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
         },
 
         resetPageNumbers: function resetPageNumbers() {
-            this.pages = [];
-            for (var i = 1; i <= this.last_page; i++) {
-                this.pages.push(i);
-            }
+
+            this.setPageNumbers();
         },
 
         checkUrlNotNull: function checkUrlNotNull(url) {
@@ -5439,10 +5422,8 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
         },
 
         resetPageNumbers: function resetPageNumbers() {
-            this.pages = [];
-            for (var i = 1; i <= this.last_page; i++) {
-                this.pages.push(i);
-            }
+
+            this.setPageNumbers();
         },
 
         checkUrlNotNull: function checkUrlNotNull(url) {
@@ -5739,10 +5720,8 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
         },
 
         resetPageNumbers: function resetPageNumbers() {
-            this.pages = [];
-            for (var i = 1; i <= this.last_page; i++) {
-                this.pages.push(i);
-            }
+
+            this.setPageNumbers();
         },
 
         checkUrlNotNull: function checkUrlNotNull(url) {
@@ -6432,10 +6411,8 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
         },
 
         resetPageNumbers: function resetPageNumbers() {
-            this.pages = [];
-            for (var i = 1; i <= this.last_page; i++) {
-                this.pages.push(i);
-            }
+
+            this.setPageNumbers();
         },
 
         checkUrlNotNull: function checkUrlNotNull(url) {
@@ -6903,10 +6880,8 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
         },
 
         resetPageNumbers: function resetPageNumbers() {
-            this.pages = [];
-            for (var i = 1; i <= this.last_page; i++) {
-                this.pages.push(i);
-            }
+
+            this.setPageNumbers();
         },
 
         checkUrlNotNull: function checkUrlNotNull(url) {
@@ -7263,10 +7238,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
 
         resetPageNumbers: function resetPageNumbers() {
-            this.pages = [];
-            for (var i = 1; i <= this.last_page; i++) {
-                this.pages.push(i);
-            }
+
+            this.setPageNumbers();
         },
 
         checkUrlNotNull: function checkUrlNotNull(url) {
@@ -7626,10 +7599,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
 
         resetPageNumbers: function resetPageNumbers() {
-            this.pages = [];
-            for (var i = 1; i <= this.last_page; i++) {
-                this.pages.push(i);
-            }
+
+            this.setPageNumbers();
         },
 
         checkUrlNotNull: function checkUrlNotNull(url) {
