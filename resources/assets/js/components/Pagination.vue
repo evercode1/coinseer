@@ -13,7 +13,7 @@
             </a>
 
             </div>
-            <div class="col-md-4"v-show="$parent.total > 5">
+            <div class="col-md-4 col-md-offset-2"v-show="$parent.total > 5">
             <div class="pull-right">
 
                 <button @click="$parent.getData($parent.go_to_page)"class="btn btn-default">
