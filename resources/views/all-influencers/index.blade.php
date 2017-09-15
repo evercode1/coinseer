@@ -34,9 +34,7 @@
 
                 <all-influencers></all-influencers>
 
-                <signature></signature>
 
-                <warning></warning>
 
             </div><!-- end blog-post -->
 

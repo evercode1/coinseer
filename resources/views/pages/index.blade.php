@@ -52,15 +52,11 @@
 
                     </div>
 
-                    <div class="pull-right mt-10 bm-10"><a href="/all-videos">more videos...</a></div>
-                    <br />
-                    <signature></signature>
 
-                    <warning :message="{{ json_encode($videoWarning)}}"></warning>
 
                 </div>
 
-                <div class="text-center">
+                <div class="text-center mt-20 mb-40">
 
                     <a href="/all-videos"><i class="fa fa-video-camera" aria-hidden="true"></i>  Click here for all videos</a>
 
@@ -89,17 +85,13 @@
 
                     {!! $post->body !!}
 
-                    <div class="bp-10">
 
-                        <warning :message="{{ json_encode($articleWarning)}}"></warning>
-
-                    </div>
 
 
 
                     <a href="/post/{{ $post->id }}-{{ $post->slug }}#disqus_thread">
 
-                        <button class="btn btn-primary">
+                        <button class="btn btn-primary mt-20 mb-20">
 
                             Show Comments
 
@@ -107,9 +99,9 @@
 
                     </a>
 
-                    <signature></signature>
 
-                    <div class="text-center mt-20">
+
+                    <div class="text-center mt-20  mb-40">
 
                         <a href="/all-articles"><i class="fa fa-newspaper-o" aria-hidden="true"></i>  Click here for all articles</a>
 
@@ -154,29 +146,24 @@
 
                     </ul>
 
-                    <div class="text-center mt-20">
+                    <div class="text-center mt-20 mb-40">
 
                         <a href="/all-influencers"><i class="fa fa-users" aria-hidden="true"></i>  Click here for all Influencers</a>
 
                     </div>
 
+                    <hr class="divider" />
+
 
                     <div class="bp-10">
 
-                        <warning :message="{{ json_encode($influencersWarning)}}"></warning>
+                        <warning :message="{{ json_encode($generalWarning)}}"></warning>
 
                     </div>
 
 
-                    <signature></signature>
-
-
-
-
-
-
-
                 </div><!-- end blog-post -->
+
 
 
 

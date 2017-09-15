@@ -35,9 +35,7 @@
 
                     <all-videos></all-videos>
 
-                    <signature></signature>
 
-                    <warning></warning>
 
                 </div><!-- end blog-post -->
 

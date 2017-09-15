@@ -34,9 +34,6 @@
 
                     <all-articles></all-articles>
 
-                    <signature></signature>
-
-                    <warning></warning>
 
                 </div><!-- end blog-post -->
 

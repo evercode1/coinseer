@@ -45,7 +45,6 @@
 
                         {!! $post->body !!}
 
-                        <signature></signature>
 
                         <a href="/post/{{ $post->id }}-{{ $post->slug }}#disqus_thread">
 

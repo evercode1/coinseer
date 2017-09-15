@@ -40,7 +40,6 @@
 
                 </div>
 
-                <signature></signature>
 
                 <div class="comments">
 

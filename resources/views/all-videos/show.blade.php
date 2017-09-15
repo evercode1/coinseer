@@ -44,11 +44,15 @@
 
                     </div>
 
-                    <div class="pull-right mt-10 bm-10"><a href="/all-videos">more videos...</a></div>
+                    <div class="text-center mt-20 mb-40">
+
+                        <a href="/all-videos"><i class="fa fa-video-camera" aria-hidden="true"></i>  Click here for all videos</a>
+
+                    </div>
 
                     <br />
 
-                    <signature></signature>
+
 
                     <warning :message="{{ json_encode($videoWarning)}}"></warning>
 

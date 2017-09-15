@@ -19,7 +19,7 @@ class PostsByDateController extends Controller
 
         $posts = Post::live()
             ->byDate($year, $month)
-            ->simplePaginate(2);
+            ->simplePaginate(5);
 
 
         return view('posts-by-date.index', compact('posts', 'date', 'year', 'month', 'fullMonthName'));

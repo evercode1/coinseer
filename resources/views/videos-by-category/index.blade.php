@@ -46,8 +46,7 @@
                         <div class="pull-right"><a href="/all-videos">all videos...</a></div>
 
                         <br/>
-
-                        <signature></signature>
+                        
 
 
 

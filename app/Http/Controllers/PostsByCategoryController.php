@@ -13,7 +13,7 @@ class PostsByCategoryController extends Controller
 
         $category = Category::where('id', $id)->pluck('name')->first();
 
-        $posts = Post::live()->byCategory($id)->simplePaginate(1);;
+        $posts = Post::live()->byCategory($id)->simplePaginate(5);;
 
         return view('posts-by-category.index', compact('posts', 'category'));
 
