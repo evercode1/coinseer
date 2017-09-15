@@ -53386,7 +53386,7 @@ module.exports = Component.exports
 var dataHelper = {
     getQueryData: function getQueryData(request, url, vm) {
 
-        url = this.formatGetRequest(request, url, vm);
+        url = this.formatUrlGetRequest(request, url, vm);
 
         if (vm.query == '' && url != null) {
 
@@ -53418,7 +53418,7 @@ var dataHelper = {
             }
         }
     },
-    formatGetRequest: function formatGetRequest(request, url, vm) {
+    formatUrlGetRequest: function formatUrlGetRequest(request, url, vm) {
 
         request = request || vm.current_page;
 

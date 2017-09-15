@@ -5,7 +5,7 @@ var dataHelper = {
 
 
 
-             url = this.formatGetRequest(request, url, vm);
+             url = this.formatUrlGetRequest(request, url, vm);
 
 
             if (vm.query == '' && url != null){
@@ -43,7 +43,7 @@ var dataHelper = {
             }
         },
 
-        formatGetRequest(request, url, vm){
+        formatUrlGetRequest(request, url, vm){
 
             request = request || vm.current_page;
 
