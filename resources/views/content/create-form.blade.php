@@ -26,6 +26,28 @@
 
     </div>  <!-- end name input -->
 
+    <!-- description input -->
+
+    <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
+
+        <label class="control-label">description</label>
+
+        <textarea name="description"
+                  class="form-control"
+                  rows="5"
+                  value="{{ old('description') }}"></textarea>
+
+
+        @if ($errors->has('description'))
+
+            <span class="help-block">
+                <strong>{{ $errors->first('description') }}</strong>
+            </span>
+
+        @endif
+
+    </div>  <!-- end description input -->
+
 
     <!-- body input -->
 

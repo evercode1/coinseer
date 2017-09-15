@@ -163,6 +163,9 @@
             },
 
             setPageNumbers: function(){
+
+                this.pages = [];
+
                 for (var i = 1; i <= this.last_page; i++) {
                     this.pages.push(i);
                 }

@@ -56,6 +56,7 @@ class ContentController extends Controller
 
             'name' => 'required|unique:contents|string|max:100',
             'body' => 'required|string|max:40000',
+            'description' => 'required|string|max:1000',
             'is_active' => 'required|boolean',
 
         ]);
@@ -64,6 +65,7 @@ class ContentController extends Controller
 
             'name' => $request->name,
             'body' => $request->body,
+            'description' => $request->description,
             'is_active' => $request->is_active
 
         ]);
@@ -116,6 +118,7 @@ class ContentController extends Controller
 
             'name' => 'required|string|max:100|unique:contents,name,' .$content->id,
             'body' => 'required|string|max:40000',
+            'description' => 'required|string|max:1000',
             'is_active' => 'required|boolean',
 
         ]);
@@ -126,6 +129,7 @@ class ContentController extends Controller
 
         $content->update(['name' => $request->name,
                           'body'   => $request->body,
+                          'description' => $request->description,
                           'is_active' => $request->is_active]);
 
 

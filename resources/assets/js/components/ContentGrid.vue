@@ -152,6 +152,9 @@
             },
 
             setPageNumbers: function(){
+
+                this.pages = [];
+
                 for (var i = 1; i <= this.last_page; i++) {
                     this.pages.push(i);
                 }
@@ -187,7 +190,7 @@
                     axios.post('/content-delete/' + id)
                             .then(response => {
 
-                        gridData.loadData('/api/content-data', this);
+                        gridData.loadData('api/content-data', this);
 
                 })
 

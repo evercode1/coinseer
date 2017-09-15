@@ -1,5 +1,22 @@
 @extends('layouts.master-guest-auth')
 
+@section('meta')
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="https://www.coinseer.com/{{ $content->name }}" />
+    <meta name="twitter:title" content="CoinSeer {{ $content->name }}" />
+    <meta name="twitter:description" content="CoinSeer {{ $content->description }}" />
+    <meta name="twitter:image" content="{{ config('twitter-cards.thumbnail.url') }}" />
+
+    <meta name="description" content="{{ $content->description }}">
+    <meta name="keywords" content="{{ $content->name }} Coinseer">
+    <meta name="author" content="CoinSeer">
+
+
+    <title>Bitcoin and Cryptocurrency Articles</title>
+
+@endsection
+
 @section('content')
 
 

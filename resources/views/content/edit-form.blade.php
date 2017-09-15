@@ -27,12 +27,33 @@
 
     </div>  <!-- end name input -->
 
+    <!-- description input -->
+
+    <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
+
+        <label class="control-label">Description</label>
+
+        <textarea name="description"
+                  class="form-control"
+                  name="description"
+                  rows="5">{!! $content->description !!}</textarea>
+
+        @if ($errors->has('description'))
+
+            <span class="help-block">
+                <strong>{{ $errors->first('description') }}</strong>
+            </span>
+
+        @endif
+
+    </div>  <!-- end description input -->
+
 
     <!-- body input -->
 
     <div class="form-group{{ $errors->has('body') ? ' has-error' : '' }}">
 
-        <label class="control-label">Author</label>
+        <label class="control-label">Body</label>
 
         <textarea name="body"
                   class="form-control"
@@ -47,7 +68,7 @@
 
         @endif
 
-    </div>  <!-- end author input -->
+    </div>  <!-- end body input -->
 
 
     <!-- is_active select -->

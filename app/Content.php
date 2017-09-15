@@ -8,6 +8,7 @@ class Content extends Model
 {
     protected $fillable = ['name',
                            'body',
+                           'description',
                            'is_active'];
 
 

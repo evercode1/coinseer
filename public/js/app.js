@@ -2591,6 +2591,8 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
         },
 
         setPageNumbers: function setPageNumbers() {
+
+            this.pages = [];
             for (var i = 1; i <= this.last_page; i++) {
                 this.pages.push(i);
             }
@@ -2858,6 +2860,9 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
         },
 
         setPageNumbers: function setPageNumbers() {
+
+            this.pages = [];
+
             for (var i = 1; i <= this.last_page; i++) {
                 this.pages.push(i);
             }
@@ -3103,6 +3108,9 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
         },
 
         setPageNumbers: function setPageNumbers() {
+
+            this.pages = [];
+
             for (var i = 1; i <= this.last_page; i++) {
                 this.pages.push(i);
             }
@@ -3376,6 +3384,9 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
         },
 
         setPageNumbers: function setPageNumbers() {
+
+            this.pages = [];
+
             for (var i = 1; i <= this.last_page; i++) {
                 this.pages.push(i);
             }
@@ -3619,6 +3630,9 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
         },
 
         setPageNumbers: function setPageNumbers() {
+
+            this.pages = [];
+
             for (var i = 1; i <= this.last_page; i++) {
                 this.pages.push(i);
             }
@@ -3842,6 +3856,9 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
         },
 
         setPageNumbers: function setPageNumbers() {
+
+            this.pages = [];
+
             for (var i = 1; i <= this.last_page; i++) {
                 this.pages.push(i);
             }
@@ -4043,6 +4060,9 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
         },
 
         setPageNumbers: function setPageNumbers() {
+
+            this.pages = [];
+
             for (var i = 1; i <= this.last_page; i++) {
                 this.pages.push(i);
             }
@@ -4078,7 +4098,7 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
 
                 axios.post('/content-delete/' + id).then(function (response) {
 
-                    gridData.loadData('/api/content-data', _this);
+                    gridData.loadData('api/content-data', _this);
                 });
             }
         }
@@ -4435,6 +4455,9 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
         },
 
         setPageNumbers: function setPageNumbers() {
+
+            this.pages = [];
+
             for (var i = 1; i <= this.last_page; i++) {
                 this.pages.push(i);
             }
@@ -4692,6 +4715,9 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
         },
 
         setPageNumbers: function setPageNumbers() {
+
+            this.pages = [];
+
             for (var i = 1; i <= this.last_page; i++) {
                 this.pages.push(i);
             }
@@ -4913,6 +4939,9 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
         },
 
         setPageNumbers: function setPageNumbers() {
+
+            this.pages = [];
+
             for (var i = 1; i <= this.last_page; i++) {
                 this.pages.push(i);
             }
@@ -5397,6 +5426,9 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
         },
 
         setPageNumbers: function setPageNumbers() {
+
+            this.pages = [];
+
             for (var i = 1; i <= this.last_page; i++) {
                 this.pages.push(i);
             }
@@ -5694,6 +5726,9 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
         },
 
         setPageNumbers: function setPageNumbers() {
+
+            this.pages = [];
+
             for (var i = 1; i <= this.last_page; i++) {
                 this.pages.push(i);
             }
@@ -6384,6 +6419,9 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
         },
 
         setPageNumbers: function setPageNumbers() {
+
+            this.pages = [];
+
             for (var i = 1; i <= this.last_page; i++) {
                 this.pages.push(i);
             }
@@ -6852,6 +6890,9 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
         },
 
         setPageNumbers: function setPageNumbers() {
+
+            this.pages = [];
+
             for (var i = 1; i <= this.last_page; i++) {
                 this.pages.push(i);
             }
@@ -7209,6 +7250,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
 
         setPageNumbers: function setPageNumbers() {
+
+            this.pages = [];
+
             for (var i = 1; i <= this.last_page; i++) {
                 this.pages.push(i);
             }
@@ -7569,6 +7613,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
 
         setPageNumbers: function setPageNumbers() {
+
+            this.pages = [];
+
             for (var i = 1; i <= this.last_page; i++) {
                 this.pages.push(i);
             }
