@@ -18,7 +18,7 @@ class Summarize
 
         $string = str_replace('</p>', '', $string );
 
-        return substr($string, 0, 20) . '...';
+        return substr($string, 0, 40) . '...';
 
     }
 
