@@ -9,7 +9,7 @@
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span></button>
 
-        <strong>Oh Snap!</strong> {{ $exception->getMessage() }} Your Account is already Synced!
+        <strong>Oh Snap!</strong> Your Account is already Synced!
 
     </div>
 
