@@ -4,7 +4,7 @@ namespace App\Exceptions;
 class AlreadySyncedException extends \Exception
 {
 
-    public function handle($request)
+    public function handle($request, \Exception $exception)
     {
 
 
@@ -16,7 +16,7 @@ class AlreadySyncedException extends \Exception
            }
 
            return response()->view('errors.already-synced-exception', compact('exception'), 500);
-                
+
 
 
     }

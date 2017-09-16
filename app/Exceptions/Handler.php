@@ -47,6 +47,9 @@ class Handler extends ExceptionHandler
 
         switch($exception){
 
+
+
+
             case $exception instanceof ConnectionNotAcceptedException :
 
                 if ($request->ajax()) {
