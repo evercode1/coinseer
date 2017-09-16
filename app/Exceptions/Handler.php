@@ -47,16 +47,6 @@ class Handler extends ExceptionHandler
 
         switch($exception){
 
-
-            case $exception instanceof AlreadySyncedException :
-
-                if ($request->ajax()) {
-                    return response()->json(['error' => 'Already Synced'], 500);
-                }
-
-                return response()->view('errors.already-synced-exception', compact('exception'), 500);
-                break;
-
             case $exception instanceof ConnectionNotAcceptedException :
 
                 if ($request->ajax()) {
