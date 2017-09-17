@@ -7,7 +7,7 @@
                 <span class="info-box-icon bg-aqua"><i class="glyphicon glyphicon-user"></i></span>
 
                 <div class="info-box-content">
-                    <span>Total Users</span>
+                    <span>Users</span>
                     <span class="info-box-number text-center">{{ users }}</span>
                 </div>
                 <!-- /.info-box-content -->

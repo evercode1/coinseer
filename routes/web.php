@@ -66,6 +66,8 @@ Route::get('api/total-resources', 'ApiController@totalResources');
 Route::get('api/total-users', 'ApiController@totalUsers');
 Route::get('api/total-videos', 'ApiController@totalVideos');
 Route::get('api/user-data', 'ApiController@userData');
+Route::get('api/user-chart', 'ApiController@userChartData');
+Route::get('api/user-pie-chart', 'ApiController@userPieChartData');
 Route::get('api/videos-by-category-data', 'ApiController@videosByCategoryData');
 Route::get('api/videos-by-level-data', 'ApiController@videosByLevelData');
 Route::get('api/videos-by-category-list-data', 'ApiController@videosByCategoryListData');

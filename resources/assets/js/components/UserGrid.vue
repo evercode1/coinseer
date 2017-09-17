@@ -68,6 +68,13 @@
 
                             <td>
 
+                                {{ showConfirmed(row.Confirmed) }}
+
+                            </td>
+
+
+                            <td>
+
                                    {{ row.Joined }}
 
                             </td>
@@ -127,7 +134,7 @@
         data: function () {
             return {
                 query: '',
-                gridColumns: ['Id', 'Name', 'Email', 'Status', 'Subscribed','Admin', 'Joined'],
+                gridColumns: ['Id', 'Name', 'Email', 'Status', 'Subscribed','Admin', 'Confirmed', 'Joined'],
                 gridData: [],
                 total: null,
                 next_page_url: null,
@@ -203,6 +210,12 @@
             showAdmin: function(admin){
 
                 return admin == 1 ? 'Yes'  : 'No';
+
+            },
+
+            showConfirmed: function(confirmed){
+
+                return confirmed == 1 ? 'Yes'  : 'No';
 
             },
 

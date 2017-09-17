@@ -5,7 +5,7 @@
                 <span class="info-box-icon bg-yellow"><i class="glyphicon glyphicon-file"></i></span>
 
                 <div class="info-box-content">
-                    <span>Total Posts</span>
+                    <span>Posts</span>
                     <span class="info-box-number text-center">{{ posts }}</span>
                 </div>
                 <!-- /.info-box-content -->

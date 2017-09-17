@@ -5,7 +5,7 @@
                 <span class="info-box-icon bg-red"><i class="fa fa-video-camera" aria-hidden="true"></i></span>
 
                 <div class="info-box-content">
-                    <span class="text-center">Total Videos</span>
+                    <span class="text-center">Videos</span>
                     <span class="info-box-number text-center">{{ videos }}</span>
                 </div>
                 <!-- /.info-box-content -->

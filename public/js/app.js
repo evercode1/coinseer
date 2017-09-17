@@ -6230,11 +6230,258 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/UserChart.vue":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+var $myUserChart;
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+
+    data: function data() {
+
+        return {
+            labels: [],
+            values1: [],
+            name: 'Users',
+            formOptions: false,
+            type: 'line',
+            period: '1year',
+            custom: false,
+            startDate: '',
+            endDate: ''
+        };
+    },
+
+    mounted: function mounted() {
+
+        this.loadData();
+    },
+
+    methods: {
+
+        changeType: function changeType() {
+
+            this.setConfig();
+        },
+
+        displayOptions: function displayOptions() {
+
+            this.formOptions = !this.formOptions;
+        },
+
+
+        loadData: function loadData() {
+
+            $.getJSON('api/user-chart', function (data) {
+
+                this.labels = data.data.labels;
+                this.values1 = data.data.values1;
+                this.setConfig();
+            }.bind(this));
+        },
+
+        changePeriod: function changePeriod() {
+
+            if (this.period == 'Custom') {
+
+                return this.customPeriod();
+            }
+
+            this.custom = false;
+            this.startDate = '';
+            this.endDate = '';
+
+            $.getJSON('api/user-chart?period=' + this.period, function (data) {
+
+                this.labels = data.data.labels;
+                this.values1 = data.data.values1;
+
+                this.setConfig();
+            }.bind(this));
+        },
+
+        submitCustom: function submitCustom() {
+
+            $.getJSON('api/user-chart?period=custom&start_date=' + this.startDate + '&end_date=' + this.endDate, function (data) {
+
+                this.labels = data.data.labels;
+                this.values1 = data.data.values1;
+
+                this.setConfig();
+            }.bind(this));
+
+            this.startDate = '';
+            this.endDate = '';
+        },
+
+        customPeriod: function customPeriod() {
+
+            this.custom = true;
+        },
+
+        showCustom: function showCustom() {
+
+            return this.custom == true;
+        },
+
+        setConfig: function setConfig() {
+
+            var ctx = document.getElementById('canvass-users').getContext('2d');
+            var config = {
+                type: this.type,
+                data: {
+                    labels: this.labels,
+                    datasets: [{
+                        label: this.name,
+                        data: this.values1,
+                        fill: true,
+                        // Tension - bezier curve tension of the line. Set to 0 to draw straight lines connecting points
+                        // Used to be called "tension" but was renamed for consistency. The old option name continues to work for compatibility.
+                        lineTension: 0.1,
+
+                        // String - the color to fill the area under the line with if fill is true
+                        backgroundColor: "rgba(75,192,192,0.4)",
+
+                        // String - Line color
+                        borderColor: "rgba(75,192,192,1)",
+
+                        // String - cap style of the line. See https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineCap
+                        borderCapStyle: 'butt',
+                        borderDash: []
+                    }]
+                },
+                options: {
+                    responsive: false,
+                    legend: {
+                        position: 'bottom'
+                    },
+                    hover: {
+                        mode: 'label'
+                    },
+                    scales: {
+                        xAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: false,
+                                labelString: 'months'
+                            }
+                        }],
+                        yAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: '# of ' + this.name
+                            }
+                        }]
+                    },
+                    title: {
+                        display: true,
+                        text: this.name
+                    }
+                }
+            };
+
+            // destroy existing chart
+
+            if (typeof $myUserChart !== "undefined") {
+
+                $myUserChart.destroy();
+            }
+
+            // set instance, so we can destroy when rendering new chart
+
+
+            $myUserChart = new Chart(ctx, { type: this.type, data: config.data, options: config.options });
+        }
+
+    }
+
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/UserGrid.vue":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -6362,7 +6609,7 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
     data: function data() {
         return {
             query: '',
-            gridColumns: ['Id', 'Name', 'Email', 'Status', 'Subscribed', 'Admin', 'Joined'],
+            gridColumns: ['Id', 'Name', 'Email', 'Status', 'Subscribed', 'Admin', 'Confirmed', 'Joined'],
             gridData: [],
             total: null,
             next_page_url: null,
@@ -6437,9 +6684,106 @@ var gridData = __webpack_require__("./resources/assets/js/utilities/gridData.js"
             return admin == 1 ? 'Yes' : 'No';
         },
 
+        showConfirmed: function showConfirmed(confirmed) {
+
+            return confirmed == 1 ? 'Yes' : 'No';
+        },
+
         showSubscribed: function showSubscribed(subscribed) {
 
             return subscribed == 1 ? 'Yes' : 'No';
+        }
+
+    }
+
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/UserPieChart.vue":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+var $myUserPieChart;
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+
+    data: function data() {
+
+        return {
+            labels: [],
+            values: [],
+            name: 'Users',
+            formOptions: false,
+            type: 'pie',
+            period: '1year',
+            startDate: '',
+            endDate: ''
+        };
+    },
+
+    mounted: function mounted() {
+
+        this.loadData();
+    },
+
+    methods: {
+
+        loadData: function loadData() {
+
+            $.getJSON('api/user-pie-chart', function (data) {
+
+                this.labels = data.data.labels;
+                this.values = data.data.values;
+                this.setConfig();
+            }.bind(this));
+        },
+
+        setConfig: function setConfig() {
+
+            var ctx = document.getElementById('canvass-pie-users').getContext('2d');
+            var config = {
+                type: this.type,
+                data: {
+                    labels: this.labels,
+                    datasets: [{
+                        backgroundColor: ["#2ecc71", "#3498db", "#95a5a6", "#9b59b6", "#f1c40f", "#e74c3c", "#34495e"],
+                        data: this.values
+                    }]
+                }
+            };
+
+            // destroy existing chart
+
+            if (typeof $myUserPieChart !== "undefined") {
+
+                $myUserPieChart.destroy();
+            }
+
+            // set instance, so we can destroy when rendering new chart
+
+
+            $myUserPieChart = new Chart(ctx, { type: 'pie', data: config.data });
         }
 
     }
@@ -38143,7 +38487,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "info-box"
   }, [_vm._m(0), _vm._v(" "), _c('div', {
     staticClass: "info-box-content"
-  }, [_c('span', [_vm._v("Total Users")]), _vm._v(" "), _c('span', {
+  }, [_c('span', [_vm._v("Users")]), _vm._v(" "), _c('span', {
     staticClass: "info-box-number text-center"
   }, [_vm._v(_vm._s(_vm.users))])])])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -38414,6 +38758,189 @@ if (false) {
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-1b31e31f\",\"hasScoped\":false}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/UserChart.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('canvas', {
+    attrs: {
+      "id": "canvass-users",
+      "height": "300",
+      "width": "300"
+    }
+  }), _vm._v(" "), _c('div', {
+    staticClass: "pull-right"
+  }, [_c('button', {
+    on: {
+      "click": function($event) {
+        $event.preventDefault();
+        _vm.displayOptions($event)
+      }
+    }
+  }, [_vm._v("options")])]), _vm._v(" "), (_vm.formOptions) ? _c('div', {
+    staticClass: "col-md-3"
+  }, [_c('div', {
+    staticClass: "form-group pull-left"
+  }, [_c('label', {
+    attrs: {
+      "for": "type"
+    }
+  }, [_vm._v("chart type:")]), _vm._v(" "), _c('select', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.type),
+      expression: "type"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "id": "type"
+    },
+    on: {
+      "change": [function($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function(o) {
+          return o.selected
+        }).map(function(o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val
+        });
+        _vm.type = $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+      }, _vm.changeType]
+    }
+  }, [_c('option', [_vm._v("line")]), _vm._v(" "), _c('option', [_vm._v("bar")])]), _vm._v(" "), _c('label', {
+    attrs: {
+      "for": "period",
+      "id": "label"
+    }
+  }, [_vm._v("chart periods:")]), _vm._v(" "), _c('select', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.period),
+      expression: "period"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "id": "period"
+    },
+    on: {
+      "change": [function($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function(o) {
+          return o.selected
+        }).map(function(o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val
+        });
+        _vm.period = $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+      }, _vm.changePeriod]
+    }
+  }, [_c('option', {
+    attrs: {
+      "value": "1year"
+    }
+  }, [_vm._v("1 year")]), _vm._v(" "), _c('option', {
+    attrs: {
+      "value": "3months"
+    }
+  }, [_vm._v("3 months")]), _vm._v(" "), _c('option', {
+    attrs: {
+      "value": "30days"
+    }
+  }, [_vm._v("30 days")]), _vm._v(" "), _c('option', {
+    attrs: {
+      "value": "1week"
+    }
+  }, [_vm._v("1 week")]), _vm._v(" "), _c('option', {
+    attrs: {
+      "value": "yesterday"
+    }
+  }, [_vm._v("Yesterday")]), _vm._v(" "), _c('option', {
+    attrs: {
+      "value": "today"
+    }
+  }, [_vm._v("Today")]), _vm._v(" "), _c('option', {
+    attrs: {
+      "value": "Custom"
+    }
+  }, [_vm._v("Custom")])])])]) : _vm._e(), _vm._v(" "), _c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.showCustom()),
+      expression: "showCustom()"
+    }],
+    staticClass: "col-sm-offset-4"
+  }, [_c('label', {
+    attrs: {
+      "for": "custom-date",
+      "id": "label"
+    }
+  }, [_vm._v("Choose Custom Period:")]), _vm._v(" "), _c('form', {
+    attrs: {
+      "id": "custom-date"
+    }
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.startDate),
+      expression: "startDate"
+    }],
+    attrs: {
+      "type": "date",
+      "name": "start_date",
+      "value": ""
+    },
+    domProps: {
+      "value": (_vm.startDate)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.startDate = $event.target.value
+      }
+    }
+  }), _vm._v("\n\n                to    \n\n            "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.endDate),
+      expression: "endDate"
+    }],
+    attrs: {
+      "type": "date",
+      "name": "end_date",
+      "value": ""
+    },
+    domProps: {
+      "value": (_vm.endDate)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.endDate = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _c('button', {
+    staticClass: "btn-default",
+    on: {
+      "click": function($event) {
+        $event.preventDefault();
+        _vm.submitCustom()
+      }
+    }
+  }, [_vm._v("Go!")])])])])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-1b31e31f", module.exports)
+  }
+}
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-1b941296\",\"hasScoped\":false}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/GridCount.vue":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -38665,6 +39192,32 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
      require("vue-hot-reload-api").rerender("data-v-2775d52d", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-2f7859fe\",\"hasScoped\":false}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/UserPieChart.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _vm._m(0)
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('div', {
+    staticClass: "blog-post-meta text-center"
+  }, [_vm._v("Users By Status")]), _vm._v(" "), _c('canvas', {
+    attrs: {
+      "id": "canvass-pie-users",
+      "height": "300",
+      "width": "300"
+    }
+  })])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-2f7859fe", module.exports)
   }
 }
 
@@ -39074,7 +39627,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "info-box"
   }, [_vm._m(0), _vm._v(" "), _c('div', {
     staticClass: "info-box-content"
-  }, [_c('span', [_vm._v("Total Posts")]), _vm._v(" "), _c('span', {
+  }, [_c('span', [_vm._v("Posts")]), _vm._v(" "), _c('span', {
     staticClass: "info-box-number text-center"
   }, [_vm._v(_vm._s(_vm.posts))])])])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -39376,7 +39929,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       attrs: {
         "href": '/user/' + row.Id
       }
-    }, [_vm._v(" " + _vm._s(row.Email))])]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(_vm.showStatus(row.Status)) + "\n\n                        ")]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(_vm.showSubscribed(row.Subscribed)) + "\n\n                        ")]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(_vm.showAdmin(row.Admin)) + "\n\n                        ")]), _vm._v(" "), _c('td', [_vm._v("\n\n                               " + _vm._s(row.Joined) + "\n\n                        ")]), _vm._v(" "), _c('td', [_c('a', {
+    }, [_vm._v(" " + _vm._s(row.Email))])]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(_vm.showStatus(row.Status)) + "\n\n                        ")]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(_vm.showSubscribed(row.Subscribed)) + "\n\n                        ")]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(_vm.showAdmin(row.Admin)) + "\n\n                        ")]), _vm._v(" "), _c('td', [_vm._v("\n\n                            " + _vm._s(_vm.showConfirmed(row.Confirmed)) + "\n\n                        ")]), _vm._v(" "), _c('td', [_vm._v("\n\n                               " + _vm._s(row.Joined) + "\n\n                        ")]), _vm._v(" "), _c('td', [_c('a', {
       attrs: {
         "href": '/user/' + row.Id + '/edit'
       }
@@ -40029,7 +40582,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "info-box-content"
   }, [_c('span', {
     staticClass: "text-center"
-  }, [_vm._v("Total Videos")]), _vm._v(" "), _c('span', {
+  }, [_vm._v("Videos")]), _vm._v(" "), _c('span', {
     staticClass: "info-box-number text-center"
   }, [_vm._v(_vm._s(_vm.videos))])])])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -51061,7 +51614,9 @@ Vue.component('total-posts', __webpack_require__("./resources/assets/js/componen
 Vue.component('total-resources', __webpack_require__("./resources/assets/js/components/TotalResources.vue"));
 Vue.component('total-users', __webpack_require__("./resources/assets/js/components/TotalUsers.vue"));
 Vue.component('total-videos', __webpack_require__("./resources/assets/js/components/TotalVideos.vue"));
+Vue.component('user-chart', __webpack_require__("./resources/assets/js/components/UserChart.vue"));
 Vue.component('user-grid', __webpack_require__("./resources/assets/js/components/UserGrid.vue"));
+Vue.component('user-pie-chart', __webpack_require__("./resources/assets/js/components/UserPieChart.vue"));
 Vue.component('videos-by-category-list', __webpack_require__("./resources/assets/js/components/VideosByCategoryList.vue"));
 Vue.component('videos-by-category-grid', __webpack_require__("./resources/assets/js/components/VideosByCategoryGrid.vue"));
 Vue.component('videos-by-level-grid', __webpack_require__("./resources/assets/js/components/VideosByLevelGrid.vue"));
@@ -52887,6 +53442,47 @@ module.exports = Component.exports
 
 /***/ }),
 
+/***/ "./resources/assets/js/components/UserChart.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var Component = __webpack_require__("./node_modules/vue-loader/lib/component-normalizer.js")(
+  /* script */
+  __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/UserChart.vue"),
+  /* template */
+  __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-1b31e31f\",\"hasScoped\":false}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/UserChart.vue"),
+  /* styles */
+  null,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/Users/billk/var/www/coinseer/resources/assets/js/components/UserChart.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] UserChart.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-1b31e31f", Component.options)
+  } else {
+    hotAPI.reload("data-v-1b31e31f", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
 /***/ "./resources/assets/js/components/UserGrid.vue":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -52917,6 +53513,47 @@ if (false) {(function () {
     hotAPI.createRecord("data-v-634f9a15", Component.options)
   } else {
     hotAPI.reload("data-v-634f9a15", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/UserPieChart.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var Component = __webpack_require__("./node_modules/vue-loader/lib/component-normalizer.js")(
+  /* script */
+  __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/UserPieChart.vue"),
+  /* template */
+  __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-2f7859fe\",\"hasScoped\":false}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/UserPieChart.vue"),
+  /* styles */
+  null,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/Users/billk/var/www/coinseer/resources/assets/js/components/UserPieChart.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] UserPieChart.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-2f7859fe", Component.options)
+  } else {
+    hotAPI.reload("data-v-2f7859fe", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true

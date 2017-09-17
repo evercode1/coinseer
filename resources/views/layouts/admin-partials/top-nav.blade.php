@@ -17,7 +17,7 @@
                 </alarm-support></li>
 
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Username <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}<span class="caret"></span></a>
                 <ul class="dropdown-menu" style="background-color:white;">
                     @if(Auth::user()->isAdmin())
                         <li><a href="/admin">Admin</a></li>

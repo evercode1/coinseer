@@ -51,6 +51,7 @@ use App\Utilities\Summarize;
 use App\ChartHelpers\VideoPieChartBuilder;
 use App\Video;
 use App\Influencer;
+use App\ChartHelpers\UserPieChartBuilder;
 
 
 
@@ -69,11 +70,7 @@ class ApiController extends Controller
         $summary = Summarize::componentSummary($summary);
 
 
-
-        //dd($summary);
-
         return $summary;
-
 
 
     }
@@ -366,10 +363,29 @@ class ApiController extends Controller
 
     }
 
+    public function userChartData(Request $request, BuildsCharts $chart)
+    {
+
+        return $chart->buildChart($request, ['users']);
+
+
+    }
+
     public function userData(Request $request)
     {
 
         return GridQuery::sendData($request, new UserQuery);
+
+    }
+
+    public function userPieChartData()
+    {
+
+        $data = new UserPieChartBuilder;
+
+
+        return $data->getData();
+
 
     }
 

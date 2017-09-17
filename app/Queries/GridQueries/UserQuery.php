@@ -16,6 +16,7 @@ class UserQuery implements DataQuery
                        'status_id as Status',
                        'is_subscribed as Subscribed',
                        'is_admin as Admin',
+                       'confirmed as Confirmed',
                        DB::raw('DATE_FORMAT(created_at,"%m-%d-%Y") as Joined'))
               ->orderBy($column, $direction)
               ->paginate(5);
@@ -33,6 +34,7 @@ class UserQuery implements DataQuery
                          'status_id as Status',
                          'is_subscribed as Subscribed',
                          'is_admin as Admin',
+                         'confirmed as Confirmed',
                 DB::raw('DATE_FORMAT(created_at,"%m-%d-%Y") as Joined'))
                 ->where('name', 'like', '%' . $keyword . '%')
                 ->orWhere('email', 'like', '%' . $keyword . '%')

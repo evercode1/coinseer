@@ -39,6 +39,18 @@
 
 </div>
 
+<br />
+<br />
+
+<div class="row">
+
+    <div class="col-md-3 col-sm-6 col-xs-12" id="chart_div"><user-pie-chart></user-pie-chart></div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12 col-md-offset-3"><user-chart></user-chart></div>
+
+
+</div>
+
 
 
 

@@ -110,6 +110,57 @@
 
     </div> <!-- end is_admin form group -->
 
+    <!-- confirmed form input -->
+
+    <div class="form-group{{ $errors->has('confirmed') ? ' has-error' : '' }}">
+
+        <label class="control-label">Confirmed?</label>
+
+        <select class="form-control" id="confirmed" name="confirmed">
+            <option value="{{ $user->confirmed }}">{{ $user->showConfirmStatusOf($user) }}</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        @if ($errors->has('confirmed'))
+
+            <span class="help-block">
+
+                <strong>{{ $errors->first('confirmed') }}</strong>
+
+            </span>
+
+        @endif
+
+    </div> <!-- end confirmed form group -->
+
+    <!-- confirmation_token form input -->
+
+    <div class="form-group{{ $errors->has('confirmation_token') ? ' has-error' : '' }}">
+
+        <label class="control-label">
+
+            Confirmation Token
+
+        </label>
+
+        <input type="text"
+               class="form-control"
+               name="confirmation_token"
+               value="{{ $user->confirmation_token }}">
+
+        @if ($errors->has('confirmation_token'))
+
+            <span class="help-block">
+
+                <strong>{{ $errors->first('confirmation_token') }}</strong>
+
+            </span>
+
+        @endif
+
+    </div>  <!-- end confirmation_token form group -->
+
     <!-- submit form group -->
 
     <div class="form-group">

@@ -45,6 +45,8 @@ class User extends Authenticatable
                                'is_subscribed' => $request->is_subscribed,
                                'is_admin' => $request->is_admin,
                                'status_id' => $request->status_id,
+                               'confirmed' => $request->confirmed,
+                               'confirmation_token' => $request->confirmation_token,
         ]);
 
 
@@ -54,6 +56,13 @@ class User extends Authenticatable
     {
 
         return $user->is_admin ? 'Yes' : 'No';
+
+    }
+
+    public function showConfirmStatusOf($user)
+    {
+
+        return $user->confirmed ? 'Yes' : 'No';
 
     }
 

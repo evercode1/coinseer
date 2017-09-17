@@ -37,6 +37,8 @@ class UserRequest extends FormRequest
             'name' => 'required|string|max:20|unique:users,name,' . $this->user,
             'is_subscribed' => 'required|boolean',
             'is_admin' => 'boolean',
+            'confirmed' => 'boolean',
+            'confirmation_token' => 'string|max:25',
             'status_id' => 'in:7,10',
         ];
     }

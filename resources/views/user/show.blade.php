@@ -33,7 +33,7 @@
 
     <div class="panel panel-default">
 
-
+        <div class="panel panel-body">
         <!-- Table -->
         <table class="table table-striped">
             <thead>
@@ -45,6 +45,8 @@
                 <th>Subscribed</th>
                 <th>Admin</th>
                 <th>Status</th>
+                <th>Confirmed</th>
+                <th>Token</th>
                 <th>Created</th>
                 @if(Auth::user()->adminOrCurrentUserOwns($user))
                     <th>Edit</th>
@@ -65,6 +67,8 @@
                 <td>{{ $user->showNewsletterStatusOf($user) }}</td>
                 <td>{{ $user->showAdminStatusOf($user) }}</td>
                 <td>{{ $user->showStatusOf($user) }}</td>
+                <td>{{ $user->showConfirmStatusOf($user) }}</td>
+                <td>{{ $user->confirmation_token}}</td>
                 <td>{{ $user->created_at->format('m-d-Y') }}</td>
                 @if(Auth::user()->adminOrCurrentUserOwns($user))
 
@@ -91,6 +95,8 @@
             </tbody>
 
         </table>
+
+          </div> <!-- end panel  body-->
 
     </div>  <!-- end panel -->
 
