@@ -42,10 +42,17 @@ class ConfirmationController extends Controller
 
         $user = User::where('id', Auth::id())->first();
 
-        if($user->confirmed){
+        if( $user->confirmed ){
 
 
             throw new AlreadyConfirmedException;
+
+        }
+
+        if ( ! $user->confirmation_token ){
+
+
+            throw new TokenMismatchException('you do not have a token');
 
         }
 
@@ -64,8 +71,16 @@ class ConfirmationController extends Controller
      */
     private function userWithMatchedToken()
     {
-        return User::where('confirmation_token', request('token'))
-               ->where('id', Auth::id())
-               ->first();
+        $user = User::where('confirmation_token', request('token'))
+                ->where('id', Auth::id())
+                ->first();
+
+        if ($user->confirmation_token){
+
+            return $user;
+
+        }
+
+
     }
 }

@@ -3,7 +3,7 @@
 
 Please click on the button or copy the url into your browser to confirm your account email.
 
-@component('mail::button', ['url' => 'http://www.coinseer.dev/confirmation?token=' . $user->confirmation_token])
+@component('mail::button', ['url' => 'https://www.coinseer.com/confirmation?token=' . $user->confirmation_token])
 Confirm
 @endcomponent
 
