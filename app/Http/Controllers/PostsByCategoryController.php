@@ -8,12 +8,15 @@ use App\Category;
 
 class PostsByCategoryController extends Controller
 {
-    public function index($id)
+    public function index($name)
     {
 
-        $category = Category::where('id', $id)->pluck('name')->first();
 
-        $posts = Post::live()->byCategory($id)->simplePaginate(5);;
+        $result = Category::where('name', $name)->first();
+
+        $posts = Post::live()->byCategory($result->id)->simplePaginate(5);
+
+        $category = $result->name;
 
         return view('posts-by-category.index', compact('posts', 'category'));
 

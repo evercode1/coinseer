@@ -4,7 +4,7 @@
         <h4>Articles By Category</h4>
         <ol class="list-unstyled">
 
-            <li v-for="category in categories"><a v-bind:href="'/post-by-category/' + category.id">
+            <li v-for="category in categories"><a v-bind:href="'/post-by-category/' + category.name">
                 {{ category.name }} - {{ category.posts_count }}</a></li>
 
         </ol>

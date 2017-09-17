@@ -38410,7 +38410,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, _vm._l((_vm.categories), function(category) {
     return _c('li', [_c('a', {
       attrs: {
-        "href": '/post-by-category/' + category.id
+        "href": '/post-by-category/' + category.name
       }
     }, [_vm._v("\n            " + _vm._s(category.name) + " - " + _vm._s(category.posts_count))])])
   }))])
