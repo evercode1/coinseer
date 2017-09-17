@@ -24,7 +24,9 @@ class User extends Authenticatable
         'password',
         'is_subscribed',
         'is_admin',
-        'status_id'
+        'status_id',
+        'confirmed',
+        'confirmation_token'
     ];
 
     /**

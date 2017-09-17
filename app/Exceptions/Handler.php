@@ -48,6 +48,15 @@ class Handler extends ExceptionHandler
         switch($exception){
 
 
+            case $exception instanceof AlreadyConfirmedException :
+
+                if ($request->ajax()) {
+                    return response()->json(['error' => 'Already Confirmed'], 500);
+                }
+
+                return response()->view('errors.already-confirmed-exception', compact('exception'), 500);
+                break;
+
             case $exception instanceof AlreadySyncedException :
 
                 if ($request->ajax()) {
@@ -100,6 +109,15 @@ class Handler extends ExceptionHandler
                 }
 
                 return response()->view('errors.no-active-account-exception', compact('exception'), 500);
+                break;
+
+            case $exception instanceof TokenMismatchException :
+
+                if ($request->ajax()) {
+                    return response()->json(['error' => 'operation failed'], 500);
+                }
+
+                return response()->view('errors.token-mismatch-exception', compact('exception'), 500);
                 break;
 
             case $exception instanceof TransactionFailedException :

@@ -100,6 +100,11 @@ Route::post('category-delete/{category}', 'CategoryController@destroy');
 
 Route::resource('category', 'CategoryController');
 
+// confirmation Routes
+
+Route::get('/confirmation', 'ConfirmationController@index')->name('confirmation.index');
+Route::get('/confirmation-request', 'ConfirmationController@show')->name('confirmation.show');
+
 // Contact Routes
 
 Route::post('/contact-delete', 'ContactController@destroy')->name('contact.destroy');

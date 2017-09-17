@@ -43,6 +43,7 @@
                             <a href="/auth/facebook">
                                 fb Sync </a>
                         </li>
+                        <li><a href="/confirmation-request">Confirm Account</a></li>
 
                         <li>
                             <a href="/logout"

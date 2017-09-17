@@ -13,9 +13,18 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
+
         'App\Events\RegistrationCompleted' => [
+
             'App\Listeners\SendRegistrationEmail',
+
         ],
+
+        'App\Events\ConfirmationRequest' => [
+
+            'App\Listeners\SendConfirmationEmail',
+
+        ]
     ];
 
     /**

@@ -8,7 +8,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use App\User;
 
-class RegistrationEmail extends Mailable implements ShouldQueue
+class ConfirmEmail extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
@@ -31,6 +31,9 @@ class RegistrationEmail extends Mailable implements ShouldQueue
      */
     public function build()
     {
-        return $this->markdown('emails.registration-email');
+
+        return $this->subject('email confirmation request')
+                    ->markdown('emails.confirmation');
+
     }
 }
