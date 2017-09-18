@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\NewPost;
 use App\Exceptions\UnauthorizedException;
 use App\UtilityTraits\FormatsCode;
 use Illuminate\Http\Request;
@@ -67,11 +68,19 @@ class PostController extends Controller
 
         $request->is_published ?
 
-            Post::createPost($request, $body, $slug)
+            $post = Post::createPost($request, $body, $slug)
 
             :
 
-            Post::createDraft($request, $body, $slug);
+            $post = Post::createDraft($request, $body, $slug);
+
+
+
+        if ( $post->is_published){
+
+            event(new NewPost($post));
+
+        }
 
 
         return Redirect::route('post.index');

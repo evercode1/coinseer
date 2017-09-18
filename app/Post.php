@@ -44,6 +44,8 @@ class Post extends Model
         ]);
 
         $post->save();
+
+        return $post;
     }
 
     public static function createDraft(Request $request, $body, $slug)
@@ -57,6 +59,8 @@ class Post extends Model
         ]);
 
         $post->save();
+
+        return $post;
 
     }
 

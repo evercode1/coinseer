@@ -24,6 +24,12 @@ class EventServiceProvider extends ServiceProvider
 
             'App\Listeners\SendConfirmationEmail',
 
+        ],
+
+        'App\Events\NewPost' => [
+
+            'App\Listeners\SendNewPostAlert',
+
         ]
     ];
 
